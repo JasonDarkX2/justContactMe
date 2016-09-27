@@ -23,7 +23,7 @@
             cname: "Please enter in your name.",
             email: "Please enter a valid email address.",
              subject: "Please enter a subject.",
-            message: "cool story, Please enter something here o.O"
+            message: "Please enter something here"
         },
         errorElement: "div",
         errorPlacement: function(error, element) {
@@ -38,7 +38,7 @@ jQuery('#success').html("Message Sent!");
 jQuery('#success').prop('class','sucessmsg');
 }
 else{
-jQuery('#success').html("Invalid E-Mail address,Please enter a valid E-mail");
+jQuery('#success').html("Unable to send, please try again later");
 jQuery('#success').prop('class','failedmsg');
 }
 });
