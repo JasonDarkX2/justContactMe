@@ -23,6 +23,7 @@ class SimplyAjaxContacted{
     static  function add_scripts($hook){
          wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
          wp_enqueue_script('sac-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
+         wp_enqueue_script('sac-reCaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'));
          $controllers = array('emailController' => plugins_url('controller/email_controller.php',__FILE__ ));
          wp_enqueue_script('sac-script', plugins_url('_inc/SimplyAjaxContacted.js', __FILE__));
          wp_localize_script('sac-script', 'controller', $controllers);
