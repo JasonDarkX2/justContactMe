@@ -1,5 +1,6 @@
 <?php
 require_once dirname(dirname(__FILE__)) . '/model/email.php';
+if(get_option('reCaptchaEnabled')){
 $url= 'https://www.google.com/recaptcha/api/siteverify?'
     . 'secret=' .  get_option('secretKey')
         . '&response=' .
