@@ -13,6 +13,13 @@ class SimplyAjaxContacted{
     function init(){  
         add_shortcode('AjaxContactForm',array(__CLASS__,'contactView'));
     }
+    static function register_simplyAjaxContacted_settings() {
+        //register our settings
+        register_setting('sac-setting', 'reCaptchaEnabled');
+        register_setting('sax-setting', 'secretKey');
+        register_setting('WM-setting', 'siteKey');
+    }
+    
     static  function add_scripts($hook){
          wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
          wp_enqueue_script('sac-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
