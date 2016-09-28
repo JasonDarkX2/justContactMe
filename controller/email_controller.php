@@ -1,6 +1,14 @@
 <?php
-
 require_once dirname(dirname(__FILE__)) . '/model/email.php';
+$url= 'https://www.google.com/recaptcha/api/siteverify?'
+    . 'secret=' .  get_option('secretKey')
+        . '&response=' .
+            $_POST['g-recaptcha-response'] 
+         .'&remoteip=' . 'nope';
+$capchaResponse=file_get_contents($url);
+$data= json_decode($capchaResponse);
+}
+if($data->{'sucess'}){
 $mail= new Email();
 $to=get_option('admin_email');
 $name =preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['cname']);
@@ -14,6 +22,9 @@ if($mail->sendmail()){
 }
 else{
     echo "failed";
+}
+}else{
+    echo "Robot";
 }
 ?>
 
