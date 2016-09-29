@@ -12,12 +12,18 @@ Author URI:http://www.jasondarkx2.com
 class SimplyAjaxContacted{
     function init(){  
         add_shortcode('AjaxContactForm',array(__CLASS__,'contactView'));
+        add_action('admin_menu', array(__CLASS__,'createAdminMenu'));
     }
-    static function register_simplyAjaxContacted_settings() {
+    static function registerSettings() {
         //register our settings
         register_setting('sac-setting', 'reCaptchaEnabled');
         register_setting('sax-setting', 'secretKey');
         register_setting('WM-setting', 'siteKey');
+    }
+   static  function createAdminMenu() {
+        add_options_page('SimplyAjaxContacted Settings','SimplyAjaxContacted','manage_options','sacMenu',array(__CLASS__,'adminView'));
+        //call register settings function
+        add_action('admin_init', array(__CLASS__, 'registerSettings'));
     }
     
     static  function add_scripts($hook){
@@ -30,7 +36,9 @@ class SimplyAjaxContacted{
     }
     
 
-    
+     function adminView(){
+         include (plugin_dir_path(__FILE__) .'view/admin/adminPage.php');
+     }
      function contactView(){
       add_action('wp_footer', array(__CLASS__, 'add_scripts'));
 ob_start();
