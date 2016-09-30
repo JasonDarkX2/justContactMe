@@ -9,8 +9,8 @@
 <label id="success" class="error">*<span style="color:white">Required fields</span> </label>
 <br/>
 <span class="sbuttons">
-    <?php if(get_option('reCaptchaEnabled')): ?>
-    <div class="g-recaptcha" data-sitekey="<?php get_option('siteKey'); ?>"></div>
+    <?php if(get_option('reCaptchaEnabled')==TRUE): ?>
+    <div class="g-recaptcha" data-sitekey="<?php echo get_option('siteKey'); ?>"></div>
 <?php endif;?>
     <input type="submit" id="submit" value="Send Message"/>
 <input type="reset" id="clear" value="clear"/>
