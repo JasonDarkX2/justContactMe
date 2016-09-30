@@ -13,6 +13,7 @@ class SimplyAjaxContacted{
     function init(){  
         add_shortcode('AjaxContactForm',array(__CLASS__,'contactView'));
         add_action('admin_menu', array(__CLASS__,'createAdminMenu'));
+        define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
     }
     static function registerSettings() {
         //register our settings
