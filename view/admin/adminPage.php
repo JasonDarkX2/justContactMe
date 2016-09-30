@@ -10,7 +10,9 @@
                 <input type="text" name="siteKey" value="<?php get_option('siteKey') ?>"/>
                 <br/>
                 <label for="secretKey">Secret Key:</label>
-                <input type="text" name="secretKey" value="<?php get_option('secretee3Key') ?>"/>
+                <input type="text" name="secretKey" value="<?php get_option('secretKey') ?>"/>
+                <p><i>Need Keys</i><div class="toolTip"> <a href="#">[?]</a><span class="toolTipText">placeholder</span></div>
+                </p>
                 </div>
                 <input type="submit" value="Save"/>
           </form>
