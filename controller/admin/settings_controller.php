@@ -12,4 +12,9 @@ if($_POST['reCaptchaEnabled']=='true'){
 }  else {
     $AdminSettings->setReCatcha(FALSE,NULL);
 }
-
+if(empty($_POST['confId'])==FALSE){
+    $theme=$_POST[$_POST['confId'][0]];
+    $type=$_POST[$_POST['confId'][1]];
+    $size=$_POST[$_POST['confId'][2]];
+    $AdminSettings->setReCaptchaAttributes($theme, $type, $size);
+}
