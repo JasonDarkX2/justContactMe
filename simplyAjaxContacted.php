@@ -18,8 +18,19 @@ class SimplyAjaxContacted{
     static function registerSettings() {
         //register our settings
         register_setting('sac-setting', 'reCaptchaEnabled');
-        register_setting('sax-setting', 'secretKey');
-        register_setting('WM-setting', 'siteKey');
+        register_setting('sac-setting', 'secretKey');
+        register_setting('sac-setting', 'siteKey');
+        register_setting('sac-sertting','reCaptchaConfig');
+        //setting initial config setting for first launch of plugin
+        $config=[
+            'theme'=> 'light',
+            'type'=> 'image',
+            'size' =>'normal'
+        ];
+        $con=get_option('reCaptchaConfig');
+        if(empty($con)!=TRUE){
+            update_option('reCaptchaConfig', $config);
+        }
     }
    static  function createAdminMenu() {
         add_options_page('SimplyAjaxContacted Settings','SimplyAjaxContacted','manage_options','sacMenu',array(__CLASS__,'adminView'));
