@@ -22,4 +22,13 @@ class AdminSettings{
         if(get_option('reCaptchaEnabled'))
         update_option($keyType, $value); 
     }
+    function setReCaptchaAttributes($theme, $type, $size){
+        $config= [
+            'theme' => $theme,
+         'type'=> $type,
+            'size' =>$size
+            
+        ];
+        update_option('reCaptchaConfig', $config);
+    } 
 }
