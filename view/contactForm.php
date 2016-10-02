@@ -10,7 +10,13 @@
 <br/>
 <span class="sbuttons">
     <?php if(get_option('reCaptchaEnabled')==TRUE): ?>
-    <div class="g-recaptcha" data-sitekey="<?php echo get_option('siteKey'); ?>"></div>
+    <div class="g-recaptcha" data-sitekey="<?php echo get_option('siteKey'); ?>"
+         <?php $config=  get_option('reCaptchaConfig');
+                    foreach($config as $i =>$v){
+                        echo " data-$i=$v ";
+                    }
+         ?>
+         ></div>
 <?php endif;?>
     <input type="submit" id="submit" value="Send Message"/>
 <input type="reset" id="clear" value="clear"/>
