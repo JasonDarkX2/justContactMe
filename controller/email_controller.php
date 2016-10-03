@@ -9,8 +9,10 @@ $url= 'https://www.google.com/recaptcha/api/siteverify?'
 $capchaResponse=file_get_contents($url);
 $data= json_decode($capchaResponse);
 }
-if($data->{'sucess'}){
+
+if($data->{'sucess'}!=TRUE){
 $mail= new Email();
+
 $to=get_option('admin_email');
 $name =preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['cname']);
 $email = $_POST['email'];

@@ -30,5 +30,6 @@ class AdminSettings{
             
         ];
         update_option('reCaptchaConfig', $config);
+        echo "saved";
     } 
 }
