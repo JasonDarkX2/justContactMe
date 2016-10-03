@@ -14,6 +14,7 @@ class SimplyAjaxContacted{
         add_shortcode('AjaxContactForm',array(__CLASS__,'contactView'));
         add_action('admin_menu', array(__CLASS__,'createAdminMenu'));
         define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+        add_action('admin_enqueue_scripts',array(__CLASS__, 'addAdminScripts'));
     }
     static function registerSettings() {
         //register our settings
@@ -28,7 +29,7 @@ class SimplyAjaxContacted{
             'size' =>'normal'
         ];
         $con=get_option('reCaptchaConfig');
-        if(empty($con)!=TRUE){
+        if(empty($con)==TRUE){
             update_option('reCaptchaConfig', $config);
         }
     }
@@ -46,7 +47,12 @@ class SimplyAjaxContacted{
          wp_enqueue_script('sac-script', plugins_url('_inc/SimplyAjaxContacted.js', __FILE__));
          wp_localize_script('sac-script', 'controller', $controllers);
     }
-    
+     static  function addAdminScripts($hook){
+         wp_enqueue_style('sacAdmin-style', plugins_url('_inc/admin/sacAdmin.css', __FILE__));
+         $controllers = array('settingsController' => plugins_url('controller/admin/settings_controller.php',__FILE__ ));
+         wp_enqueue_script('sacAdmin-script', plugins_url('_inc/admin/sacAdmin.js', __FILE__));
+         wp_localize_script('sacAdmin-script', 'controller', $controllers);
+     }
 
      function adminView(){
          include (plugin_dir_path(__FILE__) .'view/admin/adminPage.php');
