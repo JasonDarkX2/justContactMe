@@ -53,3 +53,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /nbproject/private/
+nbproject/project.properties
+nbproject/project.xml
