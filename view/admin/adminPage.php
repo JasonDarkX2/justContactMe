@@ -41,7 +41,7 @@
                 ?>
                     <?php endforeach;?>
                 </div>
-                  
+                 <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
                 <input type="submit" value="Save"/>
           </form>
 </div>
