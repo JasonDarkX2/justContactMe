@@ -10,7 +10,7 @@ $capchaResponse=file_get_contents($url);
 $data= json_decode($capchaResponse);
 }
 
-if($data->{'sucess'}!=TRUE){
+if($data->{'sucess'}=TRUE){
 $mail= new Email();
 
 $to=get_option('admin_email');
