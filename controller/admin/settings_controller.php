@@ -1,7 +1,7 @@
 <?php
 $url= explode('plugin',$_SERVER['SCRIPT_FILENAME']);
 require_once dirname($url[0])  . '/wp-load.php';
-require_once(MY_PLUGIN_PATH . 'model/admin/settings.php');
+require_once($_POST['pluginDir']. 'model/admin/settings.php');
 $AdminSettings= new AdminSettings();
 if($_POST['reCaptchaEnabled']=='true'){
     $keys=[
