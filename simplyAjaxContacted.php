@@ -10,8 +10,9 @@ Author URI:http://www.jasondarkx2.com
 
 
 class SimplyAjaxContacted{
+    
     function init(){  
-        add_shortcode('AjaxContactForm',array(__CLASS__,'contactView'));
+        add_shortcode('AjaxContactForm',array(__CLASS__,'contactFormView'));
         add_action('admin_menu', array(__CLASS__,'createAdminMenu'));
         define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
         add_action('admin_enqueue_scripts',array(__CLASS__, 'addAdminScripts'));
@@ -57,14 +58,13 @@ class SimplyAjaxContacted{
      function adminView(){
          include (plugin_dir_path(__FILE__) .'view/admin/adminPage.php');
      }
-     function contactView(){
+  function contactFormView(){
       add_action('wp_footer', array(__CLASS__, 'add_scripts'));
 ob_start();
-     include (plugin_dir_path(__FILE__) .'/view/contactForm.php');
+     include (plugin_dir_path(__FILE__). '/view/contactForm.php');
      $output=ob_get_contents();;
      ob_end_clean();
      return $output;
  }
 }
  add_action( 'wp_loaded',SimplyAjaxContacted::init());
-
