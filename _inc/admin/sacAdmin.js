@@ -9,16 +9,27 @@ var sacForm = e('#sac-options');
                 type: 'post',
                         url: formurl,
                         data: formdata,
-                        success: function(XMLHttpRequest, data, textStatus){
-                        notification = XMLHttpRequest;
+                        success: function(data){
+                        notification = data;
                                jQuery('#msg').html(notification);
                                 },
-                        error: function(XMLHttpRequest, textStatus, errorThrown)
+                        error: function(data)
                                 {
-                                     notification = XMLHttpRequest;
+                                     notification =data;
                                jQuery('#msg').html(notification);
                                         }
                         });
                         ex.preventDefault();
                         });
+                        jQuery("#testMail").click(function(ex){   
+                            ex.preventDefault();
+                      jQuery.post(jQuery(this).attr('href'),
+                      {
+                          sendTest: 'true'
+                      },
+                      function(data,status){
+           jQuery('#msg').html(data);
+        });
+                           
+                    });
 });
