@@ -6,7 +6,7 @@
 <span class="noti">*</span>Message:
 <br/><textarea id="message" name="message" rows="15" cols="70"></textarea>
 <br/>
-<label id="success" class="error">*<span style="color:white">Required fields</span> </label>
+<div id="success" ><span class="noti">*</span><span style="color:white">Required fields</span> </div>
 <br/>
 <span class="sbuttons">
     <?php if(get_option('reCaptchaEnabled')==TRUE): ?>
