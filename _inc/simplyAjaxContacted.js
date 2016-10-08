@@ -33,14 +33,7 @@
     jQuery('#contactForm').submit(function(e){
         e.preventDefault();
         jQuery.post( controller.emailController,jQuery("#msg").serialize(),function(response){
-if(response==="sent"){
-jQuery('#success').html("Message Sent!");
-jQuery('#success').prop('class','sucessmsg');
-}
-else{
-jQuery('#success').html("Unable to send, please try again later");
-jQuery('#success').prop('class','failedmsg');
-}
+jQuery('#success').html(response);
 });
     });
 });
