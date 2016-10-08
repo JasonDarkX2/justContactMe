@@ -31,7 +31,7 @@ $to=get_option('admin_email');
 $name ="Test Mail";
 $email = get_option('admin_email');
 $message = "Simply a Test mail";
-$subject="Test  mail from SAC PLugin" ;
+$subject="Test  mail from SAC Plugin" ;
 $headers=array('placeholder');
 $mail->createEmail($to,$name,$email,$subject,$message, $headers);
 if($mail->sendmail()){
