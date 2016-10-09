@@ -1,5 +1,6 @@
 <?php
 require_once dirname(dirname(__FILE__)) . '/model/email.php';
+$robotCheck=false;
 if(get_option('reCaptchaEnabled')){
 $url= 'https://www.google.com/recaptcha/api/siteverify?'
     . 'secret=' .  get_option('secretKey')
@@ -8,9 +9,9 @@ $url= 'https://www.google.com/recaptcha/api/siteverify?'
          .'&remoteip=' . 'nope';
 $capchaResponse=file_get_contents($url);
 $data= json_decode($capchaResponse);
+$robotCheck=$data->{'sucess'};
 }
-
-if($data->{'sucess'}=TRUE){
+if($robotCheck!=TRUE){
 $mail= new Email();
 
 $to=get_option('admin_email');
@@ -20,14 +21,14 @@ $message = $_POST['message'];
 $subject=preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['subject']);
 $headers=array('placeholder');
 $mail->createEmail($to,$name,$email,$subject,$message, $headers);
-if($mail->sendmail()){
+if($mail->sendmail()==TRUE){
     echo  '<label id="success" class="sucessmsg"> Message Successfully Sent</label>';
 }
 else{
       echo  '<label id="success" class="failedmsg"> Unable to Sent Message, please try again later</label>';
 }
 }else{
-      echo  '<label id="success" class="sucessmsg">Robot in diguise eh? Please complete  Captcha veerrtification</label>';
+      echo  '<label id="success" class="sucessmsg">Robot in diguise eh? Please complete  Captcha vertification</label>';
 }
 ?>
 
