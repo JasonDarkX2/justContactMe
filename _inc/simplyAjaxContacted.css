@@ -28,6 +28,10 @@ float:left;
 display:inline-block;
 vertical-align:middle;
 }
+.ifield{
+    clear:both;
+    width:100% !important;
+}
 .sbuttons input{
 	clear:both;
     background: #4479BA;
