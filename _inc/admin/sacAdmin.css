@@ -6,16 +6,21 @@
 
 .toolTip .toolTipText {
     visibility: hidden;
-    width: 120px;
+    width: 250px;
     background-color: black;
-    color: #fff;
+    color: #E5E4E4;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
     position: absolute;
     z-index: 1;
 }
-
+.toolTipText a{
+ color: #E5E4E4 ;   
+}
+.toolTipText a:hover {
+ color: red ;   
+}
 .toolTip:hover .toolTipText {
     visibility: visible;
 }
