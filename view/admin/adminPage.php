@@ -12,7 +12,8 @@
             <br/>
             <label for="secretKey">Secret Key:</label>
             <input type="text" name="secretKey" value="<?php echo get_option('secretKey'); ?>"/>
-            <label><i>Need Keys<div class="toolTip">[?]<span class="toolTipText">placeholder</span></div>
+            <label><i>Need Keys<div class="toolTip">[?]<span class="toolTipText"> To get your <b>site</b> and <b>secret</b> keys head over to 
+                            <a href="https://www.google.com/recaptcha/">https://www.google.com/recaptcha/admin</a></span></div>
             </i>
             </label>
             <br/>
@@ -21,7 +22,7 @@
                     case "theme":
                         ?>
                         <label for="theme"> reCaptcha Theme<div class="toolTip">
-                [?]<span class="toolTipText">placeholder</span>
+                [?]<span class="toolTipText">The color theme of the widget.</span>
             </div>:</label>
                         <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
                         <input name="<?php echo $i; ?>" type="radio" value="light" <?php checked($v, 'light'); ?>>Light
@@ -32,7 +33,7 @@
                     case 'type':
                         ?>
                         <label for="theme"> reCaptcha Type<div class="toolTip">
-                [?]<span class="toolTipText">placeholder</span>
+                [?]<span class="toolTipText"> The type of CAPTCHA to serve..</span>
             </div>:</label>
                         <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
                         <input name="<?php echo $i; ?>" type="radio" value="image" <?php checked($v, 'image'); ?>>Image
@@ -42,7 +43,7 @@
         case "size":
             ?>
                         <label for="theme"> reCaptcha Size<div class="toolTip">
-                [?]<span class="toolTipText">placeholder</span>
+                [?]<span class="toolTipText"> The size of the widget.</span>
             </div>:</label>
                         <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
                         <input name="<?php echo $i; ?>" type="radio" value="normal"<?php checked($v, 'normal'); ?> >Normal
