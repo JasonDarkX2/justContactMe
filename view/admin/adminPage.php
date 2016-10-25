@@ -1,9 +1,15 @@
 <h1>SimplyAJAXContacted Settings</h1>
-<p id="msg">
-<div class="body">
+<div class="sacAdminBody">
+        
     <form id="sac-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
+         <!--E-mail  section!-->
+         <div id="emailSetting" class="section">
+             <h1>E-mail Settings</h1>
+         </div>
+         <!--end of recaptch section!-->
         <!--recaptcha section!-->
-        <div id="reCaptchaSetting">
+        <div id="reCaptchaSetting" class="section">
+            <h1>Recaptcha Settings</h1>
             <label for"reCaptchaEnabled">Enable reCaptcha:</label>
             <input type="checkbox" name="reCaptchaEnabled" value="true" <?php checked(get_option('reCaptchaEnabled'), true); ?>/>
             <br/>
@@ -54,10 +60,15 @@
                 }
                 ?>
 <?php endforeach; ?>
-            <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
-            <input type="submit" value="Save"/>     
         </div>
         <!--end of recaptch section!-->
+                  <!--Contact form  section!-->
+         <div id="ContactSetting" class="section">
+             <h1>ContactForm Settings</h1>
+         </div>
+         <!--end of ContactForm section!-->
+                     <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
+            <input type="submit" value="Save"/>     
     </form>
     <div>
         <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>?sendTest=True"
