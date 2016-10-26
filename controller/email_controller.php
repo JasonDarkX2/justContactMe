@@ -22,13 +22,13 @@ $subject=preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['subject']);
 $headers=array('placeholder');
 $mail->createEmail($to,$name,$email,$subject,$message, $headers);
 if($mail->sendmail()==TRUE){
-    echo  '<label id="success" class="sucessmsg"> Message Successfully Sent</label>';
+    echo  '<label id="success" class="successmsg"> Message Successfully Sent</label>';
 }
 else{
       echo  '<label id="success" class="failedmsg"> Unable to Sent Message, please try again later</label>';
 }
 }else{
-      echo  '<label id="success" class="sucessmsg">Robot in diguise eh? Please complete  Captcha vertification</label>';
+      echo  '<label id="success" class="successmsg">Robot in diguise eh? Please complete  Captcha vertification</label>';
 }
 ?>
 
