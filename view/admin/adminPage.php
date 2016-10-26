@@ -82,7 +82,7 @@
          </div>
          <!--end of ContactForm section!-->
                      <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
-            <input type="submit" value="Save"/>     
+                     <input type="submit" value="Save"/><label id="msg"></label>
     </form>
     <div>
         <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>?sendTest=True"

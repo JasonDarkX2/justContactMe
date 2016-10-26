@@ -30,6 +30,6 @@ class AdminSettings{
             
         ];
         update_option('reCaptchaConfig', $config);
-        echo "saved";
+        echo '<span class="successmsg"> Settings Saved</span>';
     } 
 }
