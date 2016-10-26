@@ -5,6 +5,20 @@
          <!--E-mail  section!-->
          <div id="emailSetting" class="section">
              <h1>E-mail Settings</h1>
+              <label for="toAddress">Sent to E-mail Address
+                  <div class="toolTip">
+                      [?]<span class="toolTipText">Set the e-mail address that mail would be sent to. <strong>Default:</strong>
+                    <?php echo get_option('admin_email');?></span>
+                 </div>
+                  :</label>
+              <input type="text" name="toAddress" value="<?php echo get_option('toAddress');?>"/>
+              <br/>
+             <label for="fromAddress">From E-mail Address Name
+                 <div class="toolTip">
+                      [?]<span class="toolTipText"> Set the From Email address name that should be used.<br/> <strong>Default:</strong>
+                    <?php echo 'wordpress@' . $_SERVER['HTTP_HOST'];?></span>
+                 </div>:</label>
+             <input type="text" name="fromAddress" <?php echo get_option('fromAddress');?>/>@<?php echo  $_SERVER['HTTP_HOST']; ?>
          </div>
          <!--end of recaptch section!-->
         <!--recaptcha section!-->
