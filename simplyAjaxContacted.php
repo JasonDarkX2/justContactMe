@@ -23,6 +23,8 @@ class SimplyAjaxContacted{
         register_setting('sac-setting', 'secretKey');
         register_setting('sac-setting', 'siteKey');
         register_setting('sac-sertting','reCaptchaConfig');
+        register_setting('sac-setting', 'toAddress');
+        register_setting('sac-setting', 'fromAddress');
         //setting initial config setting for first launch of plugin
         $config=[
             'theme'=> 'light',
@@ -32,6 +34,12 @@ class SimplyAjaxContacted{
         $con=get_option('reCaptchaConfig');
         if(empty($con)==TRUE){
             update_option('reCaptchaConfig', $config);
+        }
+        $to=get_option('toAddress');
+        $from=get_option('FromAddress');
+        if(empty($to) &&empty($from)){
+            update_option('toAddress',get_option('admin_email'));
+            update_option('fromAddress','wordpress');
         }
     }
    static  function createAdminMenu() {
