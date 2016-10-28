@@ -31,5 +31,22 @@ class AdminSettings{
         ];
         update_option('reCaptchaConfig', $config);
         echo '<span class="successmsg"> Settings Saved</span>';
+    }
+    
+    function setAddress($Address,$setFrom){
+        if($setFrom){
+                   if(empty($Address)|| $Address==' '){
+            update_option('fromAddress', 'wordpress');
+        }else{
+            update_option('fromAddress', $Address);
+        }
+        }else{
+        if(empty($Address)|| $Address==' '){
+            update_option('toAddress', get_option('admin_email'));
+        }else{
+            update_option('toAddress', $Address);
+        }
+        }
+        
     } 
 }
