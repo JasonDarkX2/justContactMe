@@ -9,6 +9,19 @@ require_once( MY_PLUGIN_PATH  . 'model/email.php');
     require_once( $_POST['plugindir'] . 'model/email.php');
 }
 $AdminSettings= new AdminSettings();
+If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
+    $AdminSettings->setAddress($_POST['toAddress'],FALSE);
+}else{
+    echo"<span>Not a valid To Address</span>";
+    die();
+}
+$fromAddress= $_POST['fromAddress'] . '@' . $_SERVER['HTTP_HOST'];
+If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='localhost' ){
+ $AdminSettings->setAddress($_POST['fromAddress'],TRUE);  
+}else{
+        echo"<span>Not a valid from  Address</span>";
+    die();
+}
 if($_POST['reCaptchaEnabled']=='true'){
     $keys=[
         "siteKey" => $_POST['siteKey'],
