@@ -14,7 +14,7 @@ $robotCheck=$data->{'sucess'};
 if($robotCheck!=TRUE){
 $mail= new Email();
 
-$to=get_option('admin_email');
+$to=get_option('toAddress');
 $name =preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['cname']);
 $email = $_POST['email'];
 $message = $_POST['message'];
