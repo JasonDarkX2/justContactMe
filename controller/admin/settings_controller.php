@@ -15,9 +15,9 @@ If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
     echo"<span>Not a valid To Address</span>";
     die();
 }
-$fromAddress= $_POST['fromAddress'] . '@' . $_SERVER['HTTP_HOST'];
+$fromAddress= $_POST['fromAddress'];
 If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='localhost' ){
- $AdminSettings->setAddress($_POST['fromAddress'],TRUE);  
+ $AdminSettings->setAddress($fromAddress,TRUE);  
 }else{
         echo"<span>Not a valid from  Address</span>";
     die();
