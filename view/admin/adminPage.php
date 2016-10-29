@@ -18,7 +18,7 @@
                       [?]<span class="toolTipText"> Set the From Email address name that should be used.<br/> <strong>Default:</strong>
                     <?php echo 'wordpress@' . $_SERVER['HTTP_HOST'];?></span>
                  </div>:</label>
-             <input type="text" name="fromAddress" value="<?php echo get_option('fromAddress');?>"/>@<?php echo  $_SERVER['HTTP_HOST']; ?>
+             <input type="text" name="fromAddress" value="<?php echo get_option('fromAddress');?>"/>
          </div>
          <!--end of recaptch section!-->
         <!--recaptcha section!-->
