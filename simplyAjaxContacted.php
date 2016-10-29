@@ -16,6 +16,9 @@ class SimplyAjaxContacted{
         add_action('admin_menu', array(__CLASS__,'createAdminMenu'));
         define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
         add_action('admin_enqueue_scripts',array(__CLASS__, 'addAdminScripts'));
+        if($from=get_option('fromAddress') !=NULL){
+            add_filter( 'wp_mail_from', get_option('fromAddress') );
+        }
     }
     static function registerSettings() {
         //register our settings
@@ -37,7 +40,7 @@ class SimplyAjaxContacted{
         }
         $to=get_option('toAddress');
         $from=get_option('FromAddress');
-        if(empty($to) &&empty($from)){
+        if(empty($to) && empty($from)){
             update_option('toAddress',get_option('admin_email'));
             update_option('fromAddress','wordpress');
         }
