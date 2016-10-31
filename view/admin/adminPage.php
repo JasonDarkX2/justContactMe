@@ -29,7 +29,7 @@
               <br/>
              <label for="Cc/Bcc Address"> Allow Attachments?
                  <div class="toolTip">
-                      [?]<span class="toolTipText">You can specify wheather the contact form will allow sender to send attachments <br/> <strong>Default:</strong>
+                      [?]<span class="toolTipText">You can specify whether the contact form will allow sender to send attachments <br/> <strong>Default:</strong>
                     Disabled</span>
                  </div>:</label>
              <input type="radio" name="attachment" value="true"/>Enable
