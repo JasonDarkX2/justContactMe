@@ -28,6 +28,8 @@ class SimplyAjaxContacted{
         register_setting('sac-sertting','reCaptchaConfig');
         register_setting('sac-setting', 'toAddress');
         register_setting('sac-setting', 'fromAddress');
+        register_setting('sac-setting',' ccbc-addresses');
+       register_setting('sac-setting',' attachment');
         //setting initial config setting for first launch of plugin
         $config=[
             'theme'=> 'light',
