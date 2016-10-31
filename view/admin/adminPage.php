@@ -19,6 +19,21 @@
                     <?php echo 'wordpress@' . $_SERVER['HTTP_HOST'];?></span>
                  </div>:</label>
              <input type="text" name="fromAddress" value="<?php echo get_option('fromAddress');?>"/>
+             <br/>
+             <label for="Cc/Bcc Address">Cc: and/or Bcc: Addresses:
+                 <div class="toolTip">
+                      [?]<span class="toolTipText">You can specify the Cc: and/or Bcc:  recipients Addresses here. <br/> <strong>Default:</strong>
+                    None</span>
+                 </div>:</label>
+             <input type="text" name="fromAddress" value="<?php echo get_option('ccbc-addresses');?>"/>
+              <br/>
+             <label for="Cc/Bcc Address"> Allow Attachments?
+                 <div class="toolTip">
+                      [?]<span class="toolTipText">You can specify wheather the contact form will allow sender to send attachments <br/> <strong>Default:</strong>
+                    Disabled</span>
+                 </div>:</label>
+             <input type="radio" name="attachment" value="true"/>Enable
+             <input type="radio" name="attachment" value="false" checked="true"/>Disabled
          </div>
          <!--end of recaptch section!-->
         <!--recaptcha section!-->
