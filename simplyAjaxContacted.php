@@ -74,6 +74,7 @@ class SimplyAjaxContacted{
          $controllers = array('settingsController' => plugins_url('controller/admin/settings_controller.php',__FILE__ ));
          wp_enqueue_script('sacAdmin-script', plugins_url('_inc/admin/sacAdmin.js', __FILE__));
          wp_localize_script('sacAdmin-script', 'controller', $controllers);
+          wp_enqueue_script('sac-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
      }
 
      function adminView(){

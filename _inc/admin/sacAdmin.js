@@ -1,6 +1,28 @@
 
 jQuery('document').ready(function(e){ 
-
+jQuery('#sac-options').validate({
+         rules: {
+            toAddress: {
+                required: true,
+                email: true
+            },
+            fromAddress: {
+                required: true,
+                email: true
+            },
+        },
+        messages: {
+            toAddress: "Please enter a valid  To Adress.",
+            fromAddress: "Please enter a valid from address.",
+        },
+         errorElement: "div",
+          errorPlacement: function(error, element) {
+            element.attr('class','error');
+            jQuery('#msg').html(error.text());
+            
+        }
+         
+});
 var sacForm = e('#sac-options');
         sacForm.submit(function(ex){
         var formdata = sacForm.serialize();
