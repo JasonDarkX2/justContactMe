@@ -15,11 +15,13 @@ jQuery('#sac-options').validate({
             toAddress: "Please enter a valid  To Adress.",
             fromAddress: "Please enter a valid from address.",
         },
-         errorElement: "div",
+            highlight: function(element, errorClass) {
+        jQuery(element).removeClass(errorClass);
+    },
+         errorElement: "span",
           errorPlacement: function(error, element) {
-            element.attr('class','error');
-            jQuery('#msg').html(error.text());
-            
+            error.insertAfter(element);
+            element.addClass('errorUI');
         }
          
 });
