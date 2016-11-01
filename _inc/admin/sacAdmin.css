@@ -65,10 +65,11 @@ border: solid 1px;
 border-color:#14FF3C;
 background-color:#339900;
 }
-.error{
+.errorUI{
 outline: none;
 box-shadow: 0 0 5px rgba(215,59,67, 1) !important;
 border: solid 1px red !important;
-color:red !important;
-
+}
+.error{
+    color:red !important;
 }
