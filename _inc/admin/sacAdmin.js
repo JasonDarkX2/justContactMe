@@ -17,15 +17,17 @@ jQuery('#sac-options').validate({
         },
             highlight: function(element, errorClass) {
         jQuery(element).removeClass(errorClass);
+        jQuery(element).addClass('errorUI');
+        
+    },sucess: function(element){
+        jQuery(element).removeClass('errorUI');
     },
          errorElement: "span",
           errorPlacement: function(error, element) {
             error.insertAfter(element);
-            element.addClass('errorUI');
-        }
-         
-});
-var sacForm = e('#sac-options');
+        },
+         submitHandler: function(form) {
+             var sacForm = e('#sac-options');
         sacForm.submit(function(ex){
         var formdata = sacForm.serialize();
                 var formurl =sacForm.attr('action');
@@ -35,6 +37,7 @@ var sacForm = e('#sac-options');
                         data: formdata,
                         success: function(data){
                         notification = data;
+                        location.reload();
                                jQuery('#msg').html(notification);
                                 },
                         error: function(data)
@@ -56,4 +59,7 @@ var sacForm = e('#sac-options');
         });
                            
                     });
+  }
+         
+});
 });
