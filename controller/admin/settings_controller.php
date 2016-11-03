@@ -22,6 +22,16 @@ If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='loc
         echo '<span class="error">Not a valid from  Address</span>';
     die();
 }
+if(isset($_POST['copyAddress'])){
+   $string= explode(':', $_POST['copyAddress']);
+   if(preg_match("/[BCbc][cC]*/", $string[0])==1){ 
+       $AdminSettings->setCopyAddress($string[0], $string[1]);
+   }else{
+       echo "Please use proper format for Cc/Bcc address";  
+       die();
+   }
+   
+}
 if($_POST['reCaptchaEnabled']=='true'){
     $keys=[
         "siteKey" => $_POST['siteKey'],
