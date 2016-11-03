@@ -20,12 +20,12 @@
                  </div>:</label>
              <input type="text" name="fromAddress" value="<?php echo get_option('fromAddress');?>"/>
              <br/>
-             <label for="Cc/Bcc Address">Cc: and/or Bcc: Addresses:
+             <label for="Cc/Bcc Address">Cc: and/or Bcc Address:
                  <div class="toolTip">
                       [?]<span class="toolTipText">You can specify the Cc: and/or Bcc:  recipients Addresses here. <br/> <strong>Default:</strong>
                     None</span>
                  </div>:</label>
-             <input type="text" name="fromAddress" value="<?php echo get_option('ccbc-addresses');?>"/>
+             <input type="text" name="copyAddress" value="<?php echo get_option('copyAddress');?>"/>
               <br/>
              <label for="Cc/Bcc Address"> Allow Attachments?
                  <div class="toolTip">
@@ -97,7 +97,7 @@
          </div>
          <!--end of ContactForm section!-->
                      <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
-                     <input type="submit" value="Save"/><label id="msg"></label>
+                     <input type="submit" value="Save"/><span id="msg"></span>
     </form>
     <div>
         <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>?sendTest=True"
