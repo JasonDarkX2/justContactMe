@@ -6,6 +6,10 @@ class AdminSettings{
     function __construct() {
         
     }
+    function  setCopyAddress($type, $address){
+        $header= $type . $address;
+        update_option('copyAddress',$header);
+    }
     function setReCatcha($switch, $keys){
         if($switch=='true'){
             update_option('reCaptchaEnabled',TRUE);
