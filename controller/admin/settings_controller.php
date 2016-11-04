@@ -24,10 +24,12 @@ If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='loc
 }
 if(isset($_POST['copyAddress'])){
    $string= explode(':', $_POST['copyAddress']);
-   if(preg_match("/[BCbc][cC]*/", $string[0])==1){ 
-       $AdminSettings->setCopyAddress($string[0], $string[1]);
+   $copyAction= substr($string[0],0,3) .':';
+
+   if(preg_match("/[BCbc][cC]*:/", $copyAction)==1){ 
+       $AdminSettings->setCopyAddress($copyAction, $string[1]);
    }else{
-       echo "Please use proper format for Cc/Bcc address";  
+       echo "Please use proper format for Cc/Bcc address, for exampe: Cc:emailAddress";  
        die();
    }
    
