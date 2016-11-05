@@ -22,22 +22,20 @@ jQuery('#sac-options').validate({
     },sucess: function(element){
         jQuery(element).removeClass('errorUI');
     },
+    unhighlight: function(element) {
+         jQuery(element).removeClass('errorUI');
+    },
          errorElement: "span",
           errorPlacement: function(error, element) {
             error.insertAfter(element);
         },
          submitHandler: function(form) {
-             var sacForm = e('#sac-options');
-        sacForm.submit(function(ex){
-        var formdata = sacForm.serialize();
-                var formurl =sacForm.attr('action');
                 e.ajax({
                 type: 'post',
-                        url: formurl,
-                        data: formdata,
+                        url: e(form).attr('action'),
+                        data: e(form).serialize(),
                         success: function(data){
                         notification = data;
-                        location.reload();
                                jQuery('#msg').html(notification);
                                 },
                         error: function(data)
@@ -46,8 +44,8 @@ jQuery('#sac-options').validate({
                                jQuery('#msg').html(notification);
                                         }
                         });
-                        ex.preventDefault();
-                        });
+                    }
+                    });
                         jQuery("#testMail").click(function(ex){   
                             ex.preventDefault();
                       jQuery.post(jQuery(this).attr('href'),
@@ -59,7 +57,5 @@ jQuery('#sac-options').validate({
         });
                            
                     });
-  }
          
-});
 });
