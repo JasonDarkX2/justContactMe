@@ -1,5 +1,8 @@
 
 jQuery('document').ready(function(e){ 
+    jQuery.validator.addMethod("regex", function(value, element, regexpr) {          
+    return regexpr.test(value);
+});
 jQuery('#sac-options').validate({
          rules: {
             toAddress: {
@@ -10,10 +13,14 @@ jQuery('#sac-options').validate({
                 required: true,
                 email: true
             },
+            copyAddress:{
+                regex: /^[BCbc][cC]*:/
+            }
         },
         messages: {
             toAddress: "Please enter a valid  To Adress.",
             fromAddress: "Please enter a valid from address.",
+            copyAddress: "Please enter proper format eg: Cc: email@domain.com"
         },
             highlight: function(element, errorClass) {
         jQuery(element).removeClass(errorClass);
