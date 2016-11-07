@@ -15,7 +15,7 @@
               <br/>
              <label for="fromAddress">From E-mail Address Name
                  <div class="toolTip">
-                      [?]<span class="toolTipText"> Set the From Email address name that should be used.<br/> <strong>Default:</strong>
+                      [?]<span class="toolTipText"> Use this field if you would like to change the default email address WordPress uses for sending mails.<br/> <strong>Default:</strong>
                     <?php echo 'wordpress@' . $_SERVER['HTTP_HOST'];?></span>
                  </div>:</label>
              <input type="text" name="fromAddress" value="<?php echo get_option('fromAddress');?>"/>
