@@ -19,7 +19,12 @@ $name =preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['cname']);
 $email = $_POST['email'];
 $message = $_POST['message'];
 $subject=preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['subject']);
-$headers=array('placeholder');
+$headers=array( );
+$copyAdddress=get_option('copyAddress');
+if(isset($copyAddress)){
+    array_push($copyAdddress .'\r\n');
+    
+}
 $mail->createEmail($to,$name,$email,$subject,$message, $headers);
 if($mail->sendmail()==TRUE){
     echo  '<label id="success" class="successmsg"> Message Successfully Sent</label>';
