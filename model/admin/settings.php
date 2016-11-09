@@ -10,6 +10,9 @@ class AdminSettings{
         $header= $type . $address;
         update_option('copyAddress',$header);
     }
+     function setAttachment($status){
+         update_option('attachment',$status);
+     }
     function setReCatcha($switch, $keys){
         if($switch=='true'){
             update_option('reCaptchaEnabled',TRUE);
