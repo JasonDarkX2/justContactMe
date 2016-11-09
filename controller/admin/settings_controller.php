@@ -29,10 +29,15 @@ if(isset($_POST['copyAddress'])){
    if(preg_match("/[BCbc][cC]*:/", $copyAction)==1){ 
        $AdminSettings->setCopyAddress($copyAction, $string[1]);
    }else{
-       echo "Please use proper format for Cc/Bcc address, for exampe: Cc:emailAddress";  
+       echo 'span class="error">Please use proper format for Cc/Bcc address, for exampe: Cc:emailAddress</span>';  
        die();
    }
    
+}
+if($_POST['attachment']==='true'){
+    $AdminSettings->setAttachment(TRUE);
+}else{
+    $AdminSettings->setAttachment(FALSE);
 }
 if($_POST['reCaptchaEnabled']=='true'){
     $keys=[
