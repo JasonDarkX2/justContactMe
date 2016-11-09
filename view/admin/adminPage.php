@@ -32,8 +32,9 @@
                       [?]<span class="toolTipText">You can specify whether the contact form will allow sender to send attachments <br/> <strong>Default:</strong>
                     Disabled</span>
                  </div>:</label>
-             <input type="radio" name="attachment" value="true"/>Enable
-             <input type="radio" name="attachment" value="false" checked="true"/>Disabled
+              <?php var_dump(get_option('attachment'));?>
+             <input type="radio" name="attachment" value="true" <?php checked(get_option('attachment'),1); ?>/>Enable
+             <input type="radio" name="attachment" value="false" <?php checked(get_option('attachment'),0); ?>/>Disabled
          </div>
          <!--end of recaptch section!-->
         <!--recaptcha section!-->
