@@ -37,5 +37,10 @@ jQuery('#success').html(response);
 });
     });
 });
+ jQuery('#sacAttachment').click(function(){
+jQuery('#file').click();
+ });
+function ChangeText(FileInput, TargetID) {
 
-
+    document.getElementById(TargetID).value = FileInput.value;
+}
