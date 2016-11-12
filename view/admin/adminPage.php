@@ -34,8 +34,25 @@
                  </div>:</label>
              <input type="radio" name="attachment" value="true" <?php checked(get_option('attachment'),1); ?>/>Enable
              <input type="radio" name="attachment" value="false" <?php checked(get_option('attachment'),''); ?>/>Disabled
+             <!-- attachment extra settings!-->
+             <div>
+                 <label for="filetype"> Attachment file type restrictions: </label>
+                 <select name="fileType">
+                     <option value="docs"> Only documents</option>
+                     <option value="photo"> Only  Photos</option>
+                     <option value="zip"> Only  zip files</option>
+                     <option value="none">No restrictions</option>
+                 </select>
+                 <br/><label for="fileSize"> Attachment file  size restrictions: </label>
+                 <select name="fileSize">
+                     <option value="1">1MB</option>
+                     <option value="2">2MB</option>
+                     <option value="25">25MB</option>
+                     <option value="64">64MB</option>
+                 </select>
+             </div>
          </div>
-         <!--end of recaptch section!-->
+         <!--end of email section!-->
         <!--recaptcha section!-->
         <div id="reCaptchaSetting" class="section">
             <h1>Recaptcha Settings</h1>
