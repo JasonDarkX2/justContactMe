@@ -9,7 +9,7 @@ Class Email{
            
     }
     
-    function createEmail($to,$name,$from,$subject,$message, $extraHeaders){
+    function createEmail($to,$name,$from,$subject,$message, $extraHeaders,$attachments){
         $headerIndex=array();
         self::$email['to']=$to;
       self::$email['from']="From:$name<$from>" . "\r\n";
@@ -25,11 +25,12 @@ Class Email{
       }
       }
       self::$email['headers']=$headerIndex;
+      self::$email['attachments']=$attachments;
     }
     
     function sendmail(){
         
-        $status=wp_mail( self::$email['to'], self::$email['subject'], self::$email['message'], self::$email['headers'], $attachments );
+        $status=wp_mail( self::$email['to'], self::$email['subject'], self::$email['message'], self::$email['headers'], self::$email['attachments'] );
         
     return $status;
         
