@@ -25,7 +25,10 @@ if(isset($copyAddress)){
     array_push($copyAdddress .'\r\n');
     
 }
-$mail->createEmail($to,$name,$email,$subject,$message, $headers);
+if(get_option('attachment')){
+   $mailAttachment=array($_POST['mailAttachment']);
+}
+$mail->createEmail($to,$name,$email,$subject,$message, $headers,$mailAttachment);
 if($mail->sendmail()==TRUE){
     echo  '<label id="success" class="successmsg"> Message Successfully Sent</label>';
 }
