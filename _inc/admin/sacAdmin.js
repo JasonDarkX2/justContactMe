@@ -1,5 +1,12 @@
 
 jQuery('document').ready(function(e){ 
+       jQuery('input[name=attachment]:radio').change(function(e){
+           if(jQuery(this).val()=='true')
+jQuery('#attachmentOpt').show();
+else{
+ jQuery('#attachmentOpt').hide();   
+}
+});
     jQuery.validator.addMethod("regex", function(value, element, regexpr) {          
     return regexpr.test(value);
 });
@@ -63,6 +70,6 @@ jQuery('#sac-options').validate({
            jQuery('#msg').html(data);
         });
                            
-                    });
-         
+                    });         
 });
+
