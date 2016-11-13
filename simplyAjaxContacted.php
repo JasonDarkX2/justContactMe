@@ -84,7 +84,7 @@ class SimplyAjaxContacted{
          include (plugin_dir_path(__FILE__) .'view/admin/adminPage.php');
      }
   function contactFormView(){
-      add_action('wp_footer', array(__CLASS__, 'addMinifiedScripts'));
+      add_action('wp_footer', array(__CLASS__, 'add_scripts'));
 ob_start();
      include (plugin_dir_path(__FILE__). '/view/contactForm.php');
      $output=ob_get_contents();;
