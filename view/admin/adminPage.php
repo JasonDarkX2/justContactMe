@@ -35,7 +35,7 @@
              <input type="radio" name="attachment" value="true" <?php checked(get_option('attachment'),1); ?>/>Enable
              <input type="radio" name="attachment" value="false" <?php checked(get_option('attachment'),''); ?>/>Disabled
              <!-- attachment extra settings!-->
-             <div>
+             <div id="attachmentOpt" <?php echo (get_option('attachment')) ? '':'hidden';?>>   
                  <label for="filetype"> Attachment file type restrictions: </label>
                  <select name="fileType">
                      <option value="docs"> Only documents</option>
