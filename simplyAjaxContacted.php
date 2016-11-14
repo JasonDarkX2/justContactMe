@@ -30,6 +30,8 @@ class SimplyAjaxContacted{
         register_setting('sac-setting', 'fromAddress');
         register_setting('sac-setting',' ccbc-addresses');
        register_setting('sac-setting',' attachment');
+         register_setting('sac-setting',' attachmentType');
+           register_setting('sac-setting',' attachmentSize');
         //setting initial config setting for first launch of plugin
         $config=[
             'theme'=> 'light',
