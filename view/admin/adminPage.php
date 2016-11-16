@@ -36,19 +36,37 @@
              <input type="radio" name="attachment" value="false" <?php checked(get_option('attachment'),''); ?>/>Disabled
              <!-- attachment extra settings!-->
              <div id="attachmentOpt" <?php echo (get_option('attachment')) ? '':'hidden';?>>   
-                 <label for="filetype"> Attachment file type restrictions: </label>
+                 <label for="fileType"> Attachment file type restrictions: </label>
                  <select name="fileType">
-                     <option value="docs"> Only documents</option>
-                     <option value="photo"> Only  Photos</option>
-                     <option value="zip"> Only  zip files</option>
-                     <option value="none">No restrictions</option>
+                     <?php
+                     $fileTypes= array('docs'=>'Only Documents',
+                                                'photo'=>'Only  Photos',
+                                                'zip'=>'Only  zip files',
+                                                'none'=>'No restrictions');
+                     foreach($fileTypes as $i=>$v){
+                         if($i==get_option('attachmentType')){
+                             echo '<option value="'. $i .'" selected>'. $v .'</option>';    
+                         }else{
+                        echo '<option value="'. $i .'">'. $v .'</option>';
+                         }
+                     }
+                     ?>
                  </select>
                  <br/><label for="fileSize"> Attachment file  size restrictions: </label>
                  <select name="fileSize">
-                     <option value="1">1MB</option>
-                     <option value="2">2MB</option>
-                     <option value="25">25MB</option>
-                     <option value="64">64MB</option>
+                     <?php
+                     $fileTypes= array('1'=>'1MB',
+                                                '2'=>'2MB',
+                                                '25'=>'25MB',
+                                                '64'=>'64MB');
+                     foreach($fileTypes as $i=>$v){
+                         if($i==get_option('attachmentSize')){
+                             echo '<option value="'. $i .'" selected>'. $v .'</option>';    
+                         }else{
+                        echo '<option value="'. $i .'">'. $v .'</option>';
+                         }
+                     }
+                     ?>
                  </select>
              </div>
          </div>
