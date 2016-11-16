@@ -13,6 +13,10 @@ class AdminSettings{
      function setAttachment($status){
          update_option('attachment',$status);
      }
+     function setAttachmentOptions($type,$size){
+         update_option('attachmentType',$type);
+         update_option('attachmentSize',$size);
+     }
     function setReCatcha($switch, $keys){
         if($switch=='true'){
             update_option('reCaptchaEnabled',TRUE);
