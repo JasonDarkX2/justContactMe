@@ -36,8 +36,7 @@ if(isset($_POST['copyAddress'])){
 }
 if($_POST['attachment']==='true'){
     $AdminSettings->setAttachment(TRUE);
-    $AdminSettings->setAttachmentType($_POST['fileType']);
-    $AdminSettings->setAttachmentSize($_POST['fileSize']);
+    $AdminSettings->setAttachmentOptions($_POST['fileType'], $_POST['fileSize']);
 }else{
     $AdminSettings->setAttachment(FALSE);
 }
