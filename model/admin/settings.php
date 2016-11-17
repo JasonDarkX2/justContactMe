@@ -1,7 +1,7 @@
 <?php
 
-$url= explode('plugin',$_SERVER['SCRIPT_FILENAME']);
-require_once dirname($url[0])  . '/wp-load.php';
+//$url= explode('plugin',$_SERVER['SCRIPT_FILENAME']);
+//require_once dirname($url[0])  . '/wp-load.php';
 class AdminSettings{
     function __construct() {
         
@@ -16,6 +16,25 @@ class AdminSettings{
      function setAttachmentOptions($type,$size){
          update_option('attachmentType',$type);
          update_option('attachmentSize',$size);
+     }
+     function get_AttachmentInitialMsg(){
+         $type=get_option('attachmentType');
+         $size= get_option('attachmentSize');
+         switch($type){
+             case 'docs':
+                  return $fileTypeMsg= 'Attach Documents(max size: ' . $size . 'MB)'; 
+                 break;
+              case 'photo':
+                 return $fileTypeMsg= 'Attach  Photo(max size: ' . $size . 'MB)';
+                 break;
+              case 'zip':
+                 return $fileTypeMsg= 'Attach Zip file(max size: ' . $size . 'MB)'; 
+             case 'none':
+                  return $fileTypeMsg= 'Chose a File(max size: ' .$size .'MB)';
+         break;
+          default:
+          return $fileTypeMsg= 'Chose a File(max size: ' .$size .'MB)';
+         }
      }
     function setReCatcha($switch, $keys){
         if($switch=='true'){
