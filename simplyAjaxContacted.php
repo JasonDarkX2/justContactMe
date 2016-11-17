@@ -7,11 +7,11 @@ Author:JasonDarkX2
 version: x.xx
 Author URI:http://www.jasondarkx2.com 
 */ 
-
-
+?>
+<?php
+require_once( plugin_dir_path( __FILE__ ) . 'model/admin/settings.php');
 class SimplyAjaxContacted{
-    
-    function init(){  
+    function init(){
         add_shortcode('AjaxContactForm',array(__CLASS__,'contactFormView'));
         add_action('admin_menu', array(__CLASS__,'createAdminMenu'));
         define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -86,6 +86,8 @@ class SimplyAjaxContacted{
          include (plugin_dir_path(__FILE__) .'view/admin/adminPage.php');
      }
   function contactFormView(){
+$settings= new AdminSettings();
+Define('inimsg', $settings->get_AttachmentInitialMsg());
       add_action('wp_footer', array(__CLASS__, 'add_scripts'));
 ob_start();
      include (plugin_dir_path(__FILE__). '/view/contactForm.php');
