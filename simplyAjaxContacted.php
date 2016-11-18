@@ -11,7 +11,9 @@ Author URI:http://www.jasondarkx2.com
 <?php
 require_once( plugin_dir_path( __FILE__ ) . 'model/admin/settings.php');
 class SimplyAjaxContacted{
+    static $settings;
     function init(){
+        self::$settings= new AdminSettings();
         add_shortcode('AjaxContactForm',array(__CLASS__,'contactFormView'));
         add_action('admin_menu', array(__CLASS__,'createAdminMenu'));
         define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -67,7 +69,8 @@ class SimplyAjaxContacted{
          wp_enqueue_style('sac-style', plugins_url('_inc/min/SimplyAjaxContacted.min.css', __FILE__));
          wp_enqueue_script('sac-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
          wp_enqueue_script('sac-reCaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'));
-         $controllers = array('emailController' => plugins_url('controller/email_controller.php',__FILE__ ));
+         $controllers = array('emailController' => plugins_url('controller/email_controller.php',__FILE__ ),
+                                            'extensions'=>self::$settings->getAttachmentExtension());
          wp_enqueue_script('sac-script', plugins_url('_inc/min/SimplyAjaxContacted.min.js', __FILE__));
          wp_localize_script('sac-script', 'controller', $controllers);
     }
@@ -86,8 +89,7 @@ class SimplyAjaxContacted{
          include (plugin_dir_path(__FILE__) .'view/admin/adminPage.php');
      }
   function contactFormView(){
-$settings= new AdminSettings();
-Define('inimsg', $settings->get_AttachmentInitialMsg());
+Define('inimsg', self::$settings->getAttachmentInitialMsg());
       add_action('wp_footer', array(__CLASS__, 'add_scripts'));
 ob_start();
      include (plugin_dir_path(__FILE__). '/view/contactForm.php');
