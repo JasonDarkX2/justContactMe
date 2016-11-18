@@ -17,7 +17,7 @@ class AdminSettings{
          update_option('attachmentType',$type);
          update_option('attachmentSize',$size);
      }
-     function get_AttachmentInitialMsg(){
+     function getAttachmentInitialMsg(){
          $type=get_option('attachmentType');
          $size= get_option('attachmentSize');
          switch($type){
@@ -35,6 +35,19 @@ class AdminSettings{
           default:
           return $fileTypeMsg= 'Chose a File(max size: ' .$size .'MB)';
          }
+     }
+     function getAttachmentExtension(){
+         switch($type){
+             case 'docs':
+                 return $extension='pdf|docx|pptx|doc|txt'; 
+                 break;
+             case 'photo':
+                 break;
+             case 'zip':
+                 break;
+             case 'none':
+                 break;
+     }
      }
     function setReCatcha($switch, $keys){
         if($switch=='true'){
