@@ -37,9 +37,10 @@ class AdminSettings{
          }
      }
      function getAttachmentExtension(){
+         $type= get_option('attachmentType');
          switch($type){
              case 'docs':
-                 return $extension='pdf|docx|pptx|doc|txt'; 
+                 return $extension="pdf|docx|pptx|doc|txt"; 
                  break;
              case 'photo':
                  break;
