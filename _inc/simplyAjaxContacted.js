@@ -1,5 +1,5 @@
  jQuery(document).ready(function($) {
-    jQuery('#msg').validate({
+        jQuery('#contactForm').validate({
         rules: {
             cname: {
                 required: true,
@@ -16,31 +16,39 @@
             message: {
                 required: true,
                 minlength: 1
-            }
+            },
+           mailAttachment:{
+              required: false,
+              extension: controller.extensions 
+            },
+ 
         },
-       
         messages: {
             cname: "Please enter in your name.",
             email: "Please enter a valid email address.",
              subject: "Please enter a subject.",
-            message: "Please enter something here"
+            message: "Please enter something here",
+            mailAttachment: "invalid file type",
         },
         errorElement: "div",
         errorPlacement: function(error, element) {
             element.attr("placeholder", error.text())
-        }
-    })
-    jQuery('#contactForm').submit(function(e){
-        e.preventDefault();
-        jQuery.post( controller.emailController,jQuery("#msg").serialize(),function(response){
-jQuery('#success').html(response);
-});
+        },
+        submitHandler: function(form) {
+              e.ajax({
+                type: 'post',
+                        url: e(form).attr('action'),
+                        data: e(form).serialize(),
+                        success: function(data){
+                            jQuery('#success').html(response);
+                        }
+        });
+    }
     });
 });
  jQuery('#sacAttachment').click(function(){
 jQuery('#file').click();
  });
 function ChangeText(FileInput, TargetID) {
-
     document.getElementById(TargetID).value = FileInput.value;
 }
