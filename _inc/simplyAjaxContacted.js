@@ -49,6 +49,9 @@
  jQuery('#sacAttachment').click(function(){
 jQuery('#file').click();
  });
-function ChangeText(FileInput, TargetID) {
-    document.getElementById(TargetID).value = FileInput.value;
+function ChangeText(fileInput, targetId) {
+       jQuery(targetId).attr('value', fileInput.value);
+  if(! jQuery(targetId).valid()){
+      jQuery(targetId).attr('value', '');
+  }
 }
