@@ -12,7 +12,7 @@
 <br/><textarea id="message" class="ifield" name="message" rows="15" cols="250"></textarea>
 <div id="success" ><span class="noti">*</span><span style="color:white">Required fields</span> </div>
     <?php if(get_option('attachment')): ?>
-<input id = "file" type="file"  style="display:none;" name="sacfile" onchange="ChangeText(this, 'sacAttachment');"/>
+<input id = "file" type="file"  style="display:none;" name="sacfile" onchange="ChangeText(this, '#sacAttachment');"/>
 <?php endif;?>
 <span class="sbuttons">
     <?php if(get_option('reCaptchaEnabled')==TRUE): ?>
