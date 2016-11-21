@@ -43,12 +43,31 @@ class AdminSettings{
                  return $extension="pdf|docx|pptx|doc|txt"; 
                  break;
              case 'photo':
+                 return $extension="jpg|jpeg|bmp|gif|png"; 
                  break;
              case 'zip':
+                  return $extension="zip";
                  break;
              case 'none':
                  break;
      }
+     }
+     function getAttachmentSizeLimit(){
+         $size= get_option('attachmentSize');
+         switch($size){
+             case 1:
+                 return 1048576;
+                 break;
+             case 2:
+                 return 2097152;
+                 break;
+             case 25:
+                 return 26214400;
+                 break;
+             case 64:
+                 return 67108864;
+             break;
+         }
      }
     function setReCatcha($switch, $keys){
         if($switch=='true'){
