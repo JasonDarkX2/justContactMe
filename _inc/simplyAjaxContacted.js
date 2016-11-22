@@ -19,7 +19,7 @@
             },
            mailAttachment:{
               required: false,
-              extension: controller.extensions 
+              extension: controller.extensions,
             },
  
         },
@@ -53,5 +53,9 @@ function ChangeText(fileInput, targetId) {
        jQuery(targetId).attr('value', fileInput.value);
   if(! jQuery(targetId).valid()){
       jQuery(targetId).attr('value', '');
+  }
+  if(fileInput.files[0].size>=controller.sizeLimit){
+     jQuery(targetId).attr('value', '');
+     jQuery(targetId).attr('placeholder', 'File was too big');
   }
 }
