@@ -56,6 +56,7 @@ function ChangeText(fileInput, targetId) {
   }
   if(fileInput.files[0].size>=controller.sizeLimit){
      jQuery(targetId).attr('value', '');
-     jQuery(targetId).attr('placeholder', 'File was too big');
+     var limit= (controller.sizeLimit / (1024*1024));
+     jQuery(targetId).attr('placeholder', 'Error: The file was larger than '+ limit + 'MB');
   }
 }
