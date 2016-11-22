@@ -28,7 +28,7 @@
             email: "Please enter a valid email address.",
              subject: "Please enter a subject.",
             message: "Please enter something here",
-            mailAttachment: "invalid file type",
+            mailAttachment: "Error: invalid file type, aceptable files: ." + controller.extensions.replace(/\|/g,', .'),
         },
         errorElement: "div",
         errorPlacement: function(error, element) {
