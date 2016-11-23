@@ -22,15 +22,15 @@ class AdminSettings{
          $size= get_option('attachmentSize');
          switch($type){
              case 'docs':
-                  return $fileTypeMsg= 'Attach Documents(max size: ' . $size . 'MB)'; 
+                  return $fileTypeMsg= 'Attach a Documents(max size: ' . $size . 'MB)'; 
                  break;
               case 'photo':
-                 return $fileTypeMsg= 'Attach  Photo(max size: ' . $size . 'MB)';
+                 return $fileTypeMsg= 'Attach  a Photo(max size: ' . $size . 'MB)';
                  break;
               case 'zip':
-                 return $fileTypeMsg= 'Attach Zip file(max size: ' . $size . 'MB)'; 
+                 return $fileTypeMsg= 'Attach a Zip file(max size: ' . $size . 'MB)'; 
              case 'none':
-                  return $fileTypeMsg= 'Chose a File(max size: ' .$size .'MB)';
+                  return $fileTypeMsg= 'Attach a File(max size: ' .$size .'MB)';
          break;
           default:
           return $fileTypeMsg= 'Chose a File(max size: ' .$size .'MB)';
