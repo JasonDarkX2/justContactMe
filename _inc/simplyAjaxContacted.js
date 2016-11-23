@@ -28,7 +28,7 @@
             email: "Please enter a valid email address.",
              subject: "Please enter a subject.",
             message: "Please enter something here",
-            mailAttachment: "Error: invalid file type, aceptable files: ." + controller.extensions.replace(/\|/g,', .'),
+            mailAttachment: "Error: only attach ." + controller.extensions.replace(/\|/g,', .') + "files" ,
         },
         errorElement: "div",
         errorPlacement: function(error, element) {
@@ -57,6 +57,7 @@ function ChangeText(fileInput, targetId) {
   if(fileInput.files[0].size>=controller.sizeLimit){
      jQuery(targetId).attr('value', '');
      var limit= (controller.sizeLimit / (1024*1024));
+     jQuery(targetId).addClass('error');
      jQuery(targetId).attr('placeholder', 'Error: The file was larger than '+ limit + 'MB');
   }
 }
