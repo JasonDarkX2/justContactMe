@@ -129,6 +129,16 @@
                   <!--Contact form  section!-->
          <div id="ContactSetting" class="section">
              <h1>ContactForm Settings</h1>
+             <label for="formTheme">themes:</label>
+             <select name="formTheme">
+                 <option value=""dark>Dark</option>
+                 <option value=""dark>Light</option>
+             </select>
+             <br/>
+             <label for="customCss">Custom CSS:</label>
+             <br/>
+             <textarea name="customCSS"></textarea>
+             
          </div>
          <!--end of ContactForm section!-->
                      <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
