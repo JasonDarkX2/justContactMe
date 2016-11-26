@@ -22,6 +22,8 @@ class SimplyAjaxContacted {
         add_shortcode('AjaxContactForm', array(__CLASS__, 'contactFormView'));
         add_action('admin_menu', array(__CLASS__, 'createAdminMenu'));
         define('MY_PLUGIN_PATH', plugin_dir_path(__FILE__));
+        define('attachmentSizeLimit',self::$settings->getAttachmentSizeLimit());
+        define('fileExtension',self::$settings->getAttachmentExtension());
         add_action('admin_enqueue_scripts', array(__CLASS__, 'addAdminScripts'));
         if ($from = get_option('fromAddress') != NULL) {
             add_filter('wp_mail_from', get_option('fromAddress'));
@@ -70,8 +72,8 @@ class SimplyAjaxContacted {
         wp_enqueue_script('sac-validatex', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js', array('jquery'));
         wp_enqueue_script('sac-reCaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'));
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
-            'extensions' => self::$settings->getAttachmentExtension(),
-            'sizeLimit' => self::$settings->getAttachmentSizeLimit());
+            'extensions' => fileExtension,
+            'sizeLimit' =>attachmentSizeLimit);
         wp_enqueue_script('sac-script', plugins_url('_inc/SimplyAjaxContacted.js', __FILE__));
         wp_localize_script('sac-script', 'controller', $controllers);
     }
@@ -81,8 +83,8 @@ class SimplyAjaxContacted {
         wp_enqueue_script('sac-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
         wp_enqueue_script('sac-reCaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'));
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
-            'extensions' => self::$settings->getAttachmentExtension(),
-            'sizeLimit' => self::$settings->getAttachmentSizeLimit());
+            'extensions' => fileExtension,
+            'sizeLimit' => attachmentSizeLimit);
         wp_enqueue_script('sac-script', plugins_url('_inc/min/SimplyAjaxContacted.min.js', __FILE__));
         wp_localize_script('sac-script', 'controller', $controllers);
     }
