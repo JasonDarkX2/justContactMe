@@ -28,7 +28,7 @@
             email: "Please enter a valid email address.",
              subject: "Please enter a subject.",
             message: "Please enter something here",
-            mailAttachment: "Error: only attach ." + controller.extensions.replace(/\|/g,', .') + "files" ,
+            mailAttachment: "Error: only attach ." + controller.extensions.replace(/\|/g,', .') + " files" ,
         },
         errorElement: "div",
         errorPlacement: function(error, element) {
