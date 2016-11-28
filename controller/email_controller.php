@@ -27,6 +27,15 @@ if(isset($copyAddress)){
 }
 if(get_option('attachment')){
    $mailAttachment=array($_POST['mailAttachment']);
+   if(filesize($mailAttachment)>attachmentSizeLimit){
+       $sendOk=false;
+       $errorMsg= 'label id="success" class="failedmsg"> Unable to send,attached file was was larger than '.  get_opption('attachmentSize')/ (1024*1024) . 'MB</label>'; 
+   }
+   $file_parts = pathinfo($mailAttachment);
+   if(!preg_match($file_parts['extension'], extensions)){
+       $sendOk=false;
+       $errorMsg= 'label id="success" class="failedmsg"> invalid file type, only attach .'. str_replace('|',', .' , extension) .' files</label>'; 
+   }
 }
 $mail->createEmail($to,$name,$email,$subject,$message, $headers,$mailAttachment);
 if($mail->sendmail()==TRUE){
