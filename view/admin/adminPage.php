@@ -137,7 +137,7 @@
              <br/>
              <label for="customCss">Custom CSS:</label>
              <br/>
-             <textarea name="customCSS"></textarea>
+             <textarea name="customCSS" rows="20"  cols="50"></textarea>
              
          </div>
          <!--end of ContactForm section!-->
