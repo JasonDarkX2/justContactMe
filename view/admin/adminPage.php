@@ -129,13 +129,14 @@
                   <!--Contact form  section!-->
          <div id="ContactSetting" class="section">
              <h1>ContactForm Settings</h1>
-             <label for="formTheme">themes:</label>
+             <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> Dark</span></div>:</label>
              <select name="formTheme">
                  <option value=""dark>Dark</option>
                  <option value=""dark>Light</option>
              </select>
              <br/>
-             <label for="customCss">Custom CSS:</label>
+             <label for="customCss">Custom CSS<div class="toolTip">[?]
+                     <span class="toolTipText">Use this field for your custom Css styling for the contact Form.</span></div>:</label>
              <br/>
              <textarea name="customCSS" rows="20"  cols="50"></textarea>
              
