@@ -32,7 +32,9 @@ if(isset($_POST['copyAddress'])){
        echo 'span class="error">Please use proper format for Cc/Bcc address, for exampe: Cc:emailAddress</span>';  
        die();
    }
-   
+   if(isset($_POST['formTheme'])){
+       $AdminSettings->setTheme($_POST['formTheme']);
+   }
 }
 if($_POST['attachment']==='true'){
     $AdminSettings->setAttachment(TRUE);
