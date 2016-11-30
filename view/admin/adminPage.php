@@ -131,8 +131,19 @@
              <h1>ContactForm Settings</h1>
              <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> Dark</span></div>:</label>
              <select name="formTheme">
-                 <option value=""dark>Dark</option>
-                 <option value=""dark>Light</option>
+                 <?php
+                     $themes= array('dark'=>'Dark',
+                                                'light'=>'Light',
+                                                'trans'=>'Transparent',
+                                                );
+                     foreach($themes as $i=>$v){
+                         if($i==get_option('formTheme')){
+                             echo '<option value="'. $i .'" selected>'. $v .'</option>';    
+                         }else{
+                        echo '<option value="'. $i .'">'. $v .'</option>';
+                         }
+                     }
+                     ?>
              </select>
              <br/>
              <label for="customCss">Custom CSS<div class="toolTip">[?]
