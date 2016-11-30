@@ -17,6 +17,9 @@ class AdminSettings{
          update_option('attachmentType',$type);
          update_option('attachmentSize',$size);
      }
+     function setTheme($theme){
+         update_option('formtheme', $theme);
+     }
      function getAttachmentInitialMsg(){
          $type=get_option('attachmentType');
          $size= get_option('attachmentSize');
