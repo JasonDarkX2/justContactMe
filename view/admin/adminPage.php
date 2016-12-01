@@ -146,10 +146,10 @@
                      ?>
              </select>
              <br/>
-             <label for="customCss">Custom CSS<div class="toolTip">[?]
+             <label for="customCSS">Custom CSS<div class="toolTip">[?]
                      <span class="toolTipText">Use this field for your custom Css styling for the contact Form.</span></div>:</label>
              <br/>
-             <textarea name="customCSS" rows="20"  cols="50"></textarea>
+             <textarea name="customCSS" rows="20"  cols="50"><?php  echo get_option('customCSS');?></textarea>
              
          </div>
          <!--end of ContactForm section!-->
