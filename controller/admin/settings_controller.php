@@ -35,6 +35,12 @@ if(isset($_POST['copyAddress'])){
    if(isset($_POST['formTheme'])){
        $AdminSettings->setTheme($_POST['formTheme']);
    }
+   $customCSS=$_POST['customCSS'];
+   if(isset($customCSS)&&!ctype_space($customCSS)){
+       $AdminSettings->setCustomCss($customCSS);
+   }else{
+    $AdminSettings->setCustomCss(NULL);   
+   }
 }
 if($_POST['attachment']==='true'){
     $AdminSettings->setAttachment(TRUE);
