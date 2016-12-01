@@ -20,6 +20,13 @@ class AdminSettings{
      function setTheme($theme){
          update_option('formtheme', $theme);
      }
+     function setCustomCss($css){
+         //check if css is valid,  if possible
+         //overwrite or delete existing custom css 
+         // save css file
+         // save to setting 
+       update_option('customCss', $css);  
+     } 
      function getAttachmentInitialMsg(){
          $type=get_option('attachmentType');
          $size= get_option('attachmentSize');
