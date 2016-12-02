@@ -20,12 +20,17 @@ class AdminSettings{
      function setTheme($theme){
          update_option('formtheme', $theme);
      }
-     function setCustomCss($css){
+     function setCustomCSS($CSS){
          //check if css is valid,  if possible
          //overwrite or delete existing custom css 
+         $CSSFile= plugin_dir_path(dirname(dirname(__FILE__))) . '_inc/simplyAjaxContacted.css'; 
+         $fileContent= file_get_contents($CSSFile);
+         $content= "\r\n/*CustomCSS*/\r\n" . $CSS . "\r\n/*end CustomCSS*/";
          // save css file
+          $fileContent=preg_replace("/\/\*CustomCSS\*\/(.*)end CustomCSS\*\//s",' ',$fileContent) . $content;
+          file_put_contents($CSSFile, $fileContent);
          // save to setting 
-       update_option('customCss', $css);  
+       update_option('customCss', $CSS);  
      } 
      function getAttachmentInitialMsg(){
          $type=get_option('attachmentType');
