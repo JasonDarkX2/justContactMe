@@ -37,7 +37,7 @@ if(isset($_POST['copyAddress'])){
    }
    $customCSS=$_POST['customCSS'];
    if(isset($customCSS)&&!ctype_space($customCSS)){
-       $AdminSettings->setCustomCss($customCSS);
+       $AdminSettings->setCustomCSS($customCSS);
    }else{
     $AdminSettings->setCustomCss(NULL);   
    }

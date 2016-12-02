@@ -43,7 +43,7 @@ class SimplyAjaxContacted {
         register_setting('sac-setting', ' attachmentType');
         register_setting('sac-setting', ' attachmentSize');
         register_setting('sac-setting', 'formTheme');
-        register_setting('sac-setting', 'customCss');
+        register_setting('sac-setting', 'customCSS');
         //setting initial config setting for first launch of plugin
         $config = [
             'theme' => 'light',
