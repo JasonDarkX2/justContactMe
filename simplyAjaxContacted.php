@@ -95,6 +95,7 @@ class SimplyAjaxContacted {
         if ($hook != 'settings_page_sacMenu') {
             return;
         }
+        wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
         wp_enqueue_style('sacAdmin-style', plugins_url('_inc/admin/sacAdmin.css', __FILE__));
         $controllers = array('settingsController' => plugins_url('controller/admin/settings_controller.php', __FILE__));
         wp_enqueue_script('sacAdmin-script', plugins_url('_inc/admin/sacAdmin.js', __FILE__));

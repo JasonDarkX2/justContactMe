@@ -129,6 +129,7 @@
                   <!--Contact form  section!-->
          <div id="ContactSetting" class="section">
              <h1>ContactForm Settings</h1>
+             <div  style=float:left;">
              <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> Dark</span></div>:</label>
              <select name="formTheme">
                  <?php
@@ -149,8 +150,15 @@
              <label for="customCSS">Custom CSS<div class="toolTip">[?]
                      <span class="toolTipText">Use this field for your custom Css styling for the contact Form.</span></div>:</label>
              <br/>
-             <textarea name="customCSS" rows="20"  cols="50"><?php  echo get_option('customCSS');?></textarea>
-             
+             <textarea  name="customCSS" rows="20"  cols="50"><?php  echo get_option('customCSS');?></textarea>
+             </div>
+             <div  style=" margin-left:60px; border: solid 1px; display:inline-block;width:60%;">
+                 <strong>Contact form Preview</strong>
+                  <?php
+                  add_action('wp_footer', array(__CLASS__, 'add_scripts'));
+        include (plugin_dir_path(dirname(__FILE__)) . 'contactForm.php');
+                  ?>
+                  </div>
          </div>
          <!--end of ContactForm section!-->
                      <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
