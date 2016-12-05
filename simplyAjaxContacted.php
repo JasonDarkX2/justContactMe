@@ -104,6 +104,7 @@ class SimplyAjaxContacted {
     }
 
     function adminView() {
+        Define('inimsg', self::$settings->getAttachmentInitialMsg());
         include (plugin_dir_path(__FILE__) . 'view/admin/adminPage.php');
     }
 
