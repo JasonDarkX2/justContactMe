@@ -155,8 +155,12 @@
              <div  style=" margin-left:60px; border: solid 1px; display:inline-block;width:60%;">
                  <strong>Contact form Preview</strong>
                   <?php
-                  add_action('wp_footer', array(__CLASS__, 'add_scripts'));
-        include (plugin_dir_path(dirname(__FILE__)) . 'contactForm.php');
+                  ob_start();
+                  Define('inimsg', self::$settings->getAttachmentInitialMsg());
+       include (plugin_dir_path(dirname(__FILE__)) . 'contactForm.php');
+       $output = ob_get_contents();
+        ob_end_clean();
+       echo strip_tags($output,'<label><br><input><span><textarea><div>');
                   ?>
                   </div>
          </div>
