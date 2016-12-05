@@ -113,7 +113,6 @@ class SimplyAjaxContacted {
         ob_start();
         include (plugin_dir_path(__FILE__) . '/view/contactForm.php');
         $output = ob_get_contents();
-        ;
         ob_end_clean();
         return $output;
     }
