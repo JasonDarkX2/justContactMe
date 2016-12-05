@@ -155,12 +155,7 @@
              <div  style=" margin-left:60px; border: solid 1px; display:inline-block;width:60%;">
                  <strong>Contact form Preview</strong>
                   <?php
-                  ob_start();
-                  Define('inimsg', self::$settings->getAttachmentInitialMsg());
-       include (plugin_dir_path(dirname(__FILE__)) . 'contactForm.php');
-       $output = ob_get_contents();
-        ob_end_clean();
-       echo strip_tags($output,'<label><br><input><span><textarea><div>');
+                  self::$settings->getFormPreview();
                   ?>
                   </div>
          </div>
