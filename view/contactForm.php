@@ -1,4 +1,4 @@
-<div id="contactSection">
+<div id="contactSection" class="<?php echo get_option('formTheme'); ?>-theme">
     <form  id="contactForm" method="post" action="<?php echo the_permalink(); ?>">
 <label class="field"><span class="noti">*</span>Name:</label><input type="text"  name="cname" class="ifield" maxlength="75"  /><br/>
 <label class="field"><span class="noti">*</span>E-mail:</label><input type="text"  name="email" class="ifield" maxlength="75" /><br/>
