@@ -69,3 +69,16 @@ border: solid 1px;
 border-color:#14FF3C;
 background-color:#339900;
 }
+.dark-theme{
+    background-color: black;
+    color: white;
+}
+.dark-theme input[type="text"], .dark-theme textArea{
+    background-color:#636363;
+    color:white;
+}
+.dark-theme input[type="text"]:focus, .dark-theme textArea:focus {
+     outline: none !important;
+    border:1px solid #25FCF9;
+    box-shadow: 0 0 10px #0BF7F7;
+}
