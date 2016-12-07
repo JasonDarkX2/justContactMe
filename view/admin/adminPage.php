@@ -130,12 +130,13 @@
          <div id="ContactSetting" class="section">
              <h1>ContactForm Settings</h1>
              <div  style=float:left;">
-             <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> Dark</span></div>:</label>
+             <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> &nbsp;None</span></div>:</label>
              <select name="formTheme">
                  <?php
                      $themes= array('dark'=>'Dark',
                                                 'light'=>'Light',
                                                 'trans'=>'Transparent',
+                                                'no'=>'None',
                                                 );
                      foreach($themes as $i=>$v){
                          if($i==get_option('formTheme')){
