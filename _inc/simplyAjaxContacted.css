@@ -82,3 +82,29 @@ background-color:#339900;
     border:1px solid #25FCF9;
     box-shadow: 0 0 10px #0BF7F7;
 }
+.light-theme{
+  background-color:#FFFF;
+    color: #0000;
+}
+.light-theme{
+  background-color:#FFFF;
+    color: #0000;
+}
+.light-theme input[type="text"], .light-theme textArea{
+    border: solid 1px black;
+    
+}
+.light-theme input[type="text"]:focus, .light-theme textArea:focus {
+background-color: #FCFB8B;
+}
+.trans-theme{
+  background-color:reansparent;
+    color: white;
+}
+.trans-theme input[type="text"], .trans-theme textArea{
+    background-color: rgba(181, 181, 177,0.75);
+        color: black;
+}
+.trans-theme input[type="text"]:focus, .trans-theme textArea:focus {
+border: solid 1px #00BFFF;
+}
