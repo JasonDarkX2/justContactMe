@@ -119,5 +119,4 @@ class SimplyAjaxContacted {
     }
 
 }
-
-add_action('wp_loaded', SimplyAjaxContacted::init());
+SimplyAjaxContacted::init();
