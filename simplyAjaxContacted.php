@@ -83,6 +83,7 @@ class SimplyAjaxContacted {
     static function addMinifiedScripts($hook) {
         wp_enqueue_style('sac-style', plugins_url('_inc/min/SimplyAjaxContacted.min.css', __FILE__));
         wp_enqueue_script('sac-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
+           wp_enqueue_script('sac-validatex', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js', array('jquery'));
         wp_enqueue_script('sac-reCaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'));
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
@@ -110,7 +111,7 @@ class SimplyAjaxContacted {
 
     function contactFormView() {
         Define('inimsg', self::$settings->getAttachmentInitialMsg());
-        add_action('wp_footer', array(__CLASS__, 'add_scripts'));
+        add_action('wp_footer', array(__CLASS__, 'addMinifiedScripts'));
         ob_start();
         include (plugin_dir_path(__FILE__) . '/view/contactForm.php');
         $output = ob_get_contents();
