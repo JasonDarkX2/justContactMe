@@ -22,14 +22,14 @@ If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='loc
         echo '<span class="error">Not a valid from  Address</span>';
     die();
 }
-if(isset($_POST['copyAddress'])){
+if(isset($_POST['copyAddress'])&& !empty($_POST['copyAddress'])){
    $string= explode(':', $_POST['copyAddress']);
    $copyAction= substr($string[0],0,3) .':';
 
    if(preg_match("/[BCbc][cC]*:/", $copyAction)==1){ 
        $AdminSettings->setCopyAddress($copyAction, $string[1]);
    }else{
-       echo 'span class="error">Please use proper format for Cc/Bcc address, for exampe: Cc:emailAddress</span>';  
+       echo '<span class="error">Please use proper format for Cc/Bcc address, for exampe: Cc:emailAddress</span>';  
        die();
    }
    if(isset($_POST['formTheme'])){
@@ -78,4 +78,4 @@ if($mail->sendmail()){
 }else{
     echo" Test mail sent failed";
 }
-};
+}

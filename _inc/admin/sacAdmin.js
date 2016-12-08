@@ -7,8 +7,12 @@ else{
  jQuery('#attachmentOpt').hide();   
 }
 });
-    jQuery.validator.addMethod("regex", function(value, element, regexpr) {          
+    jQuery.validator.addMethod("regex", function(value, element, regexpr) {
+ if(value.length!==0){
     return regexpr.test(value);
+ }else{
+     return true;
+ }
 });
 jQuery('#sac-options').validate({
          rules: {
@@ -21,11 +25,12 @@ jQuery('#sac-options').validate({
                 email: true
             },
             copyAddress:{
+                required: false,
                 regex: /^[BCbc][cC]*:/
             }
         },
         messages: {
-            toAddress: "Please enter a valid  To Adress.",
+            toAddress: "Please enter a valid  To Address.",
             fromAddress: "Please enter a valid from address.",
             copyAddress: "Please enter proper format eg: Cc: email@domain.com"
         },
