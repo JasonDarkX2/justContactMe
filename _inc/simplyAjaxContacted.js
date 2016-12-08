@@ -1,4 +1,7 @@
  jQuery(document).ready(function($) {
+     if(controller.extension){
+     var msg= controller.extensions.replace(/\|/g,', .');
+         }
         jQuery('#contactForm').validate({
         rules: {
             cname: {
@@ -28,7 +31,7 @@
             email: "Please enter a valid email address.",
              subject: "Please enter a subject.",
             message: "Please enter something here",
-            mailAttachment: "Error: only attach ." + controller.extensions.replace(/\|/g,', .') + " files" ,
+            mailAttachment: "Error: only attach ." + msg + " files" ,
         },
         errorElement: "div",
         errorPlacement: function(error, element) {
