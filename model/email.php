@@ -9,7 +9,7 @@ Class Email{
            
     }
     
-    function createEmail($to,$name,$from,$subject,$message, $extraHeaders,$attachments){
+    function createEmail($to,$name,$from,$subject,$message, $extraHeaders,$attachments=NULL){
         $headerIndex=array();
         self::$email['to']=$to;
       self::$email['from']="From:$name<$from>" . "\r\n";
