@@ -9,6 +9,23 @@ require_once( MY_PLUGIN_PATH  . 'model/email.php');
     require_once( $_POST['plugindir'] . 'model/email.php');
 }
 $AdminSettings= new AdminSettings();
+if($_POST['sendTest']=="true"){
+    $mail= new Email();
+
+$to=get_option('admin_email');
+$name ="Test Mail";
+$email = get_option('admin_email');
+$message = "Simply a Test mail";
+$subject="Test  mail from SAC Plugin" ;
+$headers=array('placeholder');
+$attachments=NULL;
+$mail->createEmail($to,$name,$email,$subject,$message, $headers);
+if($mail->sendmail()){
+    echo" Test mail sent suceeded";
+}else{
+    echo" Test mail sent failed";
+}
+}else{
 If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
     $AdminSettings->setAddress($_POST['toAddress'],FALSE);
 }else{
@@ -62,20 +79,5 @@ if(empty($_POST['confId'])==FALSE){
     $type=$_POST[$_POST['confId'][1]];
     $size=$_POST[$_POST['confId'][2]];
     $AdminSettings->setReCaptchaAttributes($theme, $type, $size);
-}
-if($_POST['sendTest']=="true"){
-    $mail= new Email();
-
-$to=get_option('admin_email');
-$name ="Test Mail";
-$email = get_option('admin_email');
-$message = "Simply a Test mail";
-$subject="Test  mail from SAC Plugin" ;
-$headers=array('placeholder');
-$mail->createEmail($to,$name,$email,$subject,$message, $headers);
-if($mail->sendmail()){
-    echo" Test mail sent suceeded";
-}else{
-    echo" Test mail sent failed";
 }
 }
