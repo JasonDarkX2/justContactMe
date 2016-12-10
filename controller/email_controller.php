@@ -1,6 +1,7 @@
 <?php
 require_once dirname(dirname(__FILE__)) . '/model/email.php';
 $robotCheck=false;
+$sendOK=true;
 if(get_option('reCaptchaEnabled')){
 $url= 'https://www.google.com/recaptcha/api/siteverify?'
     . 'secret=' .  get_option('secretKey')
@@ -22,7 +23,7 @@ $subject=preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['subject']);
 $headers=array( );
 $copyAdddress=get_option('copyAddress');
 if(isset($copyAddress)){
-    array_push($copyAdddress .'\r\n');
+   $copyAdddress= $copyAdddress . '\r\n';
     
 }
 if(get_option('attachment')){
@@ -37,7 +38,9 @@ if(get_option('attachment')){
        $errorMsg= 'label id="success" class="failedmsg"> invalid file type, only attach .'. str_replace('|',', .' , extension) .' files</label>'; 
    }
 }
+if($sendOK){
 $mail->createEmail($to,$name,$email,$subject,$message, $headers,$mailAttachment);
+}
 if($mail->sendmail()==TRUE){
     echo  '<label id="success" class="successmsg"> Message Successfully Sent</label>';
 }
