@@ -1,4 +1,4 @@
- jQuery(document).ready(function($) {
+ jQuery(document).ready(function(e) {
      if(controller.extension){
      var msg= controller.extensions.replace(/\|/g,', .');
          }
@@ -38,13 +38,14 @@
             element.attr("placeholder", error.text())
         },
         submitHandler: function(form) {
+            alert('submitted');
               e.ajax({
                 type: 'post',
-                        url: e(form).attr('action'),
+                        url: controller.emailController,
                         data: e(form).serialize(),
                         success: function(data){
-                            jQuery('#success').html(response);
-                        }
+                           jQuery('#success').html(data);
+                        },
         });
     }
     });
