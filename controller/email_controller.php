@@ -48,7 +48,7 @@ else{
       echo  '<label id="success" class="failedmsg"> Unable to Sent Message, please try again later</label>';
 }
 }else{
-      echo  '<label id="success" class="successmsg">Robot in diguise eh? Please complete  Captcha vertification</label>';
+      echo  '<label id="success" class="successmsg">Robot in diguise eh? Please complete reCaptcha vertification</label>';
 }
 ?>
 
