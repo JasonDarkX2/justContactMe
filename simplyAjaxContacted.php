@@ -25,8 +25,10 @@ class SimplyAjaxContacted {
         define('attachmentSizeLimit',self::$settings->getAttachmentSizeLimit());
         define('fileExtension',self::$settings->getAttachmentExtension());
         add_action('admin_enqueue_scripts', array(__CLASS__, 'addAdminScripts'));
-        if ($from = get_option('fromAddress') != NULL) {
-            add_filter('wp_mail_from', get_option('fromAddress'));
+               if ($from = get_option('fromAddress') != NULL) {
+           add_filter( 'wp_mail_from', function( $email ) {
+	return get_option('fromAddress');
+});
         }
     }
 
@@ -111,7 +113,7 @@ class SimplyAjaxContacted {
 
     function contactFormView() {
         Define('inimsg', self::$settings->getAttachmentInitialMsg());
-        add_action('wp_footer', array(__CLASS__, 'addMinifiedScripts'));
+        add_action('wp_footer', array(__CLASS__, 'add_scripts'));
         ob_start();
         include (plugin_dir_path(__FILE__) . '/view/contactForm.php');
         $output = ob_get_contents();
