@@ -13,8 +13,10 @@ $data= json_decode($capchaResponse);
 $robotCheck=$data->{'sucess'};
 }
 if($robotCheck!=TRUE){
+      echo  '<label id="success" class="failedmsg">Robot in diguise eh? Please complete reCaptcha vertification</label>';
+      die();
+}
 $mail= new Email();
-
 $to=get_option('toAddress');
 $name =preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['cname']);
 $email = $_POST['email'];
@@ -46,9 +48,6 @@ if($mail->sendmail()==TRUE){
 }
 else{
       echo  '<label id="success" class="failedmsg"> Unable to Sent Message, please try again later</label>';
-}
-}else{
-      echo  '<label id="success" class="successmsg">Robot in diguise eh? Please complete reCaptcha vertification</label>';
 }
 ?>
 
