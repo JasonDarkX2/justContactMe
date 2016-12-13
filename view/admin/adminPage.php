@@ -133,16 +133,16 @@
              <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> &nbsp;None</span></div>:</label>
              <select name="formTheme">
                  <?php
-                     $themes= array('dark'=>'Dark',
-                                                'light'=>'Light',
-                                                'trans'=>'Transparent',
-                                                'no'=>'None',
+                     $themes= array('Dark'=>'dark-theme',
+                                                'Light'=>'light-theme',
+                                                'Transparent'=>'trans-heme',
+                                                'None'=>'',
                                                 );
                      foreach($themes as $i=>$v){
-                         if($i==get_option('formTheme')){
-                             echo '<option value="'. $i .'" selected>'. $v .'</option>';    
+                         if($v==get_option('formTheme')){
+                             echo '<option value="'. $v .'" selected>'. $i .'</option>';    
                          }else{
-                        echo '<option value="'. $i .'">'. $v .'</option>';
+                        echo '<option value="'. $v .'">'. $i .'</option>';
                          }
                      }
                      ?>
