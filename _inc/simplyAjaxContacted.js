@@ -38,7 +38,6 @@
             element.attr("placeholder", error.text())
         },
         submitHandler: function(form) {
-            alert('submitted');
               e.ajax({
                 type: 'post',
                         url: controller.emailController,
