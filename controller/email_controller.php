@@ -10,11 +10,10 @@ $url= 'https://www.google.com/recaptcha/api/siteverify?'
          .'&remoteip=' . 'nope';
 $capchaResponse=file_get_contents($url);
 $data= json_decode($capchaResponse);
-$robotCheck=$data->{'sucess'};
-}
-if($robotCheck!=TRUE){
-      echo  '<label id="success" class="failedmsg">Robot in diguise eh? Please complete reCaptcha vertification</label>';
+if(!$data->{'success'}){
+      echo  '<label id="success" class="failedmsg">Robot in diguise eh? Please complete reCaptcha verification.</label>';
       die();
+}
 }
 $mail= new Email();
 $to=get_option('toAddress');
