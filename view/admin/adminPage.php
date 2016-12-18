@@ -69,6 +69,13 @@
                      ?>
                  </select>
              </div>
+             <div>
+                 <label for="textarea" style="vertical-align: top;">Message<div class="toolTip" style="vertical-align: top;">
+                      [?]<span class="toolTipText"> Here you can  customize the senders message<br/> <strong>Default:</strong>
+                    [senderMessage]</span>
+                 </div>:</label>
+                 <textarea name="message" style="vertical-align: middle;" rows="10" cols="50" ></textarea>
+             </div>
          </div>
          <!--end of email section!-->
         <!--recaptcha section!-->
