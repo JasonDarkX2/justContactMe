@@ -46,6 +46,11 @@ class SimplyAjaxContacted {
         register_setting('sac-setting', ' attachmentSize');
         register_setting('sac-setting', 'formTheme');
         register_setting('sac-setting', 'customCSS');
+          register_setting('sac-setting', 'messageSettings');
+          if(empty(get_option('messageSettings'))){
+              update_option('messageSettings','[senderMessage]');
+          }
+           
         //setting initial config setting for first launch of plugin
         $config = [
             'theme' => 'light',
@@ -113,7 +118,7 @@ class SimplyAjaxContacted {
 
     function contactFormView() {
         Define('inimsg', self::$settings->getAttachmentInitialMsg());
-        add_action('wp_footer', array(__CLASS__, 'add_scripts'));
+        add_action('wp_footer', array(__CLASS__, 'addMinifiedScripts'));
         ob_start();
         include (plugin_dir_path(__FILE__) . '/view/contactForm.php');
         $output = ob_get_contents();

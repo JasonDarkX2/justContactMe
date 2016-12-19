@@ -74,7 +74,7 @@
                       [?]<span class="toolTipText"> Here you can  customize the senders message<br/> <strong>Default:</strong>
                     [senderMessage]</span>
                  </div>:</label>
-                 <textarea name="message" style="vertical-align: middle;" rows="10" cols="50" ></textarea>
+                 <textarea name="senderMessage" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('senderMessage');?></textarea>
              </div>
          </div>
          <!--end of email section!-->
