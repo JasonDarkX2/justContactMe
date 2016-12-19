@@ -46,9 +46,9 @@ class SimplyAjaxContacted {
         register_setting('sac-setting', ' attachmentSize');
         register_setting('sac-setting', 'formTheme');
         register_setting('sac-setting', 'customCSS');
-          register_setting('sac-setting', 'messageSettings');
-          if(empty(get_option('messageSettings'))){
-              update_option('messageSettings','[senderMessage]');
+          register_setting('sac-setting', 'messageBody');
+          if(empty(get_option('messageBody'))){
+              update_option('messageBody','[senderMessage]');
           }
            
         //setting initial config setting for first launch of plugin

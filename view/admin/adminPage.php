@@ -70,11 +70,11 @@
                  </select>
              </div>
              <div>
-                 <label for="textarea" style="vertical-align: top;">Message<div class="toolTip" style="vertical-align: top;">
-                      [?]<span class="toolTipText"> Here you can  customize the senders message<br/> <strong>Default:</strong>
+                 <label for="messageBody" style="vertical-align: top;">Message Body<div class="toolTip" style="vertical-align: top;">
+                      [?]<span class="toolTipText"> Here you can  customize the message body<br/> <strong>Default:</strong>
                     [senderMessage]</span>
                  </div>:</label>
-                 <textarea name="senderMessage" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('senderMessage');?></textarea>
+                 <textarea name="messageBody" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
              </div>
          </div>
          <!--end of email section!-->
