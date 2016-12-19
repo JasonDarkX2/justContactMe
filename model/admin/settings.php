@@ -23,7 +23,13 @@ class AdminSettings {
     function setTheme($theme) {
         update_option('formtheme', $theme);
     }
-
+function setMessageBody($message){
+    if( empty($message)){
+        update_option('messageBody', '[senderMessage]');
+    } else{
+        update_option('messageBody', $message);
+    }
+}
     function setCustomCSS($CSS) {
         $CSSFile = plugin_dir_path(dirname(dirname(__FILE__))) . '_inc/simplyAjaxContacted.css';
         $fileContent = file_get_contents($CSSFile);

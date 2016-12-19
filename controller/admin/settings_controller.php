@@ -80,4 +80,5 @@ if(empty($_POST['confId'])==FALSE){
     $size=$_POST[$_POST['confId'][2]];
     $AdminSettings->setReCaptchaAttributes($theme, $type, $size);
 }
+$AdminSettings->setMessageBody($_POST['messageBody']);
 }
