@@ -35,5 +35,17 @@ Class Email{
     return $status;
         
     }
+    function messageParser(){
+   $messageTags=array('[senderMessage]' =>self::$email['message'],
+                                      '[senderName]'=>self::$email['name'],
+                                       '[senderEmail]'=>self::$email['message'],
+                                        '[senderSuibject]'=>self::$email['subject']
+                            );
+   $messageWrap=get_option('messageBody');
+   foreach($messageTags as $i =>$v){
+       $messageWrap=str_replace($i, $v, $messageWrap);
+   }
+   return $messageWrap;
+    }
     
 }
