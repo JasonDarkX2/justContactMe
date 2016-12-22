@@ -5,12 +5,13 @@ require_once dirname($url[0])  . '/wp-load.php';
 Class Email{
   static  $email;
     function __construct() {
-      $email= array('to','from','subject', 'header','message'.'headers');
+      $email= array('to','from','name','subject', 'header','message'.'headers');
            
     }
     
     function createEmail($to,$name,$from,$subject,$message, $extraHeaders,$attachments=NULL){
         $headerIndex=array();
+         self::$email['name']=$name;
         self::$email['to']=$to;
       self::$email['from']="From:$name<$from>" . "\r\n";
       array_push($headerIndex,self::$email['from']);
