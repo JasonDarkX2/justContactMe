@@ -13,12 +13,12 @@ Class Email{
         $headerIndex=array();
          self::$email['name']=$name;
         self::$email['to']=$to;
-      self::$email['from']="From:$name<$from>" . "\r\n";
-      array_push($headerIndex,self::$email['from']);
+      self::$email['from']=$from;
+      array_push($headerIndex,"From:$name<" . self::$email['from']  . ">\r\n");
       array_push($headerIndex,"Reply-To:<$from>" . "\r\n");
       array_push($headerIndex, "Recived:from<$name>" . "\r\n");
       self::$email['subject']=$subject;
-      self::$email['message']=$message;
+      self::$email['message']=self::messageParser($message);
       
       if(COUNT($extraHeaders)>0){
       foreach($extraHeaders as $x){
@@ -36,11 +36,11 @@ Class Email{
     return $status;
         
     }
-    function messageParser(){
-   $messageTags=array('[senderMessage]' =>self::$email['message'],
+    function messageParser($message){
+   $messageTags=array('[senderMessage]' =>$message,
                                       '[senderName]'=>self::$email['name'],
-                                       '[senderEmail]'=>self::$email['message'],
-                                        '[senderSuibject]'=>self::$email['subject']
+                                       '[senderEmail]'=>self::$email['from'],
+                                        '[senderSubject]'=>self::$email['subject']
                             );
    $messageWrap=get_option('messageBody');
    foreach($messageTags as $i =>$v){
