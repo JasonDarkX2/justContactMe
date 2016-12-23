@@ -65,6 +65,10 @@ jQuery('#sac-options').validate({
                         });
                     }
                     });
+                        jQuery("#msgTag").click(function(ex){
+        ex.preventDefault();
+    alert(jQuery(this).html());
+});
                         jQuery("#testMail").click(function(ex){   
                             ex.preventDefault();
                       jQuery.post(jQuery(this).attr('href'),

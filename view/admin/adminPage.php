@@ -75,6 +75,7 @@
                     [senderMessage]</span>
                  </div>:</label>
                  <textarea name="messageBody" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
+                 <div> <label>Message tags:</label><a  href="#" title="[senderMessage]" id="msgTag">[senderMessage]</a></div>
              </div>
          </div>
          <!--end of email section!-->
