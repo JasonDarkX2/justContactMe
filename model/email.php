@@ -37,10 +37,12 @@ Class Email{
         
     }
     function messageParser($message){
+        $date= new DateTime();
    $messageTags=array('[senderMessage]' =>$message,
                                       '[senderName]'=>self::$email['name'],
                                        '[senderEmail]'=>self::$email['from'],
-                                        '[senderSubject]'=>self::$email['subject']
+                                        '[senderSubject]'=>self::$email['subject'],
+                                        '[timeStamp]' => $date->format(' l\, F d\, Y g:ia')
                             );
    $messageWrap=get_option('messageBody');
    foreach($messageTags as $i =>$v){
