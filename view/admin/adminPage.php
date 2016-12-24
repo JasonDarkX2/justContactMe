@@ -74,8 +74,14 @@
                       [?]<span class="toolTipText"> Here you can  customize the message body<br/> <strong>Default:</strong>
                     [senderMessage]</span>
                  </div>:</label>
-                 <textarea name="messageBody" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
-                 <div> <label>Message tags:</label><a  href="#" title="[senderMessage]" id="msgTag">[senderMessage]</a></div>
+                 <textarea id="msgBody" name="messageBody" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
+                 <div > 
+                     <label>Message tags:</label>
+                     <?php $msgTags= array('[senderMessage]', '[senderName]','[senderEmail]','[senderSubject]');
+                     foreach($msgTags as $v):?>
+                     <a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a>
+                 <?php endforeach;?>
+                 </div>
              </div>
          </div>
          <!--end of email section!-->

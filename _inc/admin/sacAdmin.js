@@ -65,9 +65,17 @@ jQuery('#sac-options').validate({
                         });
                     }
                     });
-                        jQuery("#msgTag").click(function(ex){
+                        jQuery(".TagClick").click(function(ex){
         ex.preventDefault();
     alert(jQuery(this).html());
+    var body= jQuery('#msgBody');
+    var pos= body[0].selectionStart;
+    var textArea= body.val();
+            body.val(
+                            textArea.substring(0, pos)+
+                             jQuery(this).html() +
+                             textArea.substring(pos)
+                                    );
 });
                         jQuery("#testMail").click(function(ex){   
                             ex.preventDefault();
