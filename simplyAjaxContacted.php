@@ -12,13 +12,13 @@
 <?php
 
 require_once( plugin_dir_path(__FILE__) . 'model/admin/settings.php');
-
 class SimplyAjaxContacted {
 
     static $settings;
-
+    static $messageTags;
     function init() {
         self::$settings = new AdminSettings();
+       self::$messageTags=array('[senderMessage]', '[senderName]','[senderEmail]','[senderSubject]','[timeStamp]','[sentFrom]');
         add_shortcode('AjaxContactForm', array(__CLASS__, 'contactFormView'));
         add_action('admin_menu', array(__CLASS__, 'createAdminMenu'));
         define('MY_PLUGIN_PATH', plugin_dir_path(__FILE__));

@@ -4,9 +4,8 @@ $url= explode('plugin',$_SERVER['SCRIPT_FILENAME']);
 require_once dirname($url[0])  . '/wp-load.php';
 Class Email{
   static  $email;
+  static $messageTags;
     function __construct() {
-      $email= array('to','from','name','subject', 'header','message'.'headers');
-           
     }
     
     function createEmail($to,$name,$from,$subject,$message, $extraHeaders,$attachments=NULL){
@@ -38,15 +37,14 @@ Class Email{
     }
     function messageParser($message){
         $date= new DateTime();
-   $messageTags=array('[senderMessage]' =>$message,
-                                      '[senderName]'=>self::$email['name'],
-                                       '[senderEmail]'=>self::$email['from'],
-                                        '[senderSubject]'=>self::$email['subject'],
-                                        '[timeStamp]' => $date->format(' l\, F d\, Y g:ia'),
-                                        '[sentFrom]' => $_SERVER['HTTP_REFERER']
-                            );
+        self::$messageTags['[senderMessage]']=$message;
+        self::$messageTags['[senderName]']=self::$email['name'];
+        self::$messageTags['[senderEmail]']=self::$email['from'];
+         self::$messageTags['[senderSubject]']=self::$email['subject'];
+         self::$messageTags['[timeStamp]']=$date->format(' l\, F d\, Y g:ia');
+         self::$messageTags['[sentFrom]']=$_SERVER['HTTP_REFERER'];
    $messageWrap=get_option('messageBody');
-   foreach($messageTags as $i =>$v){
+   foreach(self::$messageTags as $i =>$v){
        $messageWrap=str_replace($i, $v, $messageWrap);
    }
    return $messageWrap;
