@@ -77,7 +77,7 @@
                  <textarea id="msgBody" name="messageBody" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
                  <div > 
                      <label>Message tags:</label>
-                     <?php $msgTags= array('[senderMessage]', '[senderName]','[senderEmail]','[senderSubject]','[timeStamp]');
+                     <?php $msgTags= array('[senderMessage]', '[senderName]','[senderEmail]','[senderSubject]','[timeStamp]','[sentFrom]');
                      foreach($msgTags as $v):?>
                      <a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a>
                  <?php endforeach;?>

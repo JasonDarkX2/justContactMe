@@ -42,7 +42,8 @@ Class Email{
                                       '[senderName]'=>self::$email['name'],
                                        '[senderEmail]'=>self::$email['from'],
                                         '[senderSubject]'=>self::$email['subject'],
-                                        '[timeStamp]' => $date->format(' l\, F d\, Y g:ia')
+                                        '[timeStamp]' => $date->format(' l\, F d\, Y g:ia'),
+                                        '[sentFrom]' => $_SERVER['HTTP_REFERER']
                             );
    $messageWrap=get_option('messageBody');
    foreach($messageTags as $i =>$v){
