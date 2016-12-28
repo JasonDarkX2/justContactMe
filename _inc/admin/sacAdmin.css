@@ -73,3 +73,8 @@ border: solid 1px red !important;
 .error{
     color:red !important;
 }
+
+.messageBody{
+    display:inline-block;
+    float:left;
+}

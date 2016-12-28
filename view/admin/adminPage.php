@@ -70,9 +70,9 @@
                  </select>
              </div>
              <div>
-                   <div style=" display:inline-block;float:left;"> 
+                   <div  class="messageBody"> 
                 <label for="messageBody" style="vertical-align: top;">Message Body<div class="toolTip" style="vertical-align: top;">
-                      [?]<span class="toolTipText"> Here you can  customize the message body<br/> <strong>Default:</strong>
+                      [?]<span class="toolTipText"> Here you can  customize the message body with HTML and tags below.<br/> <strong>Default:</strong>
                     [senderMessage]</span>
                  </div>:</label>
                      <ul>
