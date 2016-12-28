@@ -70,18 +70,19 @@
                  </select>
              </div>
              <div>
-                 <label for="messageBody" style="vertical-align: top;">Message Body<div class="toolTip" style="vertical-align: top;">
+                   <div style=" display:inline-block;float:left;"> 
+                <label for="messageBody" style="vertical-align: top;">Message Body<div class="toolTip" style="vertical-align: top;">
                       [?]<span class="toolTipText"> Here you can  customize the message body<br/> <strong>Default:</strong>
                     [senderMessage]</span>
                  </div>:</label>
-                 <textarea id="msgBody" name="messageBody" style="vertical-align: middle;" rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
-                 <div > 
-                     <label>Message tags:</label>
+                     <ul>
                      <?php $msgTags= self::$messageTags;
                      foreach($msgTags as $v):?>
-                     <a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a>
+                         <li><a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a></li>
                  <?php endforeach;?>
+                     </ul>
                  </div>
+                 <textarea id="msgBody" name="messageBody" style="vertical-align: middle; " rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
              </div>
          </div>
          <!--end of email section!-->
