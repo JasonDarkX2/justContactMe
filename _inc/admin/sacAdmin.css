@@ -74,15 +74,17 @@ border: solid 1px red !important;
     color:red !important;
 }
 
-.messageBody{
-    display:inline-block;
-    float:left;
-}
 
-select, textarea,input[type="text"]{
-    width:75%;    
+
+ .panelSection select, .panelSection textarea, .panelSection input[type="text"]{
+    width:75%;
+    display:block;
     -ms-box-sizing:content-box;
     -moz-box-sizing:content-box;
     box-sizing:content-box;
     -webkit-box-sizing:content-box; 
+}
+.messageBody{
+    float:left;
+    width:65%;
 }

@@ -3,7 +3,7 @@
         
     <form id="sac-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
          <!--E-mail  section!-->
-         <div id="emailSetting" class="section">
+         <div id="emailSetting" class="panelSection">
              <h1>E-mail Settings</h1>
               <label for="toAddress">Sent to E-mail Address
                   <div class="toolTip">
@@ -87,7 +87,7 @@
          </div>
          <!--end of email section!-->
         <!--recaptcha section!-->
-        <div id="reCaptchaSetting" class="section">
+        <div id="reCaptchaSetting" class="panelSection">
             <h1>Recaptcha Settings</h1>
             <label for"reCaptchaEnabled">Enable reCaptcha:</label>
             <input type="checkbox" name="reCaptchaEnabled" value="true" <?php checked(get_option('reCaptchaEnabled'), true); ?>/>
