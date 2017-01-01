@@ -70,20 +70,17 @@
                  </select>
              </div>
              <div>
-                   <div  class="messageBody"> 
                 <label for="messageBody" style="vertical-align: top;">Message Body<div class="toolTip" style="vertical-align: top;">
                       [?]<span class="toolTipText"> Here you can  customize the message body with HTML and tags below.<br/> <strong>Default:</strong>
                     [senderMessage]</span>
                  </div>:</label>
-                     <ul>
+                 <textarea id="msgBody" name="messageBody" style="vertical-align: middle; " rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
+                 <label>Message Tags: &nbsp;</label>
                      <?php $msgTags= self::$messageTags;
                      foreach($msgTags as $v):?>
-                         <li><a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a></li>
+                         <a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a>
                  <?php endforeach;?>
-                     </ul>
-                 </div>
-                 <textarea id="msgBody" name="messageBody" style="vertical-align: middle; " rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
-             </div>
+         </div>
          </div>
          <!--end of email section!-->
         <!--recaptcha section!-->
@@ -142,9 +139,8 @@
         </div>
         <!--end of recaptch section!-->
                   <!--Contact form  section!-->
-         <div id="ContactSetting" class="section">
+         <div id="ContactSetting" class="panelSection">
              <h1>ContactForm Settings</h1>
-             <div  style=float:left;">
              <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> &nbsp;None</span></div>:</label>
              <select name="formTheme">
                  <?php
@@ -167,17 +163,18 @@
                      <span class="toolTipText">Use this field for your custom Css styling for the contact Form.</span></div>:</label>
              <br/>
              <textarea  name="customCSS" rows="20"  cols="50"><?php  echo get_option('customCSS');?></textarea>
-             </div>
-             <div  style=" margin-left:60px; border: solid 1px; display:inline-block;width:60%;">
+         </div>
+                               <div  style=" margin-left:60px; border: solid 1px; display:inline-block;width:60%;">
                  <strong>Contact form Preview</strong>
                   <?php
                   self::$settings->getFormPreview();
                   ?>
                   </div>
-         </div>
          <!--end of ContactForm section!-->
+         <div class="controlSection">
                      <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
                      <input type="submit" value="Save"/><span id="msg"></span>
+         </div>
     </form>
     <div>
         <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>?sendTest=True"

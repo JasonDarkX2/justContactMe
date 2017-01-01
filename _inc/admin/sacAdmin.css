@@ -84,7 +84,3 @@ border: solid 1px red !important;
     box-sizing:content-box;
     -webkit-box-sizing:content-box; 
 }
-.messageBody{
-    float:left;
-    width:65%;
-}
