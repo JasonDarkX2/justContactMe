@@ -77,10 +77,26 @@ border: solid 1px red !important;
 
 
  .panelSection select, .panelSection textarea, .panelSection input[type="text"]{
-    width:75%;
+    width:99%;
     display:block;
     -ms-box-sizing:content-box;
     -moz-box-sizing:content-box;
     box-sizing:content-box;
     -webkit-box-sizing:content-box; 
+
 }
+.halfPanel{
+    width:50%;
+    float:left;
+    display:block;
+}
+.previewBox{
+    margin-left:30px; border: solid 1px; display:inline-block;
+}
+.previewBox textarea{
+    padding: 0;
+}
+input,textarea{
+     padding:0; margin:0;
+}
+
