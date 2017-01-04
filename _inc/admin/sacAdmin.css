@@ -26,7 +26,7 @@
 }
  .sacAdminBody{
     margin: auto;
-    width:70%;
+    min-width:70%;
     background-color: #fff;
 }
 .section{
@@ -87,11 +87,11 @@ border: solid 1px red !important;
 }
 .halfPanel{
     width:50%;
-    float:left;
+   float:left;
     display:block;
 }
 .previewBox{
-    margin-left:30px; border: solid 1px; display:inline-block;
+    margin-left:30px; border: solid 1px; display:block;
 }
 .previewBox textarea{
     padding: 0;
@@ -100,3 +100,12 @@ input,textarea{
      padding:0; margin:0;
 }
 
+@media screen and (max-width: 600px) {
+.halfPanel{
+    width:100%;
+    float: none;
+}
+.previewBox{
+margin:0;
+}
+}
