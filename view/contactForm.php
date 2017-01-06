@@ -10,11 +10,11 @@
 
 <label class="field"><span class="noti">*</span>Message:</label>
 <br/><textarea id="message" class="ifield" name="message" rows="15" cols="250"></textarea>
-<div id="success" ><span class="noti">*</span><span style="color:white">Required fields</span> </div>
+<div id="success" ><span class="noti">*</span><span>Required fields</span> </div>
     <?php if(get_option('attachment')): ?>
 <input id = "file" type="file"  style="display:none;" name="mailAttachment" onchange="ChangeText(this, '#sacAttachment');"/>
 <?php endif;?>
-<span class="sbuttons">
+
     <?php if(get_option('reCaptchaEnabled')==TRUE): ?>
     <div class="g-recaptcha" data-sitekey="<?php echo get_option('siteKey'); ?>"
          <?php $config=  get_option('reCaptchaConfig');
@@ -24,6 +24,7 @@
          ?>
          ></div>
 <?php endif;?>
+<span class="sbuttons">
     <input type="submit" id="submit" value="Send Message"/>
 <input type="reset" id="clear" value="clear"/>
 </span>
