@@ -1,5 +1,6 @@
 
 jQuery('document').ready(function(e){ 
+    jQuery(".sbuttons input").attr("disabled",true);
        jQuery('input[name=attachment]:radio').change(function(e){
            if(jQuery(this).val()=='true')
 jQuery('#attachmentOpt').show();
