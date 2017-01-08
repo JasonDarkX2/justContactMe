@@ -1,6 +1,9 @@
 <h1>SimplyAJAXContacted Settings</h1>
 <div class="sacAdminBody">
         <ul class="tab">
+  <li><a href="#" class="tabLinks" id="email">Email Settings</a></li>
+  <li><a href="#" class="tabLinks" id="reCaptcha">Recaptcha Settings</a></li>
+  <li><a href="#" class="tabLinks" id="contact">ContactForm Settings</a></li>
 </ul>
 
     <form id="sac-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
