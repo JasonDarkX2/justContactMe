@@ -1,9 +1,11 @@
 <h1>SimplyAJAXContacted Settings</h1>
 <div class="sacAdminBody">
-        
+        <ul class="tab">
+</ul>
+
     <form id="sac-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
          <!--E-mail  section!-->
-         <div id="emailSetting" class="panelSection">
+         <div id="emailSettings" class="panelSection">
              <h1>E-mail Settings</h1>
               <label for="toAddress">Sent to E-mail Address
                   <div class="toolTip">
@@ -84,7 +86,7 @@
          </div>
          <!--end of email section!-->
         <!--recaptcha section!-->
-        <div id="reCaptchaSetting" class="panelSection">
+        <div id="reCaptchaSettings" class="panelSection">
             <h1>Recaptcha Settings</h1>
             <label for"reCaptchaEnabled">Enable reCaptcha:</label>
             <input type="checkbox" name="reCaptchaEnabled" value="true" <?php checked(get_option('reCaptchaEnabled'), true); ?>/>
@@ -139,7 +141,7 @@
         </div>
         <!--end of recaptch section!-->
                   <!--Contact form  section!-->
-         <div id="ContactSetting" class="panelSection">
+         <div id="contactSettings" class="panelSection">
              <h1>ContactForm Settings</h1>
              <div class="halfPanel">
              <label for="formTheme">themes<div class="toolTip">[?]<span class="toolTipText">Set the preferred contact Form theme.<strong> Default:</strong> &nbsp;None</span></div>:</label>
