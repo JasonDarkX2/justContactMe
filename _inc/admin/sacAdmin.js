@@ -66,8 +66,8 @@ jQuery('#sac-options').validate({
                         });
                     }
                     });
-                        jQuery(".TagClick").click(function(ex){
-        ex.preventDefault();
+                        jQuery(".TagClick").click(function(ex){               
+       
     alert(jQuery(this).html());
     var body= jQuery('#msgBody');
     var pos= body[0].selectionStart;
@@ -89,5 +89,16 @@ jQuery('#sac-options').validate({
         });
                            
                     });         
+                    
+                    jQuery('.tabLinks').click(function(ex){
+                         ex.preventDefault();   
+                        var panel= '#' + jQuery(this).attr('id') + 'Settings';
+                        jQuery('.active').removeClass("active");
+                        jQuery(this).addClass("active"); 
+                      jQuery('.panelSection').each(function(){
+                            jQuery(this).hide();
+                        });
+                        jQuery(panel).show();
+                    });
 });
 
