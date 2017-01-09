@@ -73,5 +73,8 @@
                      <?php $msgTags= self::$messageTags;
                      foreach($msgTags as $v):?>
                          <a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a>
-                 <?php endforeach;?>
+                 <?php endforeach;?>    
          </div>
+                    <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?sendTest=True"
+           title="Send Test Mail"  id="testMail">
+            Send Test Mail</a>

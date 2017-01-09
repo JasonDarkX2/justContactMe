@@ -28,8 +28,5 @@
          </div>
     </form>
     <div>
-        <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>?sendTest=True"
-           title="Send Test Mail"  id="testMail">
-            Send Test Mail</a>
     </div>
 </div>
