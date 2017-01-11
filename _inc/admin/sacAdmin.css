@@ -131,8 +131,15 @@ ul.tab li a {
     text-decoration: none;
     transition: 0.3s;
     font-size: 17px;
+    margin-bottom: 0px;
 }
 ul.tab li a:hover {background-color: #ddd;}
 
-ul.tab li a:focus, .active {background-color: #ccc;}
+ul.tab li a:focus, .active {
+    background-color:transparent; 
+    border-bottom: solid 1px black;
+    outline:0 !important; 
+    box-shadow: none !important;
+}
+
 
