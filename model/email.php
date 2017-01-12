@@ -47,7 +47,7 @@ Class Email{
    foreach(self::$messageTags as $i =>$v){
        $messageWrap=str_replace($i, $v, $messageWrap);
    }
-   return $messageWrap;
+   return stripslashes($messageWrap);
     }
     
 }

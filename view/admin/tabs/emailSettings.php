@@ -68,7 +68,7 @@
                       [?]<span class="toolTipText"> Here you can  customize the message body with HTML and tags below.<br/> <strong>Default:</strong>
                     [senderMessage]</span>
                  </div>:</label>
-                 <textarea id="msgBody" name="messageBody" style="vertical-align: middle; " rows="10" cols="50" ><?php echo  get_option('messageBody');?></textarea>
+                 <textarea id="msgBody" name="messageBody" style="vertical-align: middle; " rows="10" cols="50" ><?php echo  stripslashes(get_option('messageBody'));?></textarea>
                  <label>Message Tags: &nbsp;</label>
                      <?php $msgTags= self::$messageTags;
                      foreach($msgTags as $v):?>
