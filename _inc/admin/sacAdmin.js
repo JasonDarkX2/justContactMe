@@ -1,5 +1,11 @@
+var changes=false;
+var saved=false;
+jQuery('document').ready(function(e){
+ jQuery('input,textarea').change(function() {
+    changes=true;
+    jQuery('#msg').html("You have unsaved changes");
+});
 
-jQuery('document').ready(function(e){ 
     jQuery(".sbuttons input").attr("disabled",true);
        jQuery('input[name=attachment]:radio').change(function(e){
            if(jQuery(this).val()=='true')
@@ -57,6 +63,8 @@ jQuery('#sac-options').validate({
                         success: function(data){
                         notification = data;
                                jQuery('#msg').html(notification);
+                               saved=true;
+                               changes=false;
                                 },
                         error: function(data)
                                 {
@@ -91,7 +99,11 @@ jQuery('#sac-options').validate({
                     });         
                     
                     jQuery('.tabLinks').click(function(ex){
-                         ex.preventDefault();   
+                        ex.preventDefault();  
+                        if(changes==true && saved==false){
+                         alert('nope');   
+                        }else{ 
+                            saved=false;
                         var panel= '#' + jQuery(this).attr('id') + 'Settings';
                         jQuery('.active').removeClass("active");
                         jQuery(this).addClass("active"); 
@@ -99,6 +111,7 @@ jQuery('#sac-options').validate({
                             jQuery(this).hide();
                         });
                         jQuery(panel).show();
+                    }
                     });
 });
 
