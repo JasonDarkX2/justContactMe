@@ -47,7 +47,8 @@ class SimplyAjaxContacted {
         register_setting('sac-setting', 'formTheme');
         register_setting('sac-setting', 'customCSS');
           register_setting('sac-setting', 'messageBody');
-          if(empty(get_option('messageBody'))){
+          $bodymsg=get_option('messageBody');
+          if(empty($bodymsg)){
               update_option('messageBody','[senderMessage]');
           }
            
