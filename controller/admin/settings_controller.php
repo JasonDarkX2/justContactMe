@@ -21,9 +21,9 @@ $headers=array('placeholder');
 $attachments=NULL;
 $mail->createEmail($to,$name,$email,$subject,$message, $headers);
 if($mail->sendmail()){
-    echo" Test mail sent suceeded";
+    echo'<span class="successmsg">Test mail sent suceeded</span>';
 }else{
-    echo" Test mail sent failed";
+    echo '<span class="error">Test mail sent failed</span>';
 }
 }else{
 If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
