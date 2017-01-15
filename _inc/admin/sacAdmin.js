@@ -3,7 +3,7 @@ var saved=false;
 jQuery('document').ready(function(e){
  jQuery('input,textarea').change(function() {
     changes=true;
-    jQuery('#msg').html("You have unsaved changes");
+    jQuery('#msg').html('<span class="error blink">You have unsaved changes</span>');
 });
 
     jQuery(".sbuttons input").attr("disabled",true);
@@ -101,7 +101,6 @@ jQuery('#sac-options').validate({
                     jQuery('.tabLinks').click(function(ex){
                         ex.preventDefault();  
                         if(changes==true && saved==false){
-                         alert('nope');   
                         }else{ 
                             saved=false;
                         var panel= '#' + jQuery(this).attr('id') + 'Settings';
