@@ -101,6 +101,7 @@ jQuery('#sac-options').validate({
                     jQuery('.tabLinks').click(function(ex){
                         ex.preventDefault();  
                         if(changes==true && saved==false){
+                        jQuery('#msg').html('<span class="error blink">You have unsaved changes</span>');
                         }else{ 
                             saved=false;
                         var panel= '#' + jQuery(this).attr('id') + 'Settings';
@@ -110,6 +111,7 @@ jQuery('#sac-options').validate({
                             jQuery(this).hide();
                         });
                         jQuery(panel).show();
+                          jQuery('#msg').html('');
                     }
                     });
 });
