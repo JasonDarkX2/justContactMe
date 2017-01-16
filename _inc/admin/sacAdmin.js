@@ -5,6 +5,15 @@ jQuery('document').ready(function(e){
     changes=true;
     jQuery('#msg').html('<span class="error blink">You have unsaved changes</span>');
 });
+jQuery("[name=reCaptchaEnabled]").change(function(){
+    if(this.checked){
+jQuery("[name=siteKey]").prop('disabled', false);
+   jQuery("[name=secretKey]").prop('disabled', false);
+    }else{
+        jQuery("[name=siteKey]").prop('disabled', true);
+        jQuery("[name=secretKey]").prop('disabled', true);
+    }
+});
 
     jQuery(".sbuttons input").attr("disabled",true);
        jQuery('input[name=attachment]:radio').change(function(e){

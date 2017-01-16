@@ -3,10 +3,10 @@
             <input type="checkbox" name="reCaptchaEnabled" value="true" <?php checked(get_option('reCaptchaEnabled'), true); ?>/>
             <br/>
             <label for=""siteKey">Site Key:</label>
-            <input type="text" name="siteKey" value="<?php echo get_option('siteKey'); ?>"/>
+            <input type="text" name="siteKey" value="<?php echo get_option('siteKey'); ?>" <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?> />
             <br/>
             <label for="secretKey">Secret Key:</label>
-            <input type="text" name="secretKey" value="<?php echo get_option('secretKey'); ?>"/>
+            <input type="text" name="secretKey" value="<?php echo get_option('secretKey'); ?>" <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>/>
             <label><i>Need Keys<div class="toolTip">[?]<span class="toolTipText"> To get your <b>site</b> and <b>secret</b> keys head over to 
                             <a href="https://www.google.com/recaptcha/">https://www.google.com/recaptcha/admin</a></span></div>
             </i>
