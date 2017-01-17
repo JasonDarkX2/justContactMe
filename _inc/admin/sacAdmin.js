@@ -9,9 +9,11 @@ jQuery("[name=reCaptchaEnabled]").change(function(){
     if(this.checked){
 jQuery("[name=siteKey]").prop('disabled', false);
    jQuery("[name=secretKey]").prop('disabled', false);
+   jQuery('#recatphaConfig input').prop('disabled', false);
     }else{
         jQuery("[name=siteKey]").prop('disabled', true);
         jQuery("[name=secretKey]").prop('disabled', true);
+        jQuery('#recatphaConfig input').prop('disabled', true);
     }
 });
 
