@@ -13,7 +13,7 @@ jQuery("[name=siteKey]").prop('disabled', false);
     }else{
         jQuery("[name=siteKey]").prop('disabled', true);
         jQuery("[name=secretKey]").prop('disabled', true);
-        jQuery('#recatphaConfig input').prop('disabled', true);
+        jQuery('#recatphaConfig input[type=radio]').prop('disabled', true);
     }
 });
 

@@ -12,6 +12,7 @@
             </i>
             </label>
             <br/>
+            <div  id="recatphaConfig">
             <?php foreach (get_option('reCaptchaConfig') as $i => $v): ?>
                 <?php switch ($i) {
                     case "theme":
