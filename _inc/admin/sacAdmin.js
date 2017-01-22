@@ -45,7 +45,13 @@ jQuery('#sac-options').validate({
             copyAddress:{
                 required: false,
                 regex: /^[BCbc][cC]*:/
-            }
+            },
+            siteKey:{
+                required: true,
+            },
+            secretKey:{
+                required: true,
+            },
         },
         messages: {
             toAddress: "Please enter a valid  To Address.",
