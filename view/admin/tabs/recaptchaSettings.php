@@ -21,8 +21,10 @@
                 [?]<span class="toolTipText">The color theme of the widget.</span>
             </div>:</label>
                         <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
-                        <input name="<?php echo $i; ?>" type="radio" value="light" <?php checked($v, 'light'); ?>>Light
-                        <input  name="<?php echo $i; ?>" type="radio" value="dark" <?php checked($v, 'dark'); ?> >Dark
+                        <input name="<?php echo $i; ?>" type="radio" value="light" <?php checked($v, 'light'); ?>
+                            <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Light
+                        <input  name="<?php echo $i; ?>" type="radio" value="dark" <?php checked($v, 'dark'); ?>
+                                <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Dark
                         <br/>
                         <?php
                         break;
@@ -32,8 +34,10 @@
                 [?]<span class="toolTipText"> The type of CAPTCHA to serve..</span>
             </div>:</label>
                         <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
-                        <input name="<?php echo $i; ?>" type="radio" value="image" <?php checked($v, 'image'); ?>>Image
-                        <input  name="<?php echo $i; ?>" type="radio" value="audio" <?php checked($v, 'audio'); ?>>Audio
+                        <input name="<?php echo $i; ?>" type="radio" value="image" <?php checked($v, 'image'); ?>
+                               <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Image
+                        <input  name="<?php echo $i; ?>" type="radio" value="audio" <?php checked($v, 'audio'); ?>
+                                <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Audio
                         <br/>
             <?php break;
         case "size":
@@ -42,8 +46,10 @@
                 [?]<span class="toolTipText"> The size of the widget.</span>
             </div>:</label>
                         <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
-                        <input name="<?php echo $i; ?>" type="radio" value="normal"<?php checked($v, 'normal'); ?> >Normal
-                        <input  name="<?php echo $i; ?>" type="radio" value="compact" <?php checked($v, 'compact'); ?>>Compact
+                        <input name="<?php echo $i; ?>" type="radio" value="normal"<?php checked($v, 'normal'); ?>
+                               <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Normal
+                        <input  name="<?php echo $i; ?>" type="radio" value="compact" <?php checked($v, 'compact'); ?>
+                                <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Compact
                         <br/>
                         <?php
                         break;
