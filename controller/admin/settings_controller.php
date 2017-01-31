@@ -9,7 +9,8 @@ require_once( MY_PLUGIN_PATH  . 'model/email.php');
     require_once( $_POST['plugindir'] . 'model/email.php');
 }
 $AdminSettings= new AdminSettings();
-if($_POST['sendTest']=="true"){
+
+if($_GET['sendTest']=="True" || $_GET['attachTest']=="True"){
     $mail= new Email();
 
 $to=get_option('admin_email');
@@ -19,11 +20,14 @@ $message = "Simply a Test mail";
 $subject="Test  mail from SAC Plugin" ;
 $headers=array('placeholder');
 $attachments=NULL;
+if( isset($_GET['attachTest'])){
+    $attachments=array('file');
+}
 $mail->createEmail($to,$name,$email,$subject,$message, $headers);
 if($mail->sendmail()){
-    echo'<span class="successmsg">Test mail sent suceeded</span>';
+    echo'<span class="successmsg">Attachment test mail sent suceeded</span>';
 }else{
-    echo '<span class="error">Test mail sent failed</span>';
+    echo '<span class="error">Attachment test mail sent failed</span>';
 }
 }else{
 If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){

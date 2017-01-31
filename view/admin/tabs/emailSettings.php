@@ -62,6 +62,8 @@
                      }
                      ?>
                  </select>
+                 <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?attachTest=True" 
+                    title="send test mail with attachment"  id="AttachmentTest"> Send Test mail with attachment file</a>
              </div>
              <div>
                 <label for="messageBody" style="vertical-align: top;">Message Body<div class="toolTip" style="vertical-align: top;">

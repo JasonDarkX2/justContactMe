@@ -103,15 +103,13 @@ jQuery('#sac-options').validate({
                              textArea.substring(pos)
                                     );
 });
-                        jQuery("#testMail").click(function(ex){   
+                        jQuery("#testMail, #AttachmentTest").click(function(ex){  
+                            alert('nope')
                             ex.preventDefault();
-                      jQuery.post(jQuery(this).attr('href'),
-                      {
-                          sendTest: 'true'
-                      },
-                      function(data,status){
-           jQuery('#msg').html(data);
-        });
+                          //send
+                      jQuery.get(jQuery(this).attr('href'),function(data,status){
+                            jQuery('#msg').html(data);
+                       });
                            
                     });         
                     
