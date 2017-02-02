@@ -104,7 +104,6 @@ jQuery('#sac-options').validate({
                                     );
 });
                         jQuery("#testMail, #AttachmentTest").click(function(ex){  
-                            alert('nope')
                             ex.preventDefault();
                           //send
                       jQuery.get(jQuery(this).attr('href'),function(data,status){
