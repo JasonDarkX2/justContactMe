@@ -21,13 +21,15 @@ $subject="Test  mail from SAC Plugin" ;
 $headers=array('placeholder');
 $attachments=NULL;
 if( isset($_GET['attachTest'])){
-    $attachments=array('file');
+    $file=plugin_dir_path( __FILE__ ) .'testfile/testfile.txt';
+    $attachments=array($file);
 }
-$mail->createEmail($to,$name,$email,$subject,$message, $headers);
+$mail->createEmail($to,$name,$email,$subject,$message, $headers,$attachments);
 if($mail->sendmail()){
-    echo'<span class="successmsg">Attachment test mail sent suceeded</span>';
+    echo'<span class="successmsg">test mail sent suceeded</span>';
 }else{
-    echo '<span class="error">Attachment test mail sent failed</span>';
+  
+    echo '<span class="error">test mail sent failed</span>';
 }
 }else{
 If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
