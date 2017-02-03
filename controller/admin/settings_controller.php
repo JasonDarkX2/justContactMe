@@ -26,7 +26,11 @@ if( isset($_GET['attachTest'])){
 }
 $mail->createEmail($to,$name,$email,$subject,$message, $headers,$attachments);
 if($mail->sendmail()){
+    if(isset($attachments)){
+         echo'<span class="successmsg"> Attachment test mail sent suceeded</span>';
+    }else{
     echo'<span class="successmsg">test mail sent suceeded</span>';
+    }
 }else{
   
     echo '<span class="error">test mail sent failed</span>';
@@ -62,7 +66,8 @@ if(isset($_POST['copyAddress'])&& !empty($_POST['copyAddress'])){
    if(isset($customCSS)&&!ctype_space($customCSS)){
        $AdminSettings->setCustomCSS($customCSS);
    }else{
-       if(!empty(get_option('customCss')))
+       $css= get_option('customCss');
+       if(!empty($css))
     $AdminSettings->setCustomCss(NULL);   
    }
 }
