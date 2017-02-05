@@ -119,7 +119,7 @@ class SimplyAjaxContacted {
 
     function contactFormView() {
         Define('inimsg', self::$settings->getAttachmentInitialMsg());
-        add_action('wp_footer', array(__CLASS__, 'addMinifiedScripts'));
+        add_action('wp_footer', array(__CLASS__, 'add_Scripts'));
         ob_start();
         include (plugin_dir_path(__FILE__) . '/view/contactForm.php');
         $output = ob_get_contents();

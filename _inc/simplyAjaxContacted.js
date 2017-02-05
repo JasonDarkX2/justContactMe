@@ -1,6 +1,7 @@
  jQuery(document).ready(function(e) {
-     if(controller.extension){
-     var msg= controller.extensions.replace(/\|/g,', .');
+     var msg=controller.extensions;
+     if(msg){
+      msg = controller.extensions.replace(/\|/g,'|.');
          }
         jQuery('#contactForm').validate({
         rules: {
