@@ -23,7 +23,8 @@
             },
            mailAttachment:{
               required: false,
-              extension: controller.extensions,
+              extensions: controller.extensions,
+        
             },
  
         },

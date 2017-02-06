@@ -5,7 +5,7 @@
 <label id="field"><span class="noti">*</span>Subject:</label><input type="text" name="subject" class="ifield" maxlength="75" /><br/>
 <?php if(get_option('attachment')): ?>
 <label class="field">Attachment:</label>
- <input id="sacAttachment" type = "text" name="mailAttachment"  value="<?php echo  inimsg; ?>" class="ifield" >
+ <input id="sacAttachment" type = "text" name="mailAttachment" value=""  placeholder="<?php echo  inimsg; ?>" class="ifield" >
 <?php endif;?>
 
 <label class="field"><span class="noti">*</span>Message:</label>
