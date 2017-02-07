@@ -7,6 +7,12 @@
                   :</label>
               <input type="text" name="toAddress" value="<?php echo get_option('toAddress');?>"/>
               <br/>
+                 <div class="toolTip">
+                      [?]<span class="toolTipText"> Use this field if you would like to change the name that appears on all outbound WordPress mail.<br/> <strong>Default:</strong>
+                    <?php echo 'wordpress'?></span>
+                 </div>:</label>
+             <input type="text" name="fromAddress" value="<?php echo get_option('fromName');?>"/>
+             <br/>
              <label for="fromAddress">From E-mail Address Name
                  <div class="toolTip">
                       [?]<span class="toolTipText"> Use this field if you would like to change the default email address WordPress uses for sending mails.<br/> <strong>Default:</strong>

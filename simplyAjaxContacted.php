@@ -26,9 +26,14 @@ class SimplyAjaxContacted {
         define('fileExtension',self::$settings->getAttachmentExtension());
         add_action('admin_enqueue_scripts', array(__CLASS__, 'addAdminScripts'));
                if ($from = get_option('fromAddress') != NULL) {
-           add_filter( 'wp_mail_from', function( $email ) {
+                  add_filter( 'wp_mail_from', function( $email ) {
 	return get_option('fromAddress');
 });
+        }
+        if($fromName =get_option('formName')!=NULL){
+                add_filter('wp_mail_from_name',function($name){
+                    return $fromName;
+                });
         }
     }
 
