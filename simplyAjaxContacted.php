@@ -50,6 +50,7 @@ class SimplyAjaxContacted {
         register_setting('sac-setting', ' attachmentType');
         register_setting('sac-setting', ' attachmentSize');
         register_setting('sac-setting', 'formTheme');
+         register_setting('sac-setting', 'formName');
         register_setting('sac-setting', 'customCSS');
           register_setting('sac-setting', 'messageBody');
           $bodymsg=get_option('messageBody');
