@@ -128,7 +128,10 @@ function getFormPreview(){
         echo '<span class="successmsg"> Settings Saved</span>';
     }
 
-    function setAddress($Address, $setFrom) {
+    function setAddress($Address, $setFrom, $fromName="wordpress") {
+        if(!empty($fromName)){
+            update_option('fromName',$fromName);
+        }
         if ($setFrom) {
             if (empty($Address) || $Address == ' ') {
                 update_option('fromAddress', 'wordpress');

@@ -43,8 +43,9 @@ If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
     die();
 }
 $fromAddress= $_POST['fromAddress'];
+$fromName= $_POST['fromName'];
 If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='localhost' ){
- $AdminSettings->setAddress($fromAddress,TRUE);  
+ $AdminSettings->setAddress($fromAddress,TRUE,$fromName);  
 }else{
         echo '<span class="error">Not a valid from  Address</span>';
     die();
