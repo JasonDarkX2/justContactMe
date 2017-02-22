@@ -4,6 +4,7 @@
   <li><a href="#" class="tabLinks active" id="email">Email Settings</a></li>
   <li><a href="#" class="tabLinks" id="reCaptcha">Recaptcha Settings</a></li>
   <li><a href="#" class="tabLinks" id="contact">ContactForm Settings</a></li>
+  <li><a href="#" class="tabLinks" id="log">Mail Log/BlackList</a></li>
 </ul>
 
     <form id="sac-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
@@ -20,6 +21,11 @@
                   <!--Contact form  section!-->
          <div id="contactSettings" class="panelSection" hidden="true">
              <?php include('tabs/contactFormSettings.php');?>
+         </div>
+         <!--end of ContactForm section!-->
+                           <!--Contact form  section!-->
+         <div id="logSettings" class="panelSection" hidden="true">
+             <?php include('tabs/logSettings.php');?>
          </div>
          <!--end of ContactForm section!-->
          <div class="controlSection">
