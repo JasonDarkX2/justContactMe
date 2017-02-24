@@ -128,5 +128,14 @@ jQuery('#sac-options').validate({
                           jQuery('#msg').html('');
                     }
                     });
+                    //log controls
+jQuery("#logLeftBtn").click(function () {
+    var selectedItem = jQuery('[name="blacklisted"] option:selected');
+    jQuery('[name="whitelist"]').append(selectedItem);
+});
+jQuery("#logRightBtn").click(function () {
+    var selectedItem = jQuery('[name="whitelist"] option:selected');
+    jQuery('[name="blacklisted"]').append(selectedItem);
+});
 });
 
