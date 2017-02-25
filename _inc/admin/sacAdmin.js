@@ -73,6 +73,8 @@ jQuery('#sac-options').validate({
             error.insertAfter(element);
         },
          submitHandler: function(form) {
+             jQuery('#whiteListedLog option').prop('selected', true);
+             jQuery('#blackListedLog option').prop('selected', true);
                 e.ajax({
                 type: 'post',
                         url: e(form).attr('action'),
@@ -130,12 +132,12 @@ jQuery('#sac-options').validate({
                     });
                     //log controls
 jQuery("#logLeftBtn").click(function () {
-    var selectedItem = jQuery('[name="blacklisted"] option:selected');
-    jQuery('[name="whitelist"]').append(selectedItem);
+    var selectedItem = jQuery(' #blackListedLog option:selected');
+    jQuery('#whiteListedLog').append(selectedItem);
 });
 jQuery("#logRightBtn").click(function () {
-    var selectedItem = jQuery('[name="whitelist"] option:selected');
-    jQuery('[name="blacklisted"]').append(selectedItem);
+    var selectedItem = jQuery(' #whiteListedLog option:selected');
+    jQuery('#blackListedLog').append(selectedItem);
 });
 });
 
