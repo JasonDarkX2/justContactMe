@@ -84,6 +84,8 @@ jQuery('#sac-options').validate({
                                jQuery('#msg').html(notification);
                                saved=true;
                                changes=false;
+                               jQuery('#whiteListedLog option').prop('selected', false);
+                               jQuery('#blackListedLog option').prop('selected', false);
                                 },
                         error: function(data)
                                 {
