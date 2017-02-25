@@ -10,9 +10,10 @@
 <div class="log">
  <div class="halfPanel">
      <label> Mail Log</label>
-     <select name="whitelist" multiple>
-         <option value="Johndoe@doe.com">Johndoe@company.com</option>
-         <option value="bobred@doe.com">bobred@company.com</option>
+     <select id="whiteListedLog" name="whitelist[ ]" multiple>
+          <?php  foreach (get_option('whiteListLog') as $wl) { ?>
+           <option value="<?php echo $wl; ?>"> <?php echo $wl; ?></option>
+          <?php } ?>
          </select>
  </div>
     <div class="multicontrols">
@@ -22,9 +23,10 @@
     </div>
  <div class="halfPanel">
      <label> BlackList</label>
-       <select name="blacklisted" multiple>
-         <option value="Johndoe@blocked.com">Johndoe@blocked.com</option>
-         <option value="bobred@bl;ocked.com">bobred@clocked.com</option>
+       <select id="blackListedLog" name="blacklist[ ]" multiple>
+          <?php  foreach (get_option('blackListLog') as $bl) { ?>
+           <option value="<?php echo $bl; ?>"> <?php echo $bl; ?></option>
+          <?php } ?>
          </select>
  </div>
 </div>
