@@ -95,3 +95,8 @@ if(empty($_POST['confId'])==FALSE){
 }
 $AdminSettings->setMessageBody($_POST['messageBody']);
 }
+
+if(isset($_POST['whitelist']) || isset($_POST['blacklist'])){
+    $AdminSettings->setWhiteListContact($_POST['whitelist']);
+    $AdminSettings->setBlackListContact($_POST['blacklist']);
+}

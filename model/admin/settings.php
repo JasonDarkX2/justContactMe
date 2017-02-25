@@ -146,5 +146,11 @@ function getFormPreview(){
             }
         }
     }
+function setWhiteListContact($list){
+    update_option('logWhitelist',$list);
+} 
 
+function setBlackListContact($list){
+    update_option('blackListLog',$list);
+} 
 }
