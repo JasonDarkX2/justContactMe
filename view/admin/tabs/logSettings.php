@@ -29,4 +29,40 @@
           <?php } ?>
          </select>
  </div>
+ </div>
+<div class="log">
+    <div class="halfPanel">
+            <label>Mail Log:</label>
+        <table border="1px">
+            <tr>
+            <th>date</th>
+            <th> Sender</th>
+            <th>Status</th>
+            <th>Options</th>
+            </tr>
+            <tr>
+                <td> March, 10,2017</td>
+                <td>Johdoe@domain.com</td>
+                <td> Send Fail</td>
+                <td>More info</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+            <label>Mail Log:</label>
+        <table border="1px">
+            <tr>
+            <th>date</th>
+            <th> Sender</th>
+            <th>Status</th>
+            <th>Options</th>
+            </tr>
+            <tr>
+                <td> March, 10,2017</td>
+                <td>Johdoe@domain.com</td>
+                <td> Send Fail</td>
+                <td>More info</td>
+            </tr>
+        </table>
+    </div>
 </div>
