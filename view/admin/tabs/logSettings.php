@@ -9,7 +9,7 @@
 <h1>Mail Log and Blacklist</h1>
 <div class="log">
  <div class="halfPanel">
-     <label> Mail Log</label>
+     <label>Contacts Address</label>
      <select id="whiteListedLog" name="whitelist[ ]" multiple>
           <?php  foreach (get_option('whiteListLog') as $wl) { ?>
            <option value="<?php echo $wl; ?>"> <?php echo $wl; ?></option>
@@ -31,9 +31,27 @@
  </div>
  </div>
 <div class="log">
+<div class="halfPanel">
+            <label>error Log:</label>
+        <table border="1px" style="width:100%;">
+            <tr>
+            <th>date</th>
+            <th> Sender</th>
+            <th>Status</th>
+            <th>Options</th>
+            </tr>
+            <tr>
+                <td> March, 10,2017</td>
+                <td>Johdoe@domain.com</td>
+                <td> Send Fail</td>
+                <td>More info</td>
+            </tr>
+        </table>
+    </div>
+
     <div class="halfPanel">
-            <label>Mail Log:</label>
-        <table border="1px">
+        <label>error Log:</label>
+        <table border="1px" style="width:100%;">
             <tr>
             <th>date</th>
             <th> Sender</th>
@@ -48,21 +66,5 @@
             </tr>
         </table>
     </div>
-    <div>
-            <label>Mail Log:</label>
-        <table border="1px">
-            <tr>
-            <th>date</th>
-            <th> Sender</th>
-            <th>Status</th>
-            <th>Options</th>
-            </tr>
-            <tr>
-                <td> March, 10,2017</td>
-                <td>Johdoe@domain.com</td>
-                <td> Send Fail</td>
-                <td>More info</td>
-            </tr>
-        </table>
-    </div>
+ 
 </div>
