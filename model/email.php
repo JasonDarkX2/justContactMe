@@ -27,7 +27,14 @@ Class Email{
       self::$email['headers']=$headerIndex;
       self::$email['attachments']=$attachments;
     }
-    
+    function createLogEntry( $isError){
+        $date= new DateTime();
+        $log= Array(
+            'sender'=>self::$email['name'],
+            'status'=>'success',
+            'date' => $date->format(' l\, F d\, Y g:ia')
+        );
+    }
     function sendmail(){
         
         $status=wp_mail( self::$email['to'], self::$email['subject'], self::$email['message'], self::$email['headers'], self::$email['attachments'] );

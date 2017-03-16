@@ -44,9 +44,11 @@ $mail->createEmail($to,$name,$email,$subject,$message, $headers,$mailAttachment)
 }
 if($mail->sendmail()==TRUE){
     echo  '<label id="success" class="successmsg"> Message Successfully Sent</label>';
+    $mail->createLogEntry();
 }
 else{
       echo  '<label id="success" class="failedmsg"> Unable to Sent Message, please try again later</label>';
+      $mail->createLogEntry(true);
 }
 ?>
 
