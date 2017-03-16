@@ -29,11 +29,19 @@ Class Email{
     }
     function createLogEntry( $isError){
         $date= new DateTime();
+        $status=($isError==TRUE)  ?  'Send Failed'  : ' Send Success';
         $log= Array(
             'sender'=>self::$email['name'],
-            'status'=>'success',
+            'address'=>self::$email['from'],
+            'status'=> $status,
             'date' => $date->format(' l\, F d\, Y g:ia')
         );
+        if($isError){
+            $elog=get_option('errorLog');
+            array_push($elog, $log);
+            update_option('errorLog',$elog);
+        }
+        return $log;
     }
     function sendmail(){
         
