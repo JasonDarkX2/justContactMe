@@ -55,6 +55,8 @@ class SimplyAjaxContacted {
           register_setting('sac-setting', 'messageBody');
            register_setting('sac-setting', 'whiteListLog');
            register_setting('sac-setting', 'blackListLog');
+           register_setting('sac-setting', 'mailLog');
+           register_setting('sac-setting', 'errorLog');
           $bodymsg=get_option('messageBody');
           if(empty($bodymsg)){
               update_option('messageBody','[senderMessage]');
@@ -75,6 +77,14 @@ class SimplyAjaxContacted {
         if (empty($to) && empty($from)) {
             update_option('toAddress', get_option('admin_email'));
             update_option('fromAddress', 'wordpress');
+        }
+         $newLog= Array();
+         array_pop($newLog);
+        if(empty(get_option('errorLog'))){
+         update_option('errorLog',$newLog);
+        }
+               if(empty(get_option('mailLog'))){
+         update_option('mailLog',$newLog);
         }
     }
 
