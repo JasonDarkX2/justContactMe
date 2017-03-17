@@ -32,8 +32,8 @@ if($mail->sendmail()){
     echo'<span class="successmsg">test mail sent suceeded</span>';
     }
 }else{
-  
     echo '<span class="error">test mail sent failed</span>';
+    $log=$mail->createLogEntry(true);
 }
 }else{
 If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
