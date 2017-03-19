@@ -24,12 +24,14 @@
             <th>Status</th>
             <th>Options</th>
             </tr>
+            <?php foreach( get_option('mailLog') as $entry): ?>
             <tr>
-                <td> March, 10,2017</td>
-                <td>Johdoe@domain.com</td>
-                <td> Send Fail</td>
+                <td> <?php echo $entry['date']; ?></td>
+                <td><?php echo $entry['sender'] . '(' .$entry['address'] . ')' ; ?></td>
+                <td> <?php echo $entry['status']; ?></td>
                 <td>More info</td>
             </tr>
+            <?php endforeach; ?>
         </table>
 
  </div>
@@ -54,14 +56,16 @@
             <th>Status</th>
             <th>Options</th>
             </tr>
-            <?php foreach( get_option('errorLog') as $entry): ?>
+            <?php foreach( get_option('mailLog') as $entry): 
+                if ($entry['isError']==TRUE){ ?>
             <tr>
+                
                 <td> <?php echo $entry['date']; ?></td>
                 <td><?php echo $entry['sender'] . '(' .$entry['address'] . ')' ; ?></td>
                 <td> <?php echo $entry['status']; ?></td>
                 <td>More info</td>
             </tr>
-            <?php endforeach; ?>
+                <?php } endforeach; ?>
         </table>
  </div>
  </div>

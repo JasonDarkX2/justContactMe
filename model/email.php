@@ -34,13 +34,12 @@ Class Email{
             'sender'=>self::$email['name'],
             'address'=>self::$email['from'],
             'status'=> $status,
+            'isError'=>  $isError,
             'date' => $date->format(' l\, F d\, Y g:ia')
         );
-        if($isError){
-            $elog=get_option('errorLog');
+            $elog=get_option('mailLog');
             array_push($elog, $log);
-            update_option('errorLog',$elog);
-        }
+            update_option('mailLog',$elog);
         return $log;
     }
     function sendmail(){
