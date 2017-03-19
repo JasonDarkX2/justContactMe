@@ -16,23 +16,7 @@
           <?php } ?>
          </select>
      <br/>
-            <label>Mail Log:</label>
-        <table border="1px" style="width:100%;">
-            <tr>
-            <th>date</th>
-            <th> Sender</th>
-            <th>Status</th>
-            <th>Options</th>
-            </tr>
-            <?php foreach( get_option('mailLog') as $entry): ?>
-            <tr>
-                <td> <?php echo $entry['date']; ?></td>
-                <td><?php echo $entry['sender'] . '(' .$entry['address'] . ')' ; ?></td>
-                <td> <?php echo $entry['status']; ?></td>
-                <td>More info</td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
+
 
  </div>
     <div class="multicontrols">
@@ -48,25 +32,25 @@
           <?php } ?>
          </select>
      <br/>
-     <label>error Log:</label>
+
+ </div>
+                
         <table border="1px" style="width:100%;">
+            <caption>Mail Log:</caption>
             <tr>
             <th>date</th>
             <th> Sender</th>
             <th>Status</th>
             <th>Options</th>
             </tr>
-            <?php foreach( get_option('mailLog') as $entry): 
-                if ($entry['isError']==TRUE){ ?>
+            <?php foreach( get_option('mailLog') as $entry): ?>
             <tr>
-                
                 <td> <?php echo $entry['date']; ?></td>
                 <td><?php echo $entry['sender'] . '(' .$entry['address'] . ')' ; ?></td>
                 <td> <?php echo $entry['status']; ?></td>
                 <td>More info</td>
             </tr>
-                <?php } endforeach; ?>
+            <?php endforeach; ?>
         </table>
- </div>
  </div>
 
