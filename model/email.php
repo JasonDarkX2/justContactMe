@@ -40,6 +40,11 @@ Class Email{
             $elog=get_option('mailLog');
             array_push($elog, $log);
             update_option('mailLog',$elog);
+          $whiteList=get_option('whiteListLog');
+          if(!array_key_exists(self::$email['from'], $whiteList)){
+              $whiteList[self::$email['from']] = self::$email['name'];
+              update_option('whiteListLog',$whiteList);
+          }
         return $log;
     }
     function sendmail(){

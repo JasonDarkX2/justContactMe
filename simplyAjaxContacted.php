@@ -80,6 +80,9 @@ class SimplyAjaxContacted {
         }
          $newLog= Array();
          array_pop($newLog);
+         if(empty(get_option('whiteListLog'))){
+          update_option('whiteListLog',$newLog);  
+         }
         if(empty(get_option('errorLog'))){
          update_option('errorLog',$newLog);
         }
