@@ -1,6 +1,16 @@
 var changes=false;
 var saved=false;
 jQuery('document').ready(function(e){
+    if(typeof(localStorage['currentTab']) != "undefined"){
+        var panel=localStorage['currentTab'];
+jQuery('.active').removeClass("active");
+                        jQuery(panel.replace("Settings","")).addClass("active"); 
+                        jQuery('.panelSection').each(function(){
+                            jQuery(this).hide();
+                        });
+                         jQuery(panel).show();
+
+    }
  jQuery('input,textarea').change(function() {
     changes=true;
     jQuery('#msg').html('<span class="error blink">You have unsaved changes</span>');
@@ -128,6 +138,7 @@ jQuery('#sac-options').validate({
                       jQuery('.panelSection').each(function(){
                             jQuery(this).hide();
                         });
+                        localStorage['currentTab'] =panel;
                         jQuery(panel).show();
                           jQuery('#msg').html('');
                     }
