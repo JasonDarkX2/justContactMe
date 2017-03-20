@@ -11,12 +11,11 @@
  <div class="halfPanel">
      <label>Contacts Address</label>
      <select id="whiteListedLog" name="whitelist[ ]" multiple>
-          <?php  foreach (get_option('whiteListLog') as $wl) { ?>
-           <option value="<?php echo $wl; ?>"> <?php echo $wl; ?></option>
+          <?php  foreach (get_option('whiteListLog') as $email => $name) { ?>
+           <option value="<?php echo $wl; ?>"> <?php echo $name.'('. $email . ')'; ?></option>
           <?php } ?>
          </select>
      <br/>
-
 
  </div>
     <div class="multicontrols">
