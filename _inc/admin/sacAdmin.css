@@ -89,7 +89,7 @@ border: solid 1px red !important;
 .halfPanel{
     width:50%;
    float:left;
-    display:block;
+    display:inline-block;
 }
 .previewBox{
     margin-left:30px; border: solid 1px; display:block;
@@ -101,7 +101,10 @@ input,textarea{
      padding:0; margin:0;
 }
 
-@media screen and (max-width: 800px) {
+@media  screen and(max-width: 800px) {
+    .multicontrols{
+        clear:both;
+    }
 .halfPanel{
     width:100%;
     float: none;
