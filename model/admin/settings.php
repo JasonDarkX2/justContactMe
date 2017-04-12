@@ -21,7 +21,7 @@ class AdminSettings {
     }
 
     function setTheme($theme) {
-        update_option('formtheme', $theme);
+        update_option('formTheme', $theme);
     }
 function setMessageBody($message){
     if( empty($message)){
@@ -125,7 +125,7 @@ function getFormPreview(){
             'size' => $size
         ];
         update_option('reCaptchaConfig', $config);
-        echo '<span class="successmsg"> Settings Saved</span>';
+        
     }
 
     function setAddress($Address, $setFrom, $fromName="wordpress") {

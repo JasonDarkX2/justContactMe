@@ -36,12 +36,14 @@ if($mail->sendmail()){
     $log=$mail->createLogEntry(true);
 }
 }else{
+
 If(filter_var($_POST['toAddress'], FILTER_VALIDATE_EMAIL)){
     $AdminSettings->setAddress($_POST['toAddress'],FALSE);
 }else{
     echo'<span class="error">Not a valid To Address</span>';
     die();
 }
+
 $fromAddress= $_POST['fromAddress'];
 $fromName= $_POST['fromName'];
 If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='localhost' ){
@@ -50,6 +52,7 @@ If(filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||$_SERVER['HTTP_HOST']=='loc
         echo '<span class="error">Not a valid from  Address</span>';
     die();
 }
+
 if(isset($_POST['copyAddress'])&& !empty($_POST['copyAddress'])){
    $string= explode(':', $_POST['copyAddress']);
    $copyAction= substr($string[0],0,3) .':';
@@ -60,6 +63,8 @@ if(isset($_POST['copyAddress'])&& !empty($_POST['copyAddress'])){
        echo '<span class="error">Please use proper format for Cc/Bcc address, for exampe: Cc:emailAddress</span>';  
        die();
    }
+}
+ 
    if(isset($_POST['formTheme'])){
        $AdminSettings->setTheme($_POST['formTheme']);
    }
@@ -71,7 +76,7 @@ if(isset($_POST['copyAddress'])&& !empty($_POST['copyAddress'])){
        if(!empty($css))
     $AdminSettings->setCustomCss(NULL);   
    }
-}
+
 if($_POST['attachment']==='true'){
     $AdminSettings->setAttachment(TRUE);
     $AdminSettings->setAttachmentOptions($_POST['fileType'], $_POST['fileSize']);
@@ -99,4 +104,8 @@ $AdminSettings->setMessageBody($_POST['messageBody']);
 if(isset($_POST['whitelist']) || isset($_POST['blacklist'])){
     $AdminSettings->setWhiteListContact($_POST['whitelist']);
     $AdminSettings->setBlackListContact($_POST['blacklist']);
+}
+
+if($iserror==FALSE){
+    echo '<span class="successmsg"> Settings Saved</span>';
 }
