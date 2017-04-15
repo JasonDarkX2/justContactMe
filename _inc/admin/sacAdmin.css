@@ -34,7 +34,6 @@
 }
 .section h1 {
     display:box;
-    //background-color:;
    border-bottom:  1px solid red;
 }
 .sacAdminBody input[type=submit]:hover, .sacAdminBody input[type=submit]:focus {

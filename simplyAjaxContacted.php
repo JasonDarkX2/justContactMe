@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /*
   Plugin Name: Simply AJAX Contacted
