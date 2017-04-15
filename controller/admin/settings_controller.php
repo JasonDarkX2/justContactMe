@@ -32,6 +32,7 @@ if($mail->sendmail()){
     echo'<span class="successmsg">test mail sent suceeded</span>';
     }
 }else{
+    $iserror=TRUE;
     echo '<span class="error">test mail sent failed</span>';
     $log=$mail->createLogEntry(true);
 }
@@ -70,7 +71,8 @@ if(isset($_POST['copyAddress'])&& !empty($_POST['copyAddress'])){
    }
    $customCSS=$_POST['customCSS'];
    if(isset($customCSS)&&!ctype_space($customCSS)){
-       $AdminSettings->setCustomCSS($customCSS);
+       if(strcmp($customCSS,get_option('customCss'))!==0)
+            $AdminSettings->setCustomCSS($customCSS);
    }else{
        $css= get_option('customCss');
        if(!empty($css))
