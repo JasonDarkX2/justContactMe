@@ -15,6 +15,10 @@ if(!$data->{'success'}){
       die();
 }
 }
+$blackList=get_option('blackListLog');
+if(array_key_exists($_POST['from'], $blackList)){
+   $sendOK=FALSE; 
+}
 $mail= new Email();
 $to=get_option('toAddress');
 $name =preg_replace('/[^A-Za-z0-9\-]/', '',$_POST['cname']);
