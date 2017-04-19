@@ -83,6 +83,9 @@ class SimplyAjaxContacted {
          if(empty(get_option('whiteListLog'))){
           update_option('whiteListLog',$newLog);  
          }
+          if(empty(get_option('blackListLog'))){
+          update_option('blackListLog',$newLog);  
+         }
         if(empty(get_option('errorLog'))){
          update_option('errorLog',$newLog);
         }

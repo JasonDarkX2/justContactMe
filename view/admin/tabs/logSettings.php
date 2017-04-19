@@ -12,7 +12,7 @@
      <label>Contacts Address</label>
      <select id="whiteListedLog" name="whitelist[ ]" multiple>
           <?php  foreach (get_option('whiteListLog') as $email => $name) { ?>
-           <option value="<?php echo $wl; ?>"> <?php echo $name.'('. $email . ')'; ?></option>
+           <option value="<?php echo $email; ?>"> <?php echo $name.'('. $email . ')'; ?></option>
           <?php } ?>
          </select>
      <br/>
