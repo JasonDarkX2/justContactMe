@@ -12,7 +12,7 @@
      <label>Contacts Address</label>
      <select id="whiteListedLog" name="whitelist[ ]" multiple>
           <?php  foreach (get_option('whiteListLog') as $email => $name) { ?>
-           <option value="<?php echo $email; ?>"> <?php echo $name.'('. $email . ')'; ?></option>
+           <option value="<?php echo $name. ':'.$email; ?>"> <?php echo $name.'('. $email . ')'; ?></option>
           <?php } ?>
          </select>
      <br/>
@@ -26,8 +26,8 @@
  <div class="halfPanel">
      <label> BlackList</label>
        <select id="blackListedLog" name="blacklist[ ]" multiple>
-          <?php  foreach (get_option('blackListLog') as $bl) { ?>
-           <option value="<?php echo $bl; ?>"> <?php echo $bl; ?></option>
+          <?php  foreach (get_option('blackListLog') as $bl=> $name) { ?>
+           <option value="<?php echo $name.':'.$bl; ?>"> <?php echo $name. '('.$bl .')'; ?></option> 
           <?php } ?>
          </select>
      <br/>

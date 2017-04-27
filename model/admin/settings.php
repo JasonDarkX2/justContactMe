@@ -151,6 +151,11 @@ function setWhiteListContact($list){
 } 
 
 function setBlackListContact($list){
-    update_option('blackListLog',$list);
+    $blackList=array();
+    foreach($list as $contact){
+     $result=split(":",$contact);
+     $blackList[$result[1]]=$result[0];
+    }
+    update_option('blackListLog',$blackList);
 } 
 }
