@@ -147,15 +147,34 @@ function getFormPreview(){
         }
     }
 function setWhiteListContact($list){
-    update_option('logWhitelist',$list);
+    if (!empty($list)) {
+            $whiteList = array();
+            foreach ($list as $contact) {
+                $result = split(":", $contact);
+                $blackList[$result[1]] = $result[0];
+                update_option('whiteListLog', $whiteList);
+            
+            }
+        }
+        else{
+                update_option('whiteListLog', $list);
+        }
 } 
 
-function setBlackListContact($list){
-    $blackList=array();
-    foreach($list as $contact){
-     $result=split(":",$contact);
-     $blackList[$result[1]]=$result[0];
+function setBlackListContact($list) {
+    
+        if (!empty($list)) {
+            $blackList = array();
+            foreach ($list as $contact) {
+                $result = split(":", $contact);
+                $blackList[$result[1]] = $result[0];
+                update_option('blackListLog', $blackList);
+            
+            }
+        }
+        else{
+                update_option('blackListLog', $list);
+                
     }
-    update_option('blackListLog',$blackList);
-} 
+}
 }
