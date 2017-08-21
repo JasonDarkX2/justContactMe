@@ -31,7 +31,9 @@ Class Email{
         $date= new DateTime();
         $mailLog=get_option('mailLog');
         $status=($isError==TRUE)  ?  'Send Failed'  : ' Send Success';
-        if(!array_key_exists(self::$email['from'],$mailLog)){
+        $entrydate= new DateTime($mailLog[self::$email['from']]['date']);        
+        if(!array_key_exists(self::$email['from'],$mailLog)
+                && $entrydate->format('md')!= $date->format('md')){
         $log[self::$email['from']]= Array(
             'sender'=>self::$email['name'],
             'address'=>self::$email['from'],
