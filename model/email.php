@@ -29,17 +29,31 @@ Class Email{
     }
     function createLogEntry( $isError){
         $date= new DateTime();
+        $mailLog=get_option('mailLog');
         $status=($isError==TRUE)  ?  'Send Failed'  : ' Send Success';
-        $log= Array(
+        if(!array_key_exists(self::$email['from'],$mailLog)){
+        $log[self::$email['from']]= Array(
             'sender'=>self::$email['name'],
             'address'=>self::$email['from'],
             'status'=> $status,
+            'attempts' => 1,
             'isError'=>  $isError,
             'date' => $date->format(' l\, F d\, Y g:ia')
         );
-            $elog=get_option('mailLog');
-            array_push($elog, $log);
+            if(!empty($mailLog)){
+            array_push($mailLog, $log);
             update_option('mailLog',$elog);
+    }else {
+             update_option('mailLog',$log);   
+            }
+    } else {
+        $mailLog[self::$email['from']]['date']=$date->format(' l\, F d\, Y g:ia');
+        $mailLog[self::$email['from']]['attempts']++;
+        update_option('mailLog',$mailLog);
+        
+        
+        
+    }
           $whiteList=get_option('whiteListLog');
           if(!array_key_exists(self::$email['from'], $whiteList)){
               $whiteList[self::$email['from']] = self::$email['name'];
@@ -69,4 +83,6 @@ Class Email{
    return stripslashes($messageWrap);
     }
     
-}
+   }
+
+
