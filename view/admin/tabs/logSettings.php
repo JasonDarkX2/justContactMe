@@ -40,13 +40,15 @@
             <th>date</th>
             <th> Sender</th>
             <th>Status</th>
+            <th>Attempts</th>
             <th>Options</th>
             </tr>
-            <?php foreach( get_option('mailLog') as $entry): ?>
+            <?php foreach( get_option('mailLog') as $i=>$entry): ?>
             <tr>
                 <td> <?php echo $entry['date']; ?></td>
-                <td><?php echo $entry['sender'] . '(' .$entry['address'] . ')' ; ?></td>
+                <td><?php echo $entry['sender'] . '(' .$i . ')' ; ?></td>
                 <td> <?php echo $entry['status']; ?></td>
+                <td> <?php echo $entry['attempts']; ?></td>
                 <td>More info</td>
             </tr>
             <?php endforeach; ?>
