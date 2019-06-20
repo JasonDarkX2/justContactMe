@@ -55,5 +55,3 @@ else{
       $mail->createLogEntry(true);
 }
 ?>
-
-

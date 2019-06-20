@@ -1,5 +1,4 @@
  <?php
-
 /*
   Plugin Name: Simply AJAX Contacted
   Plugin URI: http://www.jasondarkx2.com
@@ -9,8 +8,7 @@
   Author URI:http://www.jasondarkx2.com
  */
 ?>
-<?php
-
+ <?php
 require_once( plugin_dir_path(__FILE__) . 'model/admin/settings.php');
 class SimplyAjaxContacted {
 

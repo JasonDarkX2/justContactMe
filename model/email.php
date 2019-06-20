@@ -1,5 +1,4 @@
 <?php
-
 $url= explode('plugin',$_SERVER['SCRIPT_FILENAME']);
 require_once dirname($url[0])  . '/wp-load.php';
 Class Email{
@@ -86,5 +85,3 @@ Class Email{
     }
     
    }
-
-
