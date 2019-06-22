@@ -22,7 +22,9 @@ class SimplyAjaxContacted {
         define('MY_PLUGIN_PATH', plugin_dir_path(__FILE__));
         define('attachmentSizeLimit',self::$settings->getAttachmentSizeLimit());
         define('fileExtension',self::$settings->getAttachmentExtension());
-        add_action('admin_enqueue_scripts', array(__CLASS__, 'addAdminScripts'));
+        if(is_admin()) {
+            add_action('admin_enqueue_scripts', array(__CLASS__, 'addAdminScripts'));
+        }
                if ($from = get_option('fromAddress') != NULL) {
                   add_filter( 'wp_mail_from', function( $email ) {
 	return get_option('fromAddress');
@@ -102,7 +104,6 @@ class SimplyAjaxContacted {
         wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
         wp_enqueue_script('sac-validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
         wp_enqueue_script('sac-validatex', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js', array('jquery'));
-        wp_enqueue_script('sac-reCaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'));
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
             'sizeLimit' =>attachmentSizeLimit);
@@ -114,7 +115,6 @@ class SimplyAjaxContacted {
         wp_enqueue_style('sac-style', plugins_url('_inc/min/SimplyAjaxContacted.min.css', __FILE__));
         wp_enqueue_script('sac-validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
            wp_enqueue_script('sac-validatex', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js', array('jquery'));
-        wp_enqueue_script('sac-reCaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'));
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
             'sizeLimit' => attachmentSizeLimit);
@@ -141,7 +141,8 @@ class SimplyAjaxContacted {
 
     function contactFormView() {
         Define('inimsg', self::$settings->getAttachmentInitialMsg());
-        add_action('wp_footer', array(__CLASS__, 'add_Scripts'));
+        add_action('wp_head', 'recaptchaScript');
+        add_action('wp_footer', array(__CLASS__, 'addMinifiedScripts'));
         ob_start();
         include (plugin_dir_path(__FILE__) . '/view/contactForm.php');
         $output = ob_get_contents();

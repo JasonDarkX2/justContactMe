@@ -1,9 +1,9 @@
- jQuery(document).ready(function(e) {
+ $(document).ready(function(e) {
      var msg=controller.extensions;
      if(msg){
       msg = controller.extensions.replace(/\|/g,'|.');
          }
-        jQuery('#contactForm').validate({
+        $('#contactForm').validate({
         rules: {
             cname: {
                 required: true,
@@ -45,24 +45,24 @@
                         url: controller.emailController,
                         data: e(form).serialize(),
                         success: function(data){
-                           jQuery('#success').html(data);
+                           $('#success').html(data);
                         },
         });
     }
     });
 });
- jQuery('#sacAttachment').click(function(){
-jQuery('#file').click();
+ $('#sacAttachment').click(function(){
+$('#file').click();
  });
 function ChangeText(fileInput, targetId) {
-       jQuery(targetId).attr('value', fileInput.value);
-  if(! jQuery(targetId).valid()){
-      jQuery(targetId).attr('value', '');
+       $(targetId).attr('value', fileInput.value);
+  if(! $(targetId).valid()){
+      $(targetId).attr('value', '');
   }
   if(fileInput.files[0].size>=controller.sizeLimit){
-     jQuery(targetId).attr('value', '');
+     $(targetId).attr('value', '');
      var limit= (controller.sizeLimit / (1024*1024));
-     jQuery(targetId).addClass('error');
-     jQuery(targetId).attr('placeholder', 'Error: The file was larger than '+ limit + 'MB');
+     $(targetId).addClass('error');
+     $(targetId).attr('placeholder', 'Error: The file was larger than '+ limit + 'MB');
   }
 }

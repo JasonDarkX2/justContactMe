@@ -16,6 +16,7 @@
 <?php endif;?>
 
     <?php if(get_option('reCaptchaEnabled')==TRUE): ?>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <div class="g-recaptcha" data-sitekey="<?php echo get_option('siteKey'); ?>"
          <?php $config=  get_option('reCaptchaConfig');
                     foreach($config as $i =>$v){

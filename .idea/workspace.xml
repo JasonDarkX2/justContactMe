@@ -50,13 +50,32 @@
       <file leaf-file-name="simplyAjaxContacted.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/simplyAjaxContacted.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="133" column="48" selection-start-line="133" selection-start-column="48" selection-end-line="133" selection-end-column="48" />
+            <state relative-caret-position="482">
+              <caret line="139" column="6" selection-start-line="139" selection-start-column="6" selection-end-line="139" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simplyAjaxContacted.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_inc/simplyAjaxContacted.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>contactFormView</find>
+      <find>jQuery</find>
+      <find>add</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>$</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,6 +86,7 @@
         <option value="$PROJECT_DIR$/controller/email_controller.php" />
         <option value="$PROJECT_DIR$/model/email.php" />
         <option value="$PROJECT_DIR$/model/admin/settings.php" />
+        <option value="$PROJECT_DIR$/_inc/simplyAjaxContacted.js" />
         <option value="$PROJECT_DIR$/simplyAjaxContacted.php" />
       </list>
     </option>
@@ -102,6 +122,11 @@
             <path>
               <item name="SimplyAJAXContacted" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimplyAJAXContacted" type="462c0819:PsiDirectoryNode" />
+              <item name="_inc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimplyAJAXContacted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimplyAJAXContacted" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -120,6 +145,11 @@
               <item name="SimplyAJAXContacted" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimplyAJAXContacted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimplyAJAXContacted" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -156,12 +186,12 @@
       <option name="presentableId" value="Default" />
       <updated>1560989451149</updated>
       <workItem from="1560989452288" duration="841000" />
-      <workItem from="1561232920673" duration="1115000" />
+      <workItem from="1561232920673" duration="4561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1956000" />
+    <option name="totallyTimeSpent" value="5402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="11" width="1980" height="1097" extended-state="0" />
@@ -258,10 +288,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_inc/simplyAjaxContacted.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/simplyAjaxContacted.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="133" column="48" selection-start-line="133" selection-start-column="48" selection-end-line="133" selection-end-column="48" />
+        <state relative-caret-position="482">
+          <caret line="139" column="6" selection-start-line="139" selection-start-column="6" selection-end-line="139" selection-end-column="6" />
         </state>
       </provider>
     </entry>
