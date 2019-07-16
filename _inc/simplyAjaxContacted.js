@@ -1,4 +1,8 @@
- $(document).ready(function(e) {
+/*! simplyAjaxContacted Plugin - v1.xx.xx - 7/15/2019
+ * https://jasondarkx2.com/
+ * https://github.com/JasonDarkX2/SimplyAJAXContacted
+ * Copyright (c) 2019 JasonDarkX2;*/
+$(document).ready(function(e) {
      var msg=controller.extensions;
      if(msg){
       msg = controller.extensions.replace(/\|/g,'|.');

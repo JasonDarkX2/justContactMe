@@ -102,8 +102,7 @@ class SimplyAjaxContacted {
 
     static function add_scripts($hook) {
         wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
-        wp_enqueue_script('sac-validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
-        wp_enqueue_script('sac-validatex', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js', array('jquery'));
+        SimplyAjaxContacted::addValidateScripts();
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
             'sizeLimit' =>attachmentSizeLimit);
@@ -113,8 +112,7 @@ class SimplyAjaxContacted {
 
     static function addMinifiedScripts($hook) {
         wp_enqueue_style('sac-style', plugins_url('_inc/min/SimplyAjaxContacted.min.css', __FILE__));
-        wp_enqueue_script('sac-validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
-           wp_enqueue_script('sac-validatex', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js', array('jquery'));
+        SimplyAjaxContacted::addValidateScripts();
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
             'sizeLimit' => attachmentSizeLimit);
@@ -131,7 +129,19 @@ class SimplyAjaxContacted {
         $controllers = array('settingsController' => plugins_url('controller/admin/settings_controller.php', __FILE__));
         wp_enqueue_script('sacAdmin-script', plugins_url('_inc/admin/sacAdmin.js', __FILE__));
         wp_localize_script('sacAdmin-script', 'controller', $controllers);
-        wp_enqueue_script('sac-validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array('jquery'));
+        wp_enqueue_script('sac-validate', plugins_url('_inc/jqueryValidate/jquery.validate.min.js',__FILE__));
+    }
+
+     static  function addValidateScripts(){
+        $handle = 'jquery.validate.min.js';
+        $list = 'enqueued';
+        if (wp_script_is( $handle, $list )) {
+            return;
+        } else {
+            wp_enqueue_script('sac-validate', plugins_url('_inc/jqueryValidate/jquery.validate.min.js',__FILE__));
+            wp_enqueue_script('sac-validatex', plugins_url('_inc/jqueryValidate/additional-methods.min.js',__FILE__));
+        }
+
     }
 
     function adminView() {
