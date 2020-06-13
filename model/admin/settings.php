@@ -150,7 +150,7 @@ function setWhiteListContact($list){
     if (!empty($list)) {
             $whiteList = array();
             foreach ($list as $contact) {
-                $result = split(":", $contact);
+                $result = preg_split(":", $contact);
                 $blackList[$result[1]] = $result[0];
                 update_option('whiteListLog', $whiteList);
             
@@ -166,7 +166,7 @@ function setBlackListContact($list) {
         if (!empty($list)) {
             $blackList = array();
             foreach ($list as $contact) {
-                $result = split(":", $contact);
+                $result = preg_split(":", $contact);
                 $blackList[$result[1]] = $result[0];
                 update_option('blackListLog', $blackList);
             
