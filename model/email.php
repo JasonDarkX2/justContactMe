@@ -43,7 +43,7 @@ Class Email{
         );
             if(!empty($mailLog)){
             array_push($mailLog, $log);
-            update_option('mailLog',$elog);
+            update_option('mailLog',$mailLog);
     }else {
              update_option('mailLog',$log);   
             }

@@ -13,17 +13,6 @@
       <executable />
     </execution>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>contactFormView</find>
-      <find>add</find>
-      <find>jQuery</find>
-      <find>add_scr</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>$</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -33,6 +22,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -71,7 +61,9 @@
       <workItem from="1562281403368" duration="668000" />
       <workItem from="1562295150844" duration="224000" />
       <workItem from="1563241488714" duration="3559000" />
-      <workItem from="1592086796048" duration="75000" />
+      <workItem from="1592086796048" duration="690000" />
+      <workItem from="1592363172335" duration="16000" />
+      <workItem from="1593596136172" duration="673000" />
     </task>
     <servers />
   </component>
@@ -83,7 +75,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

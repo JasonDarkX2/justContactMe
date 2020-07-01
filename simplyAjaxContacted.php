@@ -30,10 +30,9 @@ class SimplyAjaxContacted {
 	return get_option('fromAddress');
 });
         }
-        if($fromName =get_option('formName')!=NULL){
-                add_filter('wp_mail_from_name',function($name){
-                    return $fromName;
-                });
+        $fromName =get_option('formName');
+        if($fromName!=NULL){
+                add_filter('wp_mail_from_name',$fromName);
         }
     }
 
