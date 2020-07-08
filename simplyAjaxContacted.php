@@ -160,4 +160,4 @@ class SimplyAjaxContacted {
     }
 
 }
-SimplyAjaxContacted::init();
+(new SimplyAjaxContacted)->init();
