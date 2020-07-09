@@ -100,7 +100,7 @@ class SimplyAjaxContacted {
     }
 
     static function add_scripts($hook) {
-        wp_enqueue_style('sac-style', './_inc/SimplyAjaxContacted.css');
+        wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
         SimplyAjaxContacted::addValidateScripts();
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
@@ -110,7 +110,7 @@ class SimplyAjaxContacted {
     }
 
     static function addMinifiedScripts($hook) {
-        wp_enqueue_style('sac-style', plugins_url('_inc/min/SimplyAjaxContacted.min.css', __FILE__));
+        wp_enqueue_style('sac-style', './_inc/min/SimplyAjaxContacted.min.css');
         SimplyAjaxContacted::addValidateScripts();
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
