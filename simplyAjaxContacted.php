@@ -110,7 +110,8 @@ class SimplyAjaxContacted {
     }
 
     static function addMinifiedScripts($hook) {
-        wp_enqueue_style('sac-style', './_inc/min/SimplyAjaxContacted.min.css');
+        wp_enqueue_style('sac-style', plugins_url('_inc/min/simplyAjaxContacted.min.css', __FILE__));
+
         SimplyAjaxContacted::addValidateScripts();
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
