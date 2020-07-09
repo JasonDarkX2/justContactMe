@@ -100,12 +100,12 @@ class SimplyAjaxContacted {
     }
 
     static function add_scripts($hook) {
-        wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
+        wp_enqueue_style('sac-style', plugins_url('_inc/simplyAjaxContacted.css', __FILE__));
         SimplyAjaxContacted::addValidateScripts();
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
             'sizeLimit' =>attachmentSizeLimit);
-        wp_enqueue_script('sac-script', plugins_url('_inc/SimplyAjaxContacted.js', __FILE__));
+        wp_enqueue_script('sac-script', plugins_url('_inc/aimplyAjaxContacted.js', __FILE__));
         wp_localize_script('sac-script', 'controller', $controllers);
     }
 
@@ -116,7 +116,7 @@ class SimplyAjaxContacted {
         $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
             'extensions' => fileExtension,
             'sizeLimit' => attachmentSizeLimit);
-        wp_enqueue_script('sac-script', plugins_url('_inc/min/SimplyAjaxContacted.min.js', __FILE__));
+        wp_enqueue_script('sac-script', plugins_url('_inc/min/simplyAjaxContacted.min.js', __FILE__));
         wp_localize_script('sac-script', 'controller', $controllers);
     }
 
@@ -124,7 +124,7 @@ class SimplyAjaxContacted {
         if ($hook != 'settings_page_sacMenu') {
             return;
         }
-        wp_enqueue_style('sac-style', plugins_url('_inc/SimplyAjaxContacted.css', __FILE__));
+        wp_enqueue_style('sac-style', plugins_url('_inc/simplyAjaxContacted.css', __FILE__));
         wp_enqueue_style('sacAdmin-style', plugins_url('_inc/admin/sacAdmin.css', __FILE__));
         $controllers = array('settingsController' => plugins_url('controller/admin/settings_controller.php', __FILE__));
         wp_enqueue_script('sacAdmin-script', plugins_url('_inc/admin/sacAdmin.js', __FILE__));
