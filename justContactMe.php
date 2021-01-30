@@ -94,7 +94,7 @@ class JustContactMe{
     }
 
     static function createAdminMenu() {
-        add_options_page('justContactMeSettings', 'SimplyAjaxContacted', 'manage_options', 'jcmMenu', array(__CLASS__, 'adminView'));
+        add_options_page('justContactMeSettings', 'Just Contact Me', 'manage_options', 'jcmMenu', array(__CLASS__, 'adminView'));
         //call register settings function
         add_action('admin_init', array(__CLASS__, 'registerSettings'));
     }
