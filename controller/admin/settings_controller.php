@@ -17,7 +17,7 @@ $to=get_option('admin_email');
 $name ="Test Mail";
 $email = get_option('admin_email');
 $message = "Simply a Test mail";
-$subject="Test  mail from SAC Plugin" ;
+$subject="Test  mail from jcm Plugin" ;
 $headers=array('placeholder');
 $attachments=NULL;
 if( isset($_GET['attachTest'])){

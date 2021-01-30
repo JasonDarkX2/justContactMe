@@ -1,5 +1,5 @@
-<h1>SimplyAJAXContacted Settings</h1>
-<div class="sacAdminBody">
+<h1>Just Contact Me Settings</h1>
+<div class="jcmAdminBody">
         <ul class="tab">
   <li><a href="#" class="tabLinks active" id="email">Email Settings</a></li>
   <li><a href="#" class="tabLinks" id="reCaptcha">Recaptcha Settings</a></li>
@@ -7,7 +7,7 @@
   <li><a href="#" class="tabLinks" id="log">Mail Log/BlackList</a></li>
 </ul>
 
-    <form id="sac-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
+    <form id="jcm-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
          <!--E-mail  section!-->
          <div id="emailSettings" class="panelSection">
             <?php include('tabs/emailSettings.php');?>

@@ -42,7 +42,7 @@ else{
      return true;
  }
 });
-jQuery('#sac-options').validate({
+jQuery('#jcm-options').validate({
          rules: {
             toAddress: {
                 required: true,

@@ -1,4 +1,4 @@
-/*! simplyAjaxContacted Plugin - v1.xx.xx - 7/15/2019
+/*! justContactMePlugin - v1.xx.xx - 7/15/2019
  * https://jasondarkx2.com/
  * https://github.com/JasonDarkX2/SimplyAJAXContacted
  * Copyright (c) 2019 JasonDarkX2;*/
@@ -55,7 +55,7 @@ $(document).ready(function(e) {
     }
     });
 });
- $('#sacAttachment').click(function(){
+ $('#jcmAttachment').click(function(){
 $('#file').click();
  });
 function ChangeText(fileInput, targetId) {

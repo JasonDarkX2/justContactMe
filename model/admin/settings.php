@@ -31,7 +31,7 @@ function setMessageBody($message){
     }
 }
     function setCustomCSS($CSS) {
-        $CSSFile = plugin_dir_path(dirname(dirname(__FILE__))) . '_inc/simplyAjaxContacted.css';
+        $CSSFile = plugin_dir_path(dirname(dirname(__FILE__))) . '_inc/justContactMe.css';
         $fileContent = file_get_contents($CSSFile);
         $CSS=stripslashes($CSS);
         $content = "\r\n/*CustomCSS*/\r\n" . $CSS . "\r\n/*end CustomCSS*/";

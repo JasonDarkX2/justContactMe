@@ -5,14 +5,14 @@
 <label id="field"><span class="noti">*</span>Subject:</label><input type="text" name="subject" class="ifield" maxlength="75" /><br/>
 <?php if(get_option('attachment')): ?>
 <label class="field">Attachment:</label>
- <input id="sacAttachment" type = "text" name="mailAttachment" value=""  placeholder="<?php echo  inimsg; ?>" class="ifield" >
+ <input id="jcmAttachment" type = "text" name="mailAttachment" value=""  placeholder="<?php echo  inimsg; ?>" class="ifield" >
 <?php endif;?>
 
 <label class="field"><span class="noti">*</span>Message:</label>
 <br/><textarea id="message" class="ifield" name="message" rows="15" cols="250"></textarea>
 <div id="success" ><span class="noti">*</span><span>Required fields</span> </div>
     <?php if(get_option('attachment')): ?>
-<input id = "file" type="file"  style="display:none;" name="mailAttachment" onchange="ChangeText(this, '#sacAttachment');"/>
+<input id = "file" type="file"  style="display:none;" name="mailAttachment" onchange="ChangeText(this, '#jcmAttachment');"/>
 <?php endif;?>
 
     <?php if(get_option('reCaptchaEnabled')==TRUE): ?>

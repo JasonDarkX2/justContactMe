@@ -24,7 +24,7 @@
 .toolTip:hover .toolTipText {
     visibility: visible;
 }
- .sacAdminBody{
+ .jcmAdminBody{
     margin: auto;
    width:70%;
     background-color: #fff;
@@ -36,7 +36,7 @@
     display:box;
    border-bottom:  1px solid red;
 }
-.sacAdminBody input[type=submit]:hover, .sacAdminBody input[type=submit]:focus {
+.jcmAdminBody input[type=submit]:hover, .jcmAdminBody input[type=submit]:focus {
     background: #356094;
     border: solid 1px #2A4E77;
     text-decoration: none;
@@ -44,7 +44,7 @@
     -moz-transition-duration: 0.2s;
     transition-duration: 0.2s;
 }
-.sacAdminBody input[type=submit]{
+.jcmAdminBody input[type=submit]{
 	clear:both;
     background: #4479BA;
     color: #FFF;
@@ -111,7 +111,7 @@ input,textarea{
 .previewBox{
 margin:0;
 }
- .sacAdminBody{
+ .jcmAdminBody{
    width:100%;
  }
 }
