@@ -9,12 +9,17 @@ jQuery('.active').removeClass("active");
                             jQuery(this).hide();
                         });
                          jQuery(panel).show();
+        jQuery(panel).find('form').attr('id','activeForm');
 
     }
  jQuery('input,textarea').change(function() {
     changes=true;
     jQuery('#msg').html('<span class="error blink">You have unsaved changes</span>');
 });
+    jQuery('input,textarea').on("change",function() {
+        changes=true;
+        jQuery(form).closest('#msg').html('<span class="error blink">You have unsaved changes</span>');
+    });
 jQuery("[name=reCaptchaEnabled]").change(function(){
     if(this.checked){
 jQuery("[name=siteKey]").prop('disabled', false);
@@ -42,69 +47,7 @@ else{
      return true;
  }
 });
-jQuery('#jcm-options').validate({
-         rules: {
-            toAddress: {
-                required: true,
-                email: true
-            },
-            fromAddress: {
-                required: true,
-                email: true
-            },
-            copyAddress:{
-                required: false,
-                regex: /^[BCbc][cC]*:/
-            },
-            siteKey:{
-                required: true,
-            },
-            secretKey:{
-                required: true,
-            },
-        },
-        messages: {
-            toAddress: "Please enter a valid  To Address.",
-            fromAddress: "Please enter a valid from address.",
-            copyAddress: "Please enter proper format eg: Cc: email@domain.com"
-        },
-            highlight: function(element, errorClass) {
-        jQuery(element).removeClass(errorClass);
-        jQuery(element).addClass('errorUI');
-        
-    },sucess: function(element){
-        jQuery(element).removeClass('errorUI');
-    },
-    unhighlight: function(element) {
-         jQuery(element).removeClass('errorUI');
-    },
-         errorElement: "span",
-          errorPlacement: function(error, element) {
-            error.insertAfter(element);
-        },
-         submitHandler: function(form) {
-             jQuery('#whiteListedLog option').prop('selected', true);
-             jQuery('#blackListedLog option').prop('selected', true);
-                e.ajax({
-                type: 'post',
-                        url: e(form).attr('action'),
-                        data: e(form).serialize(),
-                        success: function(data){
-                        notification = data;
-                               jQuery('#msg').html(notification);
-                               saved=true;
-                               changes=false;
-                               jQuery('#whiteListedLog option').prop('selected', false);
-                               jQuery('#blackListedLog option').prop('selected', false);
-                                },
-                        error: function(data)
-                                {
-                                     notification =data;
-                               jQuery('#msg').html(notification);
-                                        }
-                        });
-                    }
-                    });
+
                         jQuery(".TagClick").click(function(ex){               
        
     alert(jQuery(this).html());
@@ -124,9 +67,18 @@ jQuery('#jcm-options').validate({
                             jQuery('#msg').html(data);
                        });
                            
-                    });         
-                    
-                    jQuery('.tabLinks').click(function(ex){
+                    });
+    jQuery(".actionLink").click(function(ex){
+        ex.preventDefault();
+        //send
+        jQuery.get(jQuery(this).attr('href'),function(data,status){
+            jQuery('#msg').html(data);
+        });
+
+    });
+
+
+    jQuery('.tabLinks').click(function(ex){
                         ex.preventDefault();  
                         if(changes==true && saved==false){
                         jQuery('#msg').html('<span class="error blink">You have unsaved changes</span>');
@@ -134,12 +86,14 @@ jQuery('#jcm-options').validate({
                             saved=false;
                         var panel= '#' + jQuery(this).attr('id') + 'Settings';
                         jQuery('.active').removeClass("active");
-                        jQuery(this).addClass("active"); 
+                        jQuery(this).addClass("active");
+                        jQuery('#activeForm').removeAttr('id');
                       jQuery('.panelSection').each(function(){
                             jQuery(this).hide();
                         });
                         localStorage['currentTab'] =panel;
                         jQuery(panel).show();
+                        jQuery(panel).find('form').attr('id','activeForm');
                           jQuery('#msg').html('');
                     }
                     });
@@ -152,5 +106,52 @@ jQuery("#logRightBtn").click(function () {
     var selectedItem = jQuery(' #whiteListedLog option:selected');
     jQuery('#blackListedLog').append(selectedItem);
 });
+
+    jQuery("#domRightBtn").click(function () {
+        var selectedItem = jQuery(' #whiteListedLog option:selected');
+        var domain=selectedItem.text().match(/(?<=@)[a-z0-9]*.[a-z]*/);
+
+        if(jQuery('#blackListedDomainLog option[value="' + domain + '"]').length ==0) {
+            var newItem = jQuery('<option></option>');
+            newItem.text(domain);
+            newItem.attr('value', domain)
+            jQuery('#blackListedDomainLog').append(newItem);
+        }else{
+            alert('The selected domain is already Blacklisted');
+        }
+    });
+
+    jQuery(".removeEntry").click(function(){
+        var entry=jQuery(this).parent('div').find(':selected');
+        entry.remove();
+    });
+
+
+
+    jQuery(document).on('submit', '[id^="activeForm"]', function(e){
+        e.preventDefault();
+        jQuery('#whiteListedLog option').prop('selected', true);
+        jQuery('#blackListedLog option').prop('selected', true);
+        jQuery('#blackListedDomainLog option').prop('selected', true);
+        jQuery.ajax({
+            type: 'post',
+            url: jQuery(this).attr('action'),
+            data:  jQuery(this).serialize(),
+            success: function(data){
+                notification = data;
+                jQuery('#msg').html(notification);
+                saved=true;
+                changes=false;
+                jQuery('#whiteListedLog option').prop('selected', false);
+                jQuery('#blackListedLog option').prop('selected', false);
+            },
+            error: function(data)
+            {
+                notification =data;
+                jQuery('#msg').html(notification);
+            }
+        });
+    });
+
 });
 

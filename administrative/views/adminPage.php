@@ -7,7 +7,6 @@
   <li><a href="#" class="tabLinks" id="log">Mail Log/BlackList</a></li>
 </ul>
 
-    <form id="jcm-options" method="POST" action="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(__FILE__))); ?>">
          <!--E-mail  section!-->
          <div id="emailSettings" class="panelSection">
             <?php include('tabs/emailSettings.php');?>
@@ -28,11 +27,7 @@
              <?php include('tabs/logSettings.php');?>
          </div>
          <!--end of ContactForm section!-->
-         <div class="controlSection">
-                     <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
-                     <input type="submit" value="Save"/><span id="msg"></span>
-         </div>
-    </form>
+    <span id="msg"></span>
     <div>
     </div>
 </div>

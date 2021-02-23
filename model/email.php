@@ -30,37 +30,52 @@ Class Email{
         $date= new DateTime();
         $mailLog=get_option('mailLog');
         $status=($isError==TRUE)  ?  'Send Failed'  : ' Send Success';
-        $entrydate= new DateTime($mailLog[self::$email['from']]['date']);        
-        if(!array_key_exists(self::$email['from'],$mailLog)
-                && $entrydate->format('md')!= $date->format('md')){
-        $log[self::$email['from']]= Array(
-            'sender'=>self::$email['name'],
-            'address'=>self::$email['from'],
-            'status'=> $status,
-            'attempts' => 1,
-            'isError'=>  $isError,
-            'date' => $date->format(' l\, F d\, Y g:ia')
-        );
-            if(!empty($mailLog)){
-            array_push($mailLog, $log);
-            update_option('mailLog',$mailLog);
-    }else {
-             update_option('mailLog',$log);   
+
+            $logEntry[self::$email['from']] = Array(
+                'sender' => self::$email['name'],
+                'address' => self::$email['from'],
+                'status' => $status,
+                'attempts' => 1,
+                'isError' => $isError,
+                'date' => array($date->format('m/d/Y'))
+            );
+
+            if (empty($mailLog)) {
+                update_option('mailLog', $logEntry);
             }
-    } else {
-        $mailLog[self::$email['from']]['date']=$date->format(' l\, F d\, Y g:ia');
-        $mailLog[self::$email['from']]['attempts']++;
-        update_option('mailLog',$mailLog);
-        
-        
-        
-    }
+             elseif(!array_key_exists(self::$email['from'],$mailLog)){
+                array_push($mailLog, $logEntry);
+                update_option('mailLog', $mailLog);
+
+                }
+        if(array_key_exists(self::$email['from'],$mailLog)==True){
+            //date_add($date, date_interval_create_from_date_string('1 day'));
+                if(end($mailLog[self::$email['from']]['date']) == $date->format('m/d/Y')){
+                    if($mailLog[self::$email['from']]['status']!=$status){
+                        $mailLog[self::$email['from']]['status']=$status;
+                        update_option('mailLog', $mailLog);
+
+                    }
+                    $mailLog[self::$email['from']]['attempts']++;
+                    update_option('mailLog', $mailLog);
+                }
+                else{
+                    $mailLog[self::$email['from']]['attempts']++;
+                    array_push($mailLog[self::$email['from']]['date'],$date->format('m/d/Y'));
+                    update_option('mailLog', $mailLog);
+                }
+            }
+
+
+
+
           $whiteList=get_option('whiteListLog');
+
           if(!array_key_exists(self::$email['from'], $whiteList)){
               $whiteList[self::$email['from']] = self::$email['name'];
               update_option('whiteListLog',$whiteList);
           }
-        return $log;
+        return $logEntry;
     }
     function sendmail(){
         

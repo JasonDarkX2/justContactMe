@@ -1,9 +1,29 @@
 <?php
 
-class AdminSettings {
+class EmailSettings
+{
 
-    function __construct() {
-        
+    function __construct()
+    {
+
+    }
+    function setAddress($Address, $setFrom, $fromName="wordpress") {
+        if(!empty($fromName)){
+            update_option('fromName',$fromName);
+        }
+        if ($setFrom) {
+            if (empty($Address) || $Address == ' ') {
+                update_option('fromAddress', 'wordpress');
+            } else {
+                update_option('fromAddress', $Address);
+            }
+        } else {
+            if (empty($Address) || $Address == ' ') {
+                update_option('toAddress', get_option('admin_email'));
+            } else {
+                update_option('toAddress', $Address);
+            }
+        }
     }
 
     function setCopyAddress($type, $address) {
@@ -19,25 +39,12 @@ class AdminSettings {
         update_option('attachmentType', $type);
         update_option('attachmentSize', $size);
     }
-
-    function setTheme($theme) {
-        update_option('formTheme', $theme);
-    }
-function setMessageBody($message){
-    if( empty($message)){
-        update_option('messageBody', '[senderMessage]');
-    } else{
-        update_option('messageBody', $message);
-    }
-}
-    function setCustomCSS($CSS) {
-        $CSSFile = plugin_dir_path(dirname(dirname(__FILE__))) . '_inc/justContactMe.css';
-        $fileContent = file_get_contents($CSSFile);
-        $CSS=stripslashes($CSS);
-        $content = "\r\n/*CustomCSS*/\r\n" . $CSS . "\r\n/*end CustomCSS*/";
-        $fileContent = preg_replace("/\/\*CustomCSS\*\/(.*)end CustomCSS\*\//s", ' ', $fileContent) . $content;
-        file_put_contents($CSSFile, $fileContent);
-        update_option('customCss', $CSS);
+    function setMessageBody($message){
+        if( empty($message)){
+            update_option('messageBody', '[senderMessage]');
+        } else{
+            update_option('messageBody', $message);
+        }
     }
 
     function getAttachmentInitialMsg() {
@@ -76,7 +83,6 @@ function setMessageBody($message){
                 break;
         }
     }
-
     function getAttachmentSizeLimit() {
         $size = get_option('attachmentSize');
         switch ($size) {
@@ -94,14 +100,7 @@ function setMessageBody($message){
                 break;
         }
     }
-function getFormPreview(){
-    ob_start();
-       include (plugin_dir_path(dirname(dirname(__FILE__))) . 'view/contactForm.php');
-       $output = ob_get_contents();
-        ob_end_clean();
-       echo strip_tags($output,'<label><br><input><span><textarea><div>');
-}
-    
+
     function setReCatcha($switch, $keys) {
         if ($switch == 'true') {
             update_option('reCaptchaEnabled', TRUE);
@@ -125,56 +124,9 @@ function getFormPreview(){
             'size' => $size
         ];
         update_option('reCaptchaConfig', $config);
-        
+
     }
 
-    function setAddress($Address, $setFrom, $fromName="wordpress") {
-        if(!empty($fromName)){
-            update_option('fromName',$fromName);
-        }
-        if ($setFrom) {
-            if (empty($Address) || $Address == ' ') {
-                update_option('fromAddress', 'wordpress');
-            } else {
-                update_option('fromAddress', $Address);
-            }
-        } else {
-            if (empty($Address) || $Address == ' ') {
-                update_option('toAddress', get_option('admin_email'));
-            } else {
-                update_option('toAddress', $Address);
-            }
-        }
-    }
-function setWhiteListContact($list){
-    if (!empty($list)) {
-            $whiteList = array();
-            foreach ($list as $contact) {
-                $result = preg_split(":", $contact);
-                $blackList[$result[1]] = $result[0];
-                update_option('whiteListLog', $whiteList);
-            
-            }
-        }
-        else{
-                update_option('whiteListLog', $list);
-        }
-} 
 
-function setBlackListContact($list) {
-    
-        if (!empty($list)) {
-            $blackList = array();
-            foreach ($list as $contact) {
-                $result = preg_split(":", $contact);
-                $blackList[$result[1]] = $result[0];
-                update_option('blackListLog', $blackList);
-            
-            }
-        }
-        else{
-                update_option('blackListLog', $list);
-                
-    }
-}
+
 }

@@ -26,7 +26,7 @@
 }
  .jcmAdminBody{
     margin: auto;
-   width:70%;
+   width:auto;
     background-color: #fff;
 }
 .section{
@@ -76,8 +76,8 @@ border: solid 1px red !important;
 
 
 
- .panelSection select, .panelSection textarea, .panelSection input[type="text"]{
-    width:99%;
+ .panelSection select, .panelSection textarea {
+    width:75%;
     display:block;
     -ms-box-sizing:content-box;
     -moz-box-sizing:content-box;
@@ -85,11 +85,21 @@ border: solid 1px red !important;
     -webkit-box-sizing:content-box; 
 
 }
+.panelSection input[type="text"]{
+    width:75%!important;
+}
 .halfPanel{
-    width:50%;
-   float:left;
+    width:25%;
     display:inline-block;
 }
+@media(max-width: 764px) {
+    .halfPanel{
+        width:95%;
+        display: block;
+    }
+
+}
+
 .previewBox{
     margin-left:30px; border: solid 1px; display:block;
 }
@@ -163,3 +173,9 @@ ul.tab li a:focus, .active {
     width: 48%;
 }
 
+ .flex-container{
+     display: flex;
+ }
+ .flex{
+     width:auto ;flex: 1;
+ }

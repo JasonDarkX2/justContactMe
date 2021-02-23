@@ -19,7 +19,7 @@
   <component name="ProjectId" id="1dHf9wki237JbCKGvMkGMaBiyax" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../themes/JasonDarkX2Premium" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -27,6 +27,13 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\JasonDarkX2\wp-content\plugins\SimplyAJAXContacted\_inc\jQueryValidate" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\wordpress\wp-content\plugins\SimplyAJAXContacted\administrative" />
+      <recent name="C:\wamp64\www\wordpress\wp-content\plugins\SimplyAJAXContacted\admin\views" />
+      <recent name="C:\wamp64\www\wordpress\wp-content\plugins\SimplyAJAXContacted\admin\_inc" />
+      <recent name="C:\wamp64\www\wordpress\wp-content\plugins\SimplyAJAXContacted" />
+      <recent name="C:\wamp64\www\wordpress\wp-content\plugins\SimplyAJAXContacted\view\admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -66,6 +73,24 @@
       <workItem from="1593596136172" duration="1501000" />
       <workItem from="1594231818013" duration="573000" />
       <workItem from="1594319411365" duration="2228000" />
+      <workItem from="1612017995876" duration="6571000" />
+      <workItem from="1612132929678" duration="13501000" />
+      <workItem from="1612194129583" duration="1511000" />
+      <workItem from="1612218020705" duration="8147000" />
+      <workItem from="1612276483885" duration="13038000" />
+      <workItem from="1612382666039" duration="3509000" />
+      <workItem from="1612477474955" duration="611000" />
+      <workItem from="1612659559685" duration="5695000" />
+      <workItem from="1612718262538" duration="3047000" />
+      <workItem from="1612897053930" duration="4577000" />
+      <workItem from="1612991236794" duration="607000" />
+      <workItem from="1613178372898" duration="739000" />
+      <workItem from="1613407330105" duration="602000" />
+      <workItem from="1613491206691" duration="6830000" />
+      <workItem from="1613613602783" duration="4487000" />
+      <workItem from="1613665837276" duration="12525000" />
+      <workItem from="1613753720444" duration="12304000" />
+      <workItem from="1614013827664" duration="6614000" />
     </task>
     <servers />
   </component>

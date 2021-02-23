@@ -1,31 +1,32 @@
 <h1>E-mail Settings</h1>
+<form id="activeForm" method="POST" action="<?php echo plugins_url('\controller\emailSetting_controller.php', dirname(dirname(__FILE__))); ?>">
               <label for="toAddress">Sent to E-mail Address
                   <div class="toolTip">
                       [?]<span class="toolTipText">Set the e-mail address that mail would be sent to. <strong>Default:</strong>
                     <?php echo get_option('admin_email');?></span>
                  </div>
-                  :</label>
+                  :</label><br/>
               <input type="text" name="toAddress" value="<?php echo get_option('toAddress');?>"/>
               <br/>
                            <label for="fromName">From Name
                  <div class="toolTip">
                       [?]<span class="toolTipText"> Use this field if you would like to change the name that appears on all outbound WordPress mail.<br/> <strong>Default:</strong>
                     <?php echo 'wordpress'?></span>
-                 </div>:</label>
+                 </div>:</label><br/>
              <input type="text" name="fromName" value="<?php echo get_option('fromName');?>"/>
              <br/>
              <label for="fromAddress">From E-mail Address Name
                  <div class="toolTip">
                       [?]<span class="toolTipText"> Use this field if you would like to change the default email address WordPress uses for sending mails.<br/> <strong>Default:</strong>
                     <?php echo 'wordpress@' . $_SERVER['HTTP_HOST'];?></span>
-                 </div>:</label>
+                 </div>:</label><br/>
              <input type="text" name="fromAddress" value="<?php echo get_option('fromAddress');?>"/>
              <br/>
              <label for="Cc/Bcc Address">Cc: and/or Bcc Address:
                  <div class="toolTip">
                       [?]<span class="toolTipText">You can specify the Cc: and/or Bcc:  recipients Addresses here. <br/> <strong>Default:</strong>
                     None</span>
-                 </div>:</label>
+                 </div>:</label><br/>
              <input type="text" name="copyAddress" value="<?php echo get_option('copyAddress');?>"/>
               <br/>
              <label for="Cc/Bcc Address"> Allow Attachments?
@@ -79,11 +80,16 @@
                  </div>:</label>
                  <textarea id="msgBody" name="messageBody" style="vertical-align: middle; " rows="10" cols="50" ><?php echo  stripslashes(get_option('messageBody'));?></textarea>
                  <label>Message Tags: &nbsp;</label>
-                     <?php $msgTags= self::$messageTags;
+                     <?php $msgTags= messageTags;
                      foreach($msgTags as $v):?>
                          <a  href="#" title="<?php echo $v; ?>" class="TagClick"><?php echo $v; ?></a>
                  <?php endforeach;?>    
          </div>
-                    <a href="<?php echo plugins_url('controller\admin\settings_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?sendTest=True"
+                    <a href="<?php echo plugins_url('administrative\controller\settings_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?sendTest=True"
            title="Send Test Mail"  id="testMail">
             Send Test Mail</a>
+<div class="controlSection">
+    <input type="hidden" name="pluginDir" value ="<?php echo MY_PLUGIN_PATH; ?>"/>
+    <input type="submit" value="Save Changes"/>
+</div>
+</form>
