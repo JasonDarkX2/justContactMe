@@ -46,8 +46,8 @@
             </select>
             <a href="<?php echo plugins_url('administrative\controller\logSetting_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?clearSenderLog=True"
                title="Clear Sender List" id="clearSenderLog" class="actionLink"> Clear sender List</a>|
-            <a href="#" title="Add sender to BlackList&gt" id="logRightBtn">Add sender to BlackList&gt</a>|
-            <a href="#" title="BlackList sender Domain" id="domRightBtn"> Blacklist Sender domain&gt</a>|
+            <a href="#" title="Add sender to BlackList&gt" id="logRightBtn"> BlackList Sender &gt</a>|
+            <a href="#" title="BlackList sender Domain" id="domRightBtn"> Blacklist Sender domain&gt</a>|<br/>
             <a href="#" title="Delete entry from WhiteList" class="removeEntry">Delete Sender Entry</a>|
         </div>
 
@@ -61,7 +61,7 @@
         <a href="<?php echo plugins_url('administrative\controller\logSetting_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?clearBlacklist=True"
            title="Clear Sender List" id="clearBlacklist" class="actionLink"> Clear BlackList</a>|
         <a href="#" title="Remove Sender from BlackList&gt" id="logLeftBtn">&lt;WhiteList Sender </a>|
-            <a href="#" title="Delete entry from BlackList&gt" class="removeEntry">Delete BlackList Entry</a>|
+            <a href="#" title="Delete entry from BlackList&gt" class="removeEntry">Delete BlackList Entry</a>|<br/>
     </div>
 
         <div class="halfPanel">

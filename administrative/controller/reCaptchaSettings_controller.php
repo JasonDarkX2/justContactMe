@@ -1,7 +1,6 @@
 <?php
 $url= explode('plugin',$_SERVER['SCRIPT_FILENAME']);
 require_once dirname($url[0])  . '/wp-load.php';
-
 $iserror=FALSE;
 if(MY_PLUGIN_PATH !=NULL){
     require_once( MY_PLUGIN_PATH . 'administrative/model/emailSettings.php');
@@ -20,12 +19,11 @@ if(isset($_POST['reCaptchaEnabled'])&& $_POST['reCaptchaEnabled']=='true'){
 }  else {
     $EmailSettings->setReCatcha(FALSE,NULL);
 }
-if(!empty($_POST['confId'])){
-    $theme=$_POST['confId'][0];
-    $type=$_POST['confId'][1];
-    $size=$_POST['confId'][2];
+    $theme=( isset($_POST['theme']) ) ? $_POST['theme'] : ' ' ;
+    $type=( isset($_POST['type']) ) ? $_POST['type'] : '';
+    $size= ( isset($_POST['size']) ) ? $_POST['size'] :' ';
     $EmailSettings->setReCaptchaAttributes($theme, $type, $size);
-}
+
 if($iserror==FALSE){
     echo '<span class="successmsg"> Settings Saved</span>';
 }

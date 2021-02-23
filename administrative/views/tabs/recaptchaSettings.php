@@ -21,7 +21,6 @@
                         <label for="theme"> reCaptcha Theme<div class="toolTip">
                 [?]<span class="toolTipText">The color theme of the widget.</span>
             </div>:</label>
-                        <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
                         <input name="<?php echo $i; ?>" type="radio" value="light" <?php checked($v, 'light'); ?>
                             <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Light
                         <input  name="<?php echo $i; ?>" type="radio" value="dark" <?php checked($v, 'dark'); ?>
@@ -34,7 +33,6 @@
                         <label for="theme"> reCaptcha Type<div class="toolTip">
                 [?]<span class="toolTipText"> The type of CAPTCHA to serve..</span>
             </div>:</label>
-                        <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
                         <input name="<?php echo $i; ?>" type="radio" value="image" <?php checked($v, 'image'); ?>
                                <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Image
                         <input  name="<?php echo $i; ?>" type="radio" value="audio" <?php checked($v, 'audio'); ?>
@@ -46,7 +44,6 @@
                         <label for="theme"> reCaptcha Size<div class="toolTip">
                 [?]<span class="toolTipText"> The size of the widget.</span>
             </div>:</label>
-                        <input type='hidden' name='confId[]' value="<?php echo $i; ?>"  id="configId"> 
                         <input name="<?php echo $i; ?>" type="radio" value="normal"<?php checked($v, 'normal'); ?>
                                <?php echo (get_option('reCaptchaEnabled')==true)  ? '': 'disabled';  ?>>Normal
                         <input  name="<?php echo $i; ?>" type="radio" value="compact" <?php checked($v, 'compact'); ?>
