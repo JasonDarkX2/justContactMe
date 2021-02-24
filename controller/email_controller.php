@@ -43,6 +43,12 @@ if(get_option('attachment')){
        $errorMsg= 'label id="success" class="failedmsg"> invalid file type, only attach .'. str_replace('|',', .' , extension) .' files</label>'; 
    }
 }
+if(!$mail->blackListCheck($email)) {
+    $blackListmsg = get_option('blackListMessage');
+    $message = (isset($blackListmsg) == true) ? '<span class="error">' . $blackListmsg . '</span>' : '';
+    echo $message;
+    die();
+}
 if($sendOK){
 $mail->createEmail($to,$name,$email,$subject,$message, $headers,$mailAttachment);
 }

@@ -25,6 +25,7 @@ if( isset($_GET['attachTest'])){
     $attachments=array($file);
 }
 $mail->createEmail($to,$name,$email,$subject,$message, $headers,$attachments);
+
 if($mail->sendmail()){
     if(isset($attachments)){
          echo'<span class="successmsg"> Attachment test mail sent suceeded</span>';
@@ -36,7 +37,6 @@ if($mail->sendmail()){
     echo '<span class="error">test mail sent failed</span>';
     $log=$mail->createLogEntry(true);
 }
-}else {
 }
 
 

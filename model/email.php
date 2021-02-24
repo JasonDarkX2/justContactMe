@@ -98,5 +98,19 @@ Class Email{
    }
    return stripslashes($messageWrap);
     }
+
+    function blackListCheck($email){
+        $ok=true;
+        $ok=(array_key_exists($email,get_option('blackListLog')) ? false: true);
+
+        $domain=get_option('blackListDomain');
+         foreach( $domain as $d){
+             if (preg_match("/$d/",$email)){
+                 $ok=false;
+                 break;
+             }
+         }
+        return $ok;
+    }
     
    }

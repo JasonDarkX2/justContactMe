@@ -78,7 +78,7 @@ class JustContactMe
         }
 
         add_action('admin_menu', 'createAdminMenu');
-        add_shortcode('ContactForm', 'contactFormView');
+        add_shortcode('JustContactMe', 'contactFormView');
         if (is_admin()) {
             add_action('admin_enqueue_scripts', 'addAdminScripts');
         }
