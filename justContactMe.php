@@ -84,17 +84,30 @@ class JustContactMe
         }
 
     }
-}
 
+}
+function addFrontEndScripts()
+{
+    $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
+        'extensions' => get_option('attachmentType'),
+        'sizeLimit' => get_option('attachmentSize'));
+
+    wp_enqueue_script('jcm-js', plugins_url('_inc/min/justContactMe.min.js', __FILE__));
+    wp_localize_script('jcm-js', 'controller', $controllers);
+    wp_enqueue_script('jcm-validate', plugins_url('_inc/jqueryValidate/jquery.validate.min.js', __FILE__));
+    wp_enqueue_style('jcmAdmin-css', plugins_url('_inc/min/justContactMe.min.css', __FILE__));
+}
 
     function contactFormView()
     {
         add_action('wp_head', 'recaptchaScript');
-        add_action('wp_footer', array(__CLASS__, 'addMinifiedScripts'));
+        add_action('wp_footer','addFrontEndScripts');
         ob_start();
         include(plugin_dir_path(__FILE__) . '/view/contactForm.php');
         $output = ob_get_contents();
         ob_end_clean();
         return $output;
     }
+
+
 (new JustContactMe)->init();
