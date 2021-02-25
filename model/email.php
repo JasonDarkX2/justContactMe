@@ -44,7 +44,14 @@ Class Email{
                 update_option('mailLog', $logEntry);
             }
              elseif(!array_key_exists(self::$email['from'],$mailLog)){
-                array_push($mailLog, $logEntry);
+                $mailLog[self::$email['from']]=Array(
+                    'sender' => self::$email['name'],
+                    'address' => self::$email['from'],
+                    'status' => $status,
+                    'attempts' => 1,
+                    'isError' => $isError,
+                    'date' => array($date->format('m/d/Y'))
+                );
                 update_option('mailLog', $mailLog);
 
                 }

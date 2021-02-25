@@ -16,7 +16,7 @@ if(!$data->{'success'}){
 }
 }
 $blackList=get_option('blackListLog');
-if(array_key_exists($_POST['from'], $blackList)){
+if(array_key_exists($_POST['email'], $blackList)){
    $sendOK=FALSE; 
 }
 $mail= new Email();
@@ -31,6 +31,7 @@ if(isset($copyAddress)){
    $copyAdddress= $copyAdddress . '\r\n';
     
 }
+$mailAttachment='';
 if(get_option('attachment')){
    $mailAttachment=array($_POST['mailAttachment']);
    if(filesize($mailAttachment)>attachmentSizeLimit){
