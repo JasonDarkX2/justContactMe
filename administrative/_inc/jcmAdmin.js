@@ -70,13 +70,30 @@ else{
                     });
     jQuery(".actionLink").click(function(ex){
         ex.preventDefault();
+        var element= " #"+jQuery(this).parent().children(":first").attr('id');
+        var reloadThis= element + " > *";
+         alert(element);
         //send
         jQuery.get(jQuery(this).attr('href'),function(data,status){
             jQuery('#msg').html(data);
+            jQuery(element).load(reloadThis);
+
         });
 
     });
+    jQuery(".actionLinkSelect").click(function(ex){
+        ex.preventDefault();
+        var element= " #"+jQuery(this).parent().find('select').attr('id');
+        var reloadThis= element + " > *";
+        alert(element);
+        //send
+        jQuery.get(jQuery(this).attr('href'),function(data,status){
+            jQuery('#msg').html(data);
+            jQuery(element).load(reloadThis);
 
+        });
+
+    });
 
     jQuery('.tabLinks').click(function(ex){
                         ex.preventDefault();  

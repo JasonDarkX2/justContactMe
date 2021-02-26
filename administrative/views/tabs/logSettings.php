@@ -8,7 +8,7 @@
 ?>
 <h1>Mail Log and Blacklist</h1>
 <div class="log">
-        <table border="1px">
+        <table border="1px" id="mailLog">
             <caption>Mail Log:</caption>
             <tr>
             <th> Latest attempt date</th>
@@ -45,7 +45,7 @@
                 <?php } ?>
             </select>
             <a href="<?php echo plugins_url('administrative\controller\logSetting_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?clearSenderLog=True"
-               title="Clear Sender List" id="clearSenderLog" class="actionLink"> Clear sender List</a>|
+               title="Clear Sender List" id="clearSenderLog" class="actionLinkSelect"> Clear sender List</a>|
             <a href="#" title="Add sender to BlackList&gt" id="logRightBtn"> BlackList Sender &gt</a>|
             <a href="#" title="BlackList sender Domain" id="domRightBtn"> Blacklist Sender domain&gt</a>|<br/>
             <a href="#" title="Delete entry from WhiteList" class="removeEntry">Delete Sender Entry</a>|
@@ -59,7 +59,7 @@
             <?php } ?>
         </select>
         <a href="<?php echo plugins_url('administrative\controller\logSetting_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?clearBlacklist=True"
-           title="Clear Sender List" id="clearBlacklist" class="actionLink"> Clear BlackList</a>|
+           title="Clear Sender List" id="clearBlacklist" class="actionLinkSelect"> Clear BlackList</a>|
         <a href="#" title="Remove Sender from BlackList&gt" id="logLeftBtn">&lt;WhiteList Sender </a>|
             <a href="#" title="Delete entry from BlackList&gt" class="removeEntry">Delete BlackList Entry</a>|<br/>
     </div>
@@ -72,7 +72,7 @@
                 <?php } ?>
             </select>
             <a href="<?php echo plugins_url('administrative\controller\logSetting_controller.php', dirname(dirname(dirname(__FILE__)))); ?>?clearBlackListDom=True"
-               title="Clear Sender List" id="clearSenderLog" class="actionLink"> Clear BlackList Domain</a>|
+               title="Clear Sender List" id="clearSenderLog" class="actionLinkSelect"> Clear BlackList Domain</a>|
             <a href="#" title="Remove domain entry BlackList&gt" class="removeEntry">Delete Domain Entry</a>|
         </div>
         <hr/>

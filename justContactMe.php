@@ -91,7 +91,7 @@ function addFrontEndScripts()
     $controllers = array('emailController' => plugins_url('controller/email_controller.php', __FILE__),
         'extensions' => get_option('attachmentType'),
         'sizeLimit' => get_option('attachmentSize'));
-
+    //wp_enqueue_script('jquery','https://code.jquery.com/jquery-3.5.1.slim.min.js');
     wp_enqueue_script('jcm-js', plugins_url('_inc/min/justContactMe.min.js', __FILE__));
     wp_localize_script('jcm-js', 'controller', $controllers);
     wp_enqueue_script('jcm-validate', plugins_url('_inc/jqueryValidate/jquery.validate.min.js', __FILE__));

@@ -51,5 +51,7 @@ if($isError==FALSE && $isClear==FALSE){
     echo '<span class="successmsg"> Settings Saved</span>';
 }
 else{
-    echo '<span class="error blink"> An Error has occurred</span>';
+    if($isError==TRUE) {
+        echo '<span class="error blink"> An Error has occurred</span>';
+    }
 }
