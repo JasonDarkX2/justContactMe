@@ -72,7 +72,6 @@ else{
         ex.preventDefault();
         var element= " #"+jQuery(this).parent().children(":first").attr('id');
         var reloadThis= element + " > *";
-         alert(element);
         //send
         jQuery.get(jQuery(this).attr('href'),function(data,status){
             jQuery('#msg').html(data);
@@ -85,7 +84,6 @@ else{
         ex.preventDefault();
         var element= " #"+jQuery(this).parent().find('select').attr('id');
         var reloadThis= element + " > *";
-        alert(element);
         //send
         jQuery.get(jQuery(this).attr('href'),function(data,status){
             jQuery('#msg').html(data);
@@ -124,8 +122,10 @@ jQuery("#logRightBtn").click(function () {
     jQuery('#blackListedLog').append(selectedItem);
 });
 
-    jQuery("#domRightBtn").click(function () {
-        var selectedItem = jQuery(' #whiteListedLog option:selected');
+    jQuery(".blackListDomain").click(function () {
+        var element= " #"+jQuery(this).parent().find('select').attr('id');
+        var selectInput= element + " option:selected";
+        var selectedItem = jQuery(selectInput);
         var domain=selectedItem.text().match(/(?<=@)[a-z0-9]*.[a-z]*/);
 
         if(jQuery('#blackListedDomainLog option[value="' + domain + '"]').length ==0) {
