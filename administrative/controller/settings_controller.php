@@ -13,7 +13,7 @@ $iserror=FALSE;
 if(isset($_GET['sendTest']) || isset($_GET['attachTest'])){
     $mail= new Email();
 
-$to=get_option('admin_email');
+$to=get_option('fromAddress');
 $name ="Test Mail";
 $email = get_option('admin_email');
 $message = "Simply a Test mail";
