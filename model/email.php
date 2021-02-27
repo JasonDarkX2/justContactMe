@@ -10,12 +10,13 @@ Class Email{
     function createEmail($to,$name,$from,$subject,$message, $extraHeaders,$attachments=NULL){
         $headerIndex=array();
          self::$email['name']=$name;
-        self::$email['to']=get_option('toAddress');
+        self::$email['to']=$to;
       self::$email['from']=$from;
-      $fromAddress=get_option('fromAddress');
-      array_push($headerIndex,"From:$name<" . self::$email['from']  . ">\r\n");
-      array_push($headerIndex,"Reply-To:<$fromAddress>" . "\r\n");
-      array_push($headerIndex, "Recived:from<$name>" . "\r\n");
+      $relayAddress= get_option('fromAddress');
+      $relayName= "Just Contact Me- Message";
+      array_push($headerIndex,"From:$relayName<" . $relayAddress  . ">\r\n");
+      array_push($headerIndex,"Reply-To:<$relayAddress>" . "\r\n");
+      array_push($headerIndex, "Recived:from<$relayName>" . "\r\n");
       self::$email['subject']=$subject;
       self::$email['message']=self::messageParser($message);
       
