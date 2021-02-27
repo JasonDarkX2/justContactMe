@@ -56,7 +56,7 @@ Class Email{
 
                 }
         if(array_key_exists(self::$email['from'],$mailLog)==True){
-            date_add($date, date_interval_create_from_date_string('1 day'));
+            //date_add($date, date_interval_create_from_date_string('1 day'));
                 if(end($mailLog[self::$email['from']]['date']) == $date->format('m/d/Y')){
                     if($mailLog[self::$email['from']]['status']!=$status){
                         $mailLog[self::$email['from']]['status']=$status;
