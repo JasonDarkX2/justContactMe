@@ -18,13 +18,26 @@
             <th>Options</th>
             </tr>
             <?php
+            var_dump(get_option('mailLog'));
             foreach( get_option('mailLog') as $i=>$entry): ?>
             <tr>
                 <td> <?php echo end($entry['date']); ?></td>
                 <td><?php echo $entry['sender'] . '(' . $i .')'; ?></td>
                 <td> <?php echo $entry['status']; ?></td>
                 <td> <?php echo $entry['attempts']; ?></td>
-                <td>More info</td>
+                <td>
+                    <div class="toolTip">
+                        [MoreInfo]<span class="toolTipText">
+                            <section>
+                                <strong>Dates of attempts:</strong>
+                            <ul>
+                    <?php foreach($entry['date'] as $d){
+                        echo "<li>$d</li>";
+                    }
+                    ?></ul>
+                            </section>
+                        </span>
+                </td>
             </tr>
             <?php endforeach; ?>
         </table>

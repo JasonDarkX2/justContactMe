@@ -59,9 +59,7 @@ vertical-align:middle;
 
 .failedmsg{
 size:13px;
-border: solid 1px;
-border-color:#FE2E2E;
-background-color:#8A0808;
+color:red;
 }
 .successmsg{
 size:13px;

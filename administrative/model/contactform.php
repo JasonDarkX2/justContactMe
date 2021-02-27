@@ -19,5 +19,4 @@
          file_put_contents($CSSFile, $fileContent);
          update_option('customCss', $CSS);
      }
-
  }

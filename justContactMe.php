@@ -82,9 +82,12 @@ class JustContactMe
         if (is_admin()) {
             add_action('admin_enqueue_scripts', 'addAdminScripts');
         }
-
+        $mainStyleFile=plugin_dir_path(__FILE__) . '_inc/min/justContactMe.min.css';
+        $fileContent = file_get_contents(plugins_url('_inc/justContactMe.css', __FILE__));
+        $fileContent = preg_replace('/\/.*\n/', '', $fileContent); //remove comments
+        $fileContent = trim(preg_replace('/\s\s+/', ' ', $fileContent)); //minify file
+        file_put_contents($mainStyleFile, $fileContent, FILE_APPEND);
     }
-
 }
 function addFrontEndScripts()
 {
