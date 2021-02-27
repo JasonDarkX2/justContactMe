@@ -10,7 +10,7 @@ Class Email{
     function createEmail($to,$name,$from,$subject,$message, $extraHeaders,$attachments=NULL){
         $headerIndex=array();
          self::$email['name']=$name;
-        self::$email['to']=$to;
+        self::$email['to']=get_option('toAddress');
       self::$email['from']=$from;
       array_push($headerIndex,"From:$name<" . self::$email['from']  . ">\r\n");
       array_push($headerIndex,"Reply-To:<$from>" . "\r\n");
