@@ -12,8 +12,9 @@ Class Email{
          self::$email['name']=$name;
         self::$email['to']=get_option('toAddress');
       self::$email['from']=$from;
+      $fromAddress=get_option('fromAddress');
       array_push($headerIndex,"From:$name<" . self::$email['from']  . ">\r\n");
-      array_push($headerIndex,"Reply-To:<$from>" . "\r\n");
+      array_push($headerIndex,"Reply-To:<$fromAddress>" . "\r\n");
       array_push($headerIndex, "Recived:from<$name>" . "\r\n");
       self::$email['subject']=$subject;
       self::$email['message']=self::messageParser($message);
