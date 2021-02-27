@@ -15,7 +15,7 @@ if(isset($_GET['sendTest']) || isset($_GET['attachTest'])){
 
 $to=get_option('toAddress');
 $name ="Test Mail";
-$email = get_option('admin_email');
+$email = get_option('fromAddress');
 $message = "Simply a Test mail";
 $subject="Test  mail from jcm Plugin" ;
 $headers=array('placeholder');
