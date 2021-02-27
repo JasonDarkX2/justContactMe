@@ -18,7 +18,6 @@
             <th>Options</th>
             </tr>
             <?php
-            var_dump(get_option('mailLog'));
             foreach( get_option('mailLog') as $i=>$entry): ?>
             <tr>
                 <td> <?php echo end($entry['date']); ?></td>
