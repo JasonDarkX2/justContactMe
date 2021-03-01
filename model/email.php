@@ -13,10 +13,10 @@ Class Email{
         self::$email['to']=$to;
       self::$email['from']=$from;
       $relayAddress= get_option('fromAddress');
-      $relayName= "Just Contact Me- Message";
+      $relayName= $name;
       array_push($headerIndex,"From:$relayName<" . $relayAddress  . ">\r\n");
-      array_push($headerIndex,"Reply-To:<$relayAddress>" . "\r\n");
-      array_push($headerIndex, "Recived:from<$relayName>" . "\r\n");
+      array_push($headerIndex,"Reply-To:<$from>" . "\r\n");
+      array_push($headerIndex, "Received:from<$name>" . "\r\n");
       self::$email['subject']=$subject;
       self::$email['message']=self::messageParser($message);
       

@@ -47,10 +47,8 @@ else{
      return true;
  }
 });
+    jQuery(".TagClick").click(function(ex){
 
-                        jQuery(".TagClick").click(function(ex){               
-       
-    alert(jQuery(this).html());
     var body= jQuery('#msgBody');
     var pos= body[0].selectionStart;
     var textArea= body.val();

@@ -17,7 +17,7 @@ $to=get_option('toAddress');
 $name ="Test Mail";
 $email = get_option('fromAddress');
 $message = "Simply a Test mail";
-$subject="Test  mail from jcm Plugin" ;
+$subject="Test mail from jcm Plugin" ;
 $headers=array('placeholder');
 $attachments=NULL;
 if( isset($_GET['attachTest'])){
