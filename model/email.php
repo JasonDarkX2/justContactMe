@@ -13,7 +13,7 @@ Class Email{
         self::$email['to']=$to;
       self::$email['from']=$from;
       $relayAddress= get_option('fromAddress');
-   
+
       array_push($headerIndex,"From:$name <" . $relayAddress  . ">\r\n");
       array_push($headerIndex,"Reply-To:<$from>" . "\r\n");
       array_push($headerIndex, "Received:from<$name>" . "\r\n");
@@ -89,8 +89,6 @@ Class Email{
     function sendmail(){
         
         $status=wp_mail( self::$email['to'], self::$email['subject'], self::$email['message'], self::$email['headers'], self::$email['attachments'] );
-        var_dump(self::$email);
-        die();
         
     return $status;
         
