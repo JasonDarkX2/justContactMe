@@ -48,6 +48,7 @@ if(!$mail->blackListCheck($email)) {
 }
 if($sendOK){
 $mail->createEmail($to,$name,$email,$subject,$message, $headers,$mailAttachment);
+
 }
 if($mail->sendmail()==TRUE){
     echo  '<label id="success" class="successmsg"> Message Successfully Sent</label>';
